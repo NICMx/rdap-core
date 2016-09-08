@@ -2,6 +2,7 @@ package mx.nic.rdap.core.db;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * An object that can be store in the Database
@@ -17,7 +18,7 @@ public interface DatabaseObject {
 	 * 				ResultSet from where all information is obtained
 	 * 	
 	 */
-	public void loadFromDatabase(ResultSet resultSet);
+	public void loadFromDatabase(ResultSet resultSet) throws SQLException;
 	
 	/**
 	 * Puts the information contained in the object inside a PreparedStatement
@@ -25,5 +26,5 @@ public interface DatabaseObject {
 	 * @param preparedStatement
 	 * 				PreparedStatement where all the information is saved
 	 */
-		public void storeToDatabase(PreparedStatement preparedStatement);
+	public void storeToDatabase(PreparedStatement preparedStatement);
 }
