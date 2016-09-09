@@ -6,9 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 /**
- * POJO representig an IpAddress, different to {@link IpNetwork}
+ * Object representig an IpAddress, different to {@link IpNetwork}
  * 
  * @author dalpuche
  *
@@ -76,22 +75,22 @@ public class IpAddress implements DatabaseObject {
 
 	@Override
 	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		//validate if resulset is null
-		if(resultSet.wasNull()){
-			this.id=0L;
-			this.type=0;
-			this.address=null;
+		// validate if resulset is null
+		if (resultSet.wasNull()) {
+			this.id = 0L;
+			this.type = 0;
+			this.address = null;
 			return;
 		}
-		
-		this.id=resultSet.getLong("iad_id");
-		this.type=resultSet.getInt("iad_type");
+
+		this.id = resultSet.getLong("iad_id");
+		this.type = resultSet.getInt("iad_type");
 		try {
-			this.address=InetAddress.getByName(resultSet.getString("iad_value"));
+			this.address = InetAddress.getByName(resultSet.getString("iad_value"));
 		} catch (UnknownHostException e) {
 			// TODO manage the exception
 		}
-		
+
 	}
 
 	@Override
