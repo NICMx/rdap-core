@@ -1,15 +1,11 @@
 package mx.nic.rdap.core.db;
 
-import java.net.Inet4Address;
-import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import mx.nix.rdap.core.catalog.IpAddressType;
-import mx.nix.rdap.core.catalog.Util;
 
 /**
  * POJO representig an IpAddress, different to {@link IpNetwork}
@@ -24,9 +20,9 @@ public class IpAddress implements DatabaseObject {
 	private long id;
 
 	/**
-	 * The type of the IpAddress {@link IpAddressType}
+	 * The type of the IpAddress(IPV4=4, IPV6=6)
 	 */
-	private IpAddressType type;
+	private int type;
 
 	/**
 	 * The value of the address
@@ -51,7 +47,7 @@ public class IpAddress implements DatabaseObject {
 	/**
 	 * @return the type
 	 */
-	public IpAddressType getType() {
+	public int getType() {
 		return type;
 	}
 
@@ -59,7 +55,7 @@ public class IpAddress implements DatabaseObject {
 	 * @param type
 	 *            the type to set
 	 */
-	public void setType(IpAddressType type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 
@@ -83,31 +79,19 @@ public class IpAddress implements DatabaseObject {
 		//validate if resulset is null
 		if(resultSet.wasNull()){
 			this.id=0L;
-			this.type=null;
+			this.type=0;
 			this.address=null;
 			return;
 		}
 		
 		this.id=resultSet.getLong("iad_id");
-		this.type=Util.getIpAddressType(resultSet.getInt("iad_type"));
-		String value=resultSet.getString("iad_value");
-		if(this.type==IpAddressType.IPV4) {
-			try {
-				this.address=Inet4Address.getByName(value);
-			} catch (UnknownHostException e) {
-				// TODO manage the exception
-			}
-		} 
-		else if(this.type==IpAddressType.IPV6) {
-			try {
-				this.address=Inet6Address.getByName(value);
-			} catch (UnknownHostException e) {
-				// TODO manage the exception
-			}
-		} 
-		else {
-			this.address=null;
+		this.type=resultSet.getInt("iad_type");
+		try {
+			this.address=InetAddress.getByName(resultSet.getString("iad_value"));
+		} catch (UnknownHostException e) {
+			// TODO manage the exception
 		}
+		
 	}
 
 	@Override
