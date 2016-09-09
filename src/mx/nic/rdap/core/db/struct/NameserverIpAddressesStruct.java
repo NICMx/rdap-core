@@ -11,6 +11,9 @@ import mx.nic.rdap.core.db.IpAddress;
  */
 public class NameserverIpAddressesStruct {
 
+	/**
+	 * Arrays of ipAddress {@link IpAddress}
+	 */
 	private List<IpAddress> ipv4Adresses;
 	
 	private List<IpAddress> ipv6Adresses;
@@ -42,7 +45,5 @@ public class NameserverIpAddressesStruct {
 	public void setIpv6Adresses(List<IpAddress> ipv6Adresses) {
 		this.ipv6Adresses = ipv6Adresses;
 	}
-	
-	
 
 }
