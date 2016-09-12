@@ -1,21 +1,13 @@
 package mx.nic.rdap.core.db;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
- * A description of the remark
+ * POJO for the RemarkDescription object
  * 
  * @author dalpuche
  *
  */
-public class RemarkDescription implements DatabaseObject {
+public class RemarkDescription  {
 
-	/**
-	 * An unique identifier
-	 */
-	private int id;
 
 	/**
 	 * The description
@@ -27,20 +19,6 @@ public class RemarkDescription implements DatabaseObject {
 	 */
 	private int order;
 
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	/**
 	 * @return the description
@@ -72,28 +50,5 @@ public class RemarkDescription implements DatabaseObject {
 		this.order = order;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * mx.nic.rdap.core.db.DatabaseObject#loadFromDatabase(java.sql.ResultSet)
-	 */
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see mx.nic.rdap.core.db.DatabaseObject#storeToDatabase(java.sql.
-	 * PreparedStatement)
-	 */
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
