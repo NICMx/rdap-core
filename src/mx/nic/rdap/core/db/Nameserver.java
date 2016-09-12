@@ -1,21 +1,17 @@
 package mx.nic.rdap.core.db;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import mx.nic.rdap.core.db.struct.NameserverIpAddressesStruct;
 import mx.nix.rdap.core.catalog.Status;
 
 /**
- * The nameserver object class represents information regarding DNS nameservers
- * used in both forward and reverse DNS
+ * POJO for the Nameserver object
  * 
  * @author dalpuche
  *
  */
-public class Nameserver implements DatabaseObject {
+public class Nameserver {
 	/**
 	 * An unique identifier of the nameserver
 	 */
@@ -128,24 +124,6 @@ public class Nameserver implements DatabaseObject {
 		this.port43 = port43;
 	}
 
-	/**
-	 * Return the ldh name from the punycode name
-	 * 
-	 * @return the ldh name of the domain
-	 */
-	public String getLdhName() {
-		return punycodeName;// ldh name is the punycode
-	}
-
-	/**
-	 * Return the unicode name from the punycode name
-	 * 
-	 * @return the unicode name of the domain
-	 */
-	public String getUnicodeName() {
-		// TODO:Magic stuff here
-		return "";// ldh name is the punycode
-	}
 
 	/**
 	 * @return the ipAddresses
@@ -237,26 +215,5 @@ public class Nameserver implements DatabaseObject {
 		this.events = events;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * mx.nic.rdap.core.db.DatabaseObject#loadFromDatabase(java.sql.ResultSet)
-	 */
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		// TODO Auto-generated method stub
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see mx.nic.rdap.core.db.DatabaseObject#storeToDatabase(java.sql.
-	 * PreparedStatement)
-	 */
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) throws SQLException{
-		// TODO Auto-generated method stub
-	}
 
 }

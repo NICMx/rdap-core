@@ -1,16 +1,12 @@
 package mx.nic.rdap.core.db;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
- * A description of the remark
+ * POJO for the RemarkDescription object
  * 
  * @author dalpuche
  *
  */
-public class RemarkDescription implements DatabaseObject {
+public class RemarkDescription  {
 
 
 	/**
@@ -54,31 +50,5 @@ public class RemarkDescription implements DatabaseObject {
 		this.order = order;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * mx.nic.rdap.core.db.DatabaseObject#loadFromDatabase(java.sql.ResultSet)
-	 */
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		if(resultSet.wasNull())
-			return;
-		this.description=resultSet.getString("rem_desc_description");
-		this.order=resultSet.getInt("rem_desc_order");
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see mx.nic.rdap.core.db.DatabaseObject#storeToDatabase(java.sql.
-	 * PreparedStatement)
-	 */
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) throws SQLException {
-		preparedStatement.setString(2,this.getDescription());
-		preparedStatement.setInt(3,this.getOrder());
-
-	}
 
 }

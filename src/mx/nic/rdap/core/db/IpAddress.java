@@ -1,18 +1,14 @@
 package mx.nic.rdap.core.db;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
- * Object representig an IpAddress, different to {@link IpNetwork}
+ * POJO for the IpAddress object, different to {@link IpNetwork}
  * 
  * @author dalpuche
  *
  */
-public class IpAddress implements DatabaseObject {
+public class IpAddress  {
 	/**
 	 * An unique identifier
 	 */
@@ -73,30 +69,5 @@ public class IpAddress implements DatabaseObject {
 		this.address = address;
 	}
 
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		// validate if resulset is null
-		if (resultSet.wasNull()) {
-			this.id = 0L;
-			this.type = 0;
-			this.address = null;
-			return;
-		}
-
-		this.id = resultSet.getLong("iad_id");
-		this.type = resultSet.getInt("iad_type");
-		try {
-			this.address = InetAddress.getByName(resultSet.getString("iad_value"));
-		} catch (UnknownHostException e) {
-			// TODO manage the exception
-		}
-
-	}
-
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) throws SQLException{
-		// TODO Auto-generated method stub
-
-	}
 
 }

@@ -1,18 +1,14 @@
 package mx.nic.rdap.core.db;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
- * A remark structure denotes information about the object class that contains
- * it
+ * POJO for the remark object
  * 
  * @author dalpuche
  *
  */
-public class Remark implements DatabaseObject {
+public class Remark  {
 
 	/**
 	 * An unique identifier
@@ -110,28 +106,5 @@ public class Remark implements DatabaseObject {
 		this.descriptions = descriptions;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * mx.nic.rdap.core.db.DatabaseObject#loadFromDatabase(java.sql.ResultSet)
-	 */
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see mx.nic.rdap.core.db.DatabaseObject#storeToDatabase(java.sql.
-	 * PreparedStatement)
-	 */
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) throws SQLException{
-		// TODO Auto-generated method stub
-
-	}
 
 }
