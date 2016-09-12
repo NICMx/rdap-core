@@ -94,7 +94,7 @@ public class IpAddress implements DatabaseObject {
 	}
 
 	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) {
+	public void storeToDatabase(PreparedStatement preparedStatement) throws SQLException{
 		// TODO Auto-generated method stub
 
 	}

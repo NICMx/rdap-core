@@ -27,5 +27,5 @@ public interface DatabaseObject {
 	 * @param preparedStatement
 	 *            PreparedStatement where all the information is saved
 	 */
-	public void storeToDatabase(PreparedStatement preparedStatement);
+	public void storeToDatabase(PreparedStatement preparedStatement) throws SQLException;
 }

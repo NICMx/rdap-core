@@ -33,7 +33,7 @@ public class Entity implements DatabaseObject {
 	 * PreparedStatement)
 	 */
 	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) {
+	public void storeToDatabase(PreparedStatement preparedStatement) throws SQLException{
 		// TODO Auto-generated method stub
 
 	}

@@ -12,10 +12,6 @@ import java.sql.SQLException;
  */
 public class RemarkDescription implements DatabaseObject {
 
-	/**
-	 * An unique identifier
-	 */
-	private int id;
 
 	/**
 	 * The description
@@ -27,20 +23,6 @@ public class RemarkDescription implements DatabaseObject {
 	 */
 	private int order;
 
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	/**
 	 * @return the description
@@ -80,8 +62,10 @@ public class RemarkDescription implements DatabaseObject {
 	 */
 	@Override
 	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		// TODO Auto-generated method stub
-
+		if(resultSet.wasNull())
+			return;
+		this.description=resultSet.getString("rem_desc_description");
+		this.order=resultSet.getInt("rem_desc_order");
 	}
 
 	/*
@@ -91,8 +75,9 @@ public class RemarkDescription implements DatabaseObject {
 	 * PreparedStatement)
 	 */
 	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) {
-		// TODO Auto-generated method stub
+	public void storeToDatabase(PreparedStatement preparedStatement) throws SQLException {
+		preparedStatement.setString(2,this.getDescription());
+		preparedStatement.setInt(3,this.getOrder());
 
 	}
 
