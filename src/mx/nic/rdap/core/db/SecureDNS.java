@@ -1,15 +1,11 @@
 package mx.nic.rdap.core.db;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
  * POJO representing the SecureDNS object
  * @author evaldes
  *
  */
-public class SecureDNS implements DatabaseObject {
+public class SecureDNS{
 	/**
 	 * An unique identifier for the secureDNS object
 	 */
@@ -31,50 +27,9 @@ public class SecureDNS implements DatabaseObject {
 	private Integer maxSigLife; 
 	
 	/**
-	 * @param id
-	 * @param zoneSigned
-	 * @param delegationSigned
-	 * @param maxSigLife
+	 * An object containing information about the DS record
 	 */
-	public SecureDNS(Long id, Boolean zoneSigned, Boolean delegationSigned, Integer maxSigLife) {
-		super();
-		this.id = id;
-		this.zoneSigned = zoneSigned;
-		this.delegationSigned = delegationSigned;
-		this.maxSigLife = maxSigLife; 
-	}
-
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		// TODO Auto-generated method stub
-		if(resultSet.wasNull())
-		{
-			this.id = 0L;
-			this.zoneSigned = false;
-			this.delegationSigned = false;
-			this.maxSigLife = 0;
-			return;
-		}
-		this.id = resultSet.getLong("sdns_id");
-		this.zoneSigned = resultSet.getBoolean("sdns_zone_signed");
-		this.delegationSigned = resultSet.getBoolean("sdns_delegation_signed");
-		this.maxSigLife = resultSet.getInt("sdns_max_sig_life");
-	}
-
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) {
-		// TODO Auto-generated method stub
-		try{
-			preparedStatement.setLong(1, this.id);
-			preparedStatement.setBoolean(2, this.zoneSigned);
-			preparedStatement.setBoolean(3, this.delegationSigned);
-			preparedStatement.setInt(4, this.maxSigLife);
-		}
-		catch(SQLException e){
-			//TODO handle exception
-		}
-
-	}
+	private DsData dsData;
 
 	/**
 	 * @return the id
@@ -130,6 +85,20 @@ public class SecureDNS implements DatabaseObject {
 	 */
 	public void setMaxSigLife(Integer maxSigLife) {
 		this.maxSigLife = maxSigLife;
+	}
+
+	/**
+	 * @return the dsData
+	 */
+	public DsData getDsData() {
+		return dsData;
+	}
+
+	/**
+	 * @param dsData the dsData to set
+	 */
+	public void setDsData(DsData dsData) {
+		this.dsData = dsData;
 	}
 
 }

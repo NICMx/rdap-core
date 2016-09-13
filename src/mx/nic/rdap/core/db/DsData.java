@@ -1,18 +1,13 @@
-/**
- * 
- */
 package mx.nic.rdap.core.db;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
 /**
  * POJO representing the DsData object.
  * @author evaldes
  *
  */
-public class DsData implements DatabaseObject {
+public class DsData{
 /**
  * An unique identifier for the DS data.
  */
@@ -39,62 +34,16 @@ public class DsData implements DatabaseObject {
 	private String digestType;	
 	
 	/**
-	 * @param id
-	 * @param keytag
-	 * @param algorithm
-	 * @param digest
-	 * @param digestType
+	 * An array of Event objects {@link Event}
 	 */
-	public DsData(Integer id, Integer keytag, Integer algorithm, String digest, String digestType) {
-		super();
-		this.id = id;
-		this.keytag = keytag;
-		this.algorithm = algorithm;
-		this.digest = digest;
-		this.digestType = digestType;
-	}
-
-	/* (non-Javadoc)
-	 * @see mx.nic.rdap.core.db.DatabaseObject#loadFromDatabase(java.sql.ResultSet)
-	 */
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		// TODO Auto-generated method stub
-		if(resultSet.wasNull())
-		{
-			this.id = 0;
-			this.keytag = null;
-			this.algorithm = 0;
-			this.digest = null;
-			this.digestType = null;
-			return;
-		}
-		this.id = resultSet.getInt("dsd_id");
-		this.keytag = resultSet.getInt("dsd_keytag");
-		this.algorithm = resultSet.getInt("dsd_algorithm");
-		this.digest = resultSet.getString("dsd_digest");
-		this.digestType = resultSet.getString("dsd_digest_type");
-	}
-
-	/* (non-Javadoc)
-	 * @see mx.nic.rdap.core.db.DatabaseObject#storeToDatabase(java.sql.PreparedStatement)
-	 */
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement) {
-		// TODO Auto-generated method stub
-		try{
-			preparedStatement.setInt(1, this.id);
-			preparedStatement.setInt(2, this.keytag);
-			preparedStatement.setInt(3, this.algorithm);
-			preparedStatement.setString(4, this.digest);
-			preparedStatement.setString(5, this.digestType);
-		}
-		catch(SQLException e){
-			//TODO handle exception
-		}
-
-	}
+	private List<Event> events;
 	
+	/**
+	 * An array of Link objects {@link Link}
+	 */
+	private List<Link> links;
+	
+
 	/**
 	 * @return the id
 	 */
@@ -163,6 +112,34 @@ public class DsData implements DatabaseObject {
 	 */
 	public void setDigestType(String digestType) {
 		this.digestType = digestType;
+	}
+
+	/**
+	 * @return the events
+	 */
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	/**
+	 * @param events the events to set
+	 */
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	/**
+	 * @return the links
+	 */
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	/**
+	 * @param links the links to set
+	 */
+	public void setLinks(List<Link> links) {
+		this.links = links;
 	}
 
 }

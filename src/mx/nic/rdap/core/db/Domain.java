@@ -1,16 +1,15 @@
 package mx.nic.rdap.core.db;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
+import mx.nix.rdap.core.catalog.Status;
 
 /**
  * POJO representing the Domain object
  * @author evaldes
  *
  */
-public class Domain implements DatabaseObject {
+public class Domain{
 	/**
 	 * An unique identifier of the domain
 	 */
@@ -31,68 +30,56 @@ public class Domain implements DatabaseObject {
 	 */
 	private String port43;
 	
+	/**
+	 * An array of entity objects {@link Entity}
+	 */
+	private List<Entity> entities; 
 	
 	/**
-	 * Constructor
-	 * @param id
-	 * @param handle
-	 * @param punycodeName
-	 * @param port43
-	 * @param zoneId
+	 * An array of Nameserver objects {@link Nameserver}
 	 */
-	Domain(Long id, String handle, String punycodeName, String port43){
-		this.id = id;
-		this.handle = handle;
-		this.ldhName = punycodeName;
-		this.port43 = port43; 
-	}
-
+	private List<Nameserver> nameServers;
+	
 	/**
-	 * Loads the information coming from the database in an instance of Domain
-	 * 
-	 * @param rs
-	 * 			ResultSet where all information is obtained
-	 * @throws SQLException 
+	 * An array of Variant objects {@link Variant}
 	 */
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException{ 
-		// TODO Auto-generated method stub
-		if (resultSet.wasNull())
-		{
-			this.id = 0L;
-			this.handle = null;
-			this.ldhName = null;
-			this.port43 = null; 
-			return;
-		}
-		this.id = resultSet.getLong("dom_id");
-		this.handle = resultSet.getString("dom_handle");
-		this.ldhName = resultSet.getString("dom_ldh_name");
-		this.port43 = resultSet.getString("dom_port43"); 
-	}
-
+	private List<Variant> variants;
+	
 	/**
-	 * Puts the information contained in Domain object inside a SQLQuery
-	 * 
-	 * @param query
-	 * 			Where all the information is saved
-	 * @throws SQLException 
+	 * An array of Remark objects {@link Remark}
 	 */
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement){ 
-		// TODO Auto-generated method stub
-		try{
-			preparedStatement.setLong(1, this.id);
-			preparedStatement.setString(2, this.handle);
-			preparedStatement.setString(3, this.ldhName);
-			preparedStatement.setString(4, this.port43); 
-		}
-		catch(SQLException e){
-			
-		}
-		
-	}
-
+	private List<Remark> remarks;
+	
+	/**
+	 * An array of Event objects {@link Event}
+	 */
+	private List<Event> events;
+	
+	/**
+	 * An array of Link objects {@link Link}
+	 */
+	private List<Link> links;
+	
+	/**
+	 * An object containing information about signatures {@link SecureDNS}
+	 */
+	private SecureDNS secureDNS;
+	
+	/**
+	 * An array of DomainPublicId objects {@link PublicId}
+	 */
+	private List<PublicId> publicIds;
+	
+	/**
+	 * An object containing a string with the zone and the id {@link Zone}
+	 */
+	private Zone zone;
+	
+	/**
+	 * An array of the Status objects {@link Status}
+	 */
+	private List<Status> status;
+	
 	/**
 	 * @return the id
 	 */
@@ -152,6 +139,146 @@ public class Domain implements DatabaseObject {
 	 */
 	public void setPort43(String port43) {
 		this.port43 = port43;
+	}
+
+	/**
+	 * @return the entities
+	 */
+	public List<Entity> getEntities() {
+		return entities;
+	}
+
+	/**
+	 * @param entities the entities to set
+	 */
+	public void setEntities(List<Entity> entities) {
+		this.entities = entities;
+	}
+
+	/**
+	 * @return the nameServers
+	 */
+	public List<Nameserver> getNameServers() {
+		return nameServers;
+	}
+
+	/**
+	 * @param nameServers the nameServers to set
+	 */
+	public void setNameServers(List<Nameserver> nameServers) {
+		this.nameServers = nameServers;
+	}
+
+	/**
+	 * @return the variants
+	 */
+	public List<Variant> getVariants() {
+		return variants;
+	}
+
+	/**
+	 * @param variants the variants to set
+	 */
+	public void setVariants(List<Variant> variants) {
+		this.variants = variants;
+	}
+
+	/**
+	 * @return the remarks
+	 */
+	public List<Remark> getRemarks() {
+		return remarks;
+	}
+
+	/**
+	 * @param remarks the remarks to set
+	 */
+	public void setRemarks(List<Remark> remarks) {
+		this.remarks = remarks;
+	}
+
+	/**
+	 * @return the events
+	 */
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	/**
+	 * @param events the events to set
+	 */
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	/**
+	 * @return the links
+	 */
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	/**
+	 * @param links the links to set
+	 */
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+
+	/**
+	 * @return the secureDNS
+	 */
+	public SecureDNS getSecureDNS() {
+		return secureDNS;
+	}
+
+	/**
+	 * @param secureDNS the secureDNS to set
+	 */
+	public void setSecureDNS(SecureDNS secureDNS) {
+		this.secureDNS = secureDNS;
+	}
+
+	/**
+	 * @return the publicIds
+	 */
+	public List<PublicId> getPublicIds() {
+		return publicIds;
+	}
+
+	/**
+	 * @param publicIds the publicIds to set
+	 */
+	public void setPublicIds(List<PublicId> publicIds) {
+		this.publicIds = publicIds;
+	}
+
+	/**
+	 * @return the zone
+	 */
+	public Zone getZone() {
+		return zone;
+	}
+
+	/**
+	 * @param zone the zone to set
+	 */
+	public void setZone(Zone zone) {
+		this.zone = zone;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public List<Status> getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(List<Status> status) {
+		this.status = status;
 	}
 
 }

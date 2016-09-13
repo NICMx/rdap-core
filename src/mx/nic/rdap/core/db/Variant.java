@@ -1,17 +1,14 @@
-/**
- * 
- */
 package mx.nic.rdap.core.db;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
+
+import mx.nix.rdap.core.catalog.VariantRelation;
 
 /**POJO representing the Variant object
  * @author evaldes
  *
  */
-public class Variant implements DatabaseObject {
+public class Variant{
 
 	/**
 	 * An unique identifier for the variant
@@ -24,48 +21,15 @@ public class Variant implements DatabaseObject {
 	private String idnTable;
 	
 	/**
-	 * @param id
-	 * @param idnTable
+	 * An array of VariantName objects {@link VariantName}
 	 */
-	public Variant(Integer id, String idnTable) {
-		super();
-		this.id = id;
-		this.idnTable = idnTable;
-	}
-
-	/* (non-Javadoc)
-	 * @see mx.nic.rdap.core.db.DatabaseObject#loadFromDatabase(java.sql.ResultSet)
+	private List<VariantName> variantNames;
+	
+	/**
+	 * An array of VariantRelation objects {@link VariantRelation}
 	 */
-	@Override
-	public void loadFromDatabase(ResultSet resultSet) throws SQLException {
-		// TODO Auto-generated method stub
-		if(resultSet.wasNull())
-		{
-			id = 0;
-			idnTable = null;
-			return;
-		}
-
-		this.id = resultSet.getInt("var_id");
-		this.idnTable = resultSet.getString("var_id_table");
-	}
-
-	/* (non-Javadoc)
-	 * @see mx.nic.rdap.core.db.DatabaseObject#storeToDatabase(java.sql.PreparedStatement)
-	 */
-	@Override
-	public void storeToDatabase(PreparedStatement preparedStatement){
-		// TODO Auto-generated method stub
-		try{
-			preparedStatement.setInt(1, this.id);
-			preparedStatement.setString(2, this.idnTable);
-		}
-		catch(SQLException e){
-			
-		}
-
-	}
-
+	private List<VariantRelation> relations;
+	
 	/**
 	 * @return the id
 	 */
@@ -92,6 +56,34 @@ public class Variant implements DatabaseObject {
 	 */
 	public void setIdnTable(String idnTable) {
 		this.idnTable = idnTable;
+	}
+
+	/**
+	 * @return the variantNames
+	 */
+	public List<VariantName> getVariantNames() {
+		return variantNames;
+	}
+
+	/**
+	 * @param variantNames the variantNames to set
+	 */
+	public void setVariantNames(List<VariantName> variantNames) {
+		this.variantNames = variantNames;
+	}
+
+	/**
+	 * @return the relations
+	 */
+	public List<VariantRelation> getRelations() {
+		return relations;
+	}
+
+	/**
+	 * @param relations the relations to set
+	 */
+	public void setRelations(List<VariantRelation> relations) {
+		this.relations = relations;
 	}
 
 }
