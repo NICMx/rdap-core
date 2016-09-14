@@ -10,6 +10,11 @@ public class RemarkDescription  {
 
 
 	/**
+	 * The id of the Remark
+	 */
+	private Long remarkId;
+	
+	/**
 	 * The description
 	 */
 	private String description;
@@ -19,6 +24,20 @@ public class RemarkDescription  {
 	 */
 	private int order;
 
+
+	/**
+	 * @return the remarkId
+	 */
+	public Long getRemarkId() {
+		return remarkId;
+	}
+
+	/**
+	 * @param remarkId the remarkId to set
+	 */
+	public void setRemarkId(Long remarkId) {
+		this.remarkId = remarkId;
+	}
 
 	/**
 	 * @return the description

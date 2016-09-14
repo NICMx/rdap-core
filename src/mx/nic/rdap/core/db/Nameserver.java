@@ -6,7 +6,8 @@ import mx.nic.rdap.core.db.struct.NameserverIpAddressesStruct;
 import mx.nix.rdap.core.catalog.Status;
 
 /**
- * POJO for the Nameserver object
+ * POJO for the Nameserver object.The nameserver object class represents
+ * information regarding DNS nameservers used in both forward and reverse DNS
  * 
  * @author dalpuche
  *
@@ -110,6 +111,25 @@ public class Nameserver {
 	}
 
 	/**
+	 * Return the ldh name from the punycode name
+	 * 
+	 * @return the ldh name of the domain
+	 */
+	public String getLdhName() {
+		return this.getPunycodeName();// ldh name is the punycode
+	}
+
+	/**
+	 * Return the unicode name from the punycode name
+	 * 
+	 * @return the unicode name of the domain
+	 */
+	public String getUnicodeName() {
+		// TODO:Magic stuff here
+		return "";// ldh name is the punycode
+	}
+
+	/**
 	 * @return the port43
 	 */
 	public String getPort43() {
@@ -123,7 +143,6 @@ public class Nameserver {
 	public void setPort43(String port43) {
 		this.port43 = port43;
 	}
-
 
 	/**
 	 * @return the ipAddresses
@@ -214,6 +233,5 @@ public class Nameserver {
 	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
-
 
 }

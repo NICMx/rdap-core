@@ -1,5 +1,6 @@
 package mx.nic.rdap.core.db.struct;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mx.nic.rdap.core.db.IpAddress;
@@ -18,6 +19,13 @@ public class NameserverIpAddressesStruct {
 	
 	private List<IpAddress> ipv6Adresses;
 
+	/**
+	 * Constructor
+	 */
+	public NameserverIpAddressesStruct(){
+		ipv4Adresses=new ArrayList<IpAddress>();
+		ipv6Adresses=new ArrayList<IpAddress>();
+	}
 	/**
 	 * @return the ipv4Adresses
 	 */

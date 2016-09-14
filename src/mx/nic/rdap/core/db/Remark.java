@@ -3,50 +3,51 @@ package mx.nic.rdap.core.db;
 import java.util.List;
 
 /**
- * POJO for the remark object
+ * POJO for the remark object. A remark structure denotes information about the
+ * object class that contains it
  * 
  * @author dalpuche
  *
  */
-public class Remark  {
+public class Remark {
 
 	/**
 	 * An unique identifier
 	 */
-	private int id;
-	
+	private Long id;
+
 	/**
 	 * The title of the remark
 	 */
 	private String title;
-	
+
 	/**
 	 * 
 	 */
 	private String type;
-	
+
 	/**
 	 * The languague of the remark
 	 */
 	private String language;
-	
+
 	/**
 	 * An array of description {@link RemarkDescription}
 	 */
 	private List<RemarkDescription> descriptions;
-	
-	
+
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -58,7 +59,8 @@ public class Remark  {
 	}
 
 	/**
-	 * @param title the title to set
+	 * @param title
+	 *            the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -72,7 +74,8 @@ public class Remark  {
 	}
 
 	/**
-	 * @param type the type to set
+	 * @param type
+	 *            the type to set
 	 */
 	public void setType(String type) {
 		this.type = type;
@@ -86,7 +89,8 @@ public class Remark  {
 	}
 
 	/**
-	 * @param language the language to set
+	 * @param language
+	 *            the language to set
 	 */
 	public void setLanguage(String language) {
 		this.language = language;
@@ -100,11 +104,11 @@ public class Remark  {
 	}
 
 	/**
-	 * @param descriptions the descriptions to set
+	 * @param descriptions
+	 *            the descriptions to set
 	 */
 	public void setDescriptions(List<RemarkDescription> descriptions) {
 		this.descriptions = descriptions;
 	}
-
 
 }
