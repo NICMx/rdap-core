@@ -66,6 +66,11 @@ public class Nameserver {
 	private List<Event> events;
 
 	/**
+	 * The id of the rar sponsor
+	 */
+	private Long rarId;
+	
+	/**
 	 * @return the id
 	 */
 	public Long getId() {
@@ -234,4 +239,19 @@ public class Nameserver {
 		this.events = events;
 	}
 
+	/**
+	 * @return the rarId
+	 */
+	public Long getRarId() {
+		return rarId;
+	}
+
+	/**
+	 * @param rarId the rarId to set
+	 */
+	public void setRarId(Long rarId) {
+		this.rarId = rarId;
+	}
+
+	
 }
