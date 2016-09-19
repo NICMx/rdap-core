@@ -6,14 +6,13 @@ package mx.nic.rdap.core.db;
  * @author dalpuche
  *
  */
-public class RemarkDescription  {
-
+public class RemarkDescription {
 
 	/**
 	 * The id of the Remark
 	 */
 	private Long remarkId;
-	
+
 	/**
 	 * The description
 	 */
@@ -24,7 +23,6 @@ public class RemarkDescription  {
 	 */
 	private int order;
 
-
 	/**
 	 * @return the remarkId
 	 */
@@ -33,7 +31,8 @@ public class RemarkDescription  {
 	}
 
 	/**
-	 * @param remarkId the remarkId to set
+	 * @param remarkId
+	 *            the remarkId to set
 	 */
 	public void setRemarkId(Long remarkId) {
 		this.remarkId = remarkId;
@@ -68,6 +67,5 @@ public class RemarkDescription  {
 	public void setOrder(int order) {
 		this.order = order;
 	}
-
 
 }

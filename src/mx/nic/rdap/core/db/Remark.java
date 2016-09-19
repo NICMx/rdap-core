@@ -40,9 +40,10 @@ public class Remark {
 	/**
 	 * Constructor default
 	 */
-	public Remark(){
-		descriptions=new ArrayList<RemarkDescription>();
+	public Remark() {
+		descriptions = new ArrayList<RemarkDescription>();
 	}
+
 	/**
 	 * @return the id
 	 */

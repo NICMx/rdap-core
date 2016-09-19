@@ -1,5 +1,6 @@
 package mx.nic.rdap.core.db;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mx.nic.rdap.core.db.struct.NameserverIpAddressesStruct;
@@ -69,7 +70,19 @@ public class Nameserver {
 	 * The id of the rar sponsor
 	 */
 	private Long rarId;
-	
+
+	/**
+	 * Constructor
+	 */
+	public Nameserver() {
+		ipAddresses = new NameserverIpAddressesStruct();
+		entities = new ArrayList<Entity>();
+		status = new ArrayList<Status>();
+		remarks = new ArrayList<Remark>();
+		links = new ArrayList<Link>();
+		events = new ArrayList<Event>();
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -247,11 +260,11 @@ public class Nameserver {
 	}
 
 	/**
-	 * @param rarId the rarId to set
+	 * @param rarId
+	 *            the rarId to set
 	 */
 	public void setRarId(Long rarId) {
 		this.rarId = rarId;
 	}
 
-	
 }

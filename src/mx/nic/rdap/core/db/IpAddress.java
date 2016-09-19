@@ -8,11 +8,16 @@ import java.net.InetAddress;
  * @author dalpuche
  *
  */
-public class IpAddress  {
+public class IpAddress {
 	/**
 	 * An unique identifier
 	 */
 	private long id;
+
+	/**
+	 * The Nameserver's id
+	 */
+	private long nameserverId;
 
 	/**
 	 * The type of the IpAddress(IPV4=4, IPV6=6)
@@ -23,6 +28,28 @@ public class IpAddress  {
 	 * The value of the address
 	 */
 	private InetAddress address;
+
+	/**
+	 * Constructor default
+	 */
+	public IpAddress() {
+
+	}
+
+	/**
+	 * @return the nameserverId
+	 */
+	public long getNameserverId() {
+		return nameserverId;
+	}
+
+	/**
+	 * @param nameserverId
+	 *            the nameserverId to set
+	 */
+	public void setNameserverId(long nameserverId) {
+		this.nameserverId = nameserverId;
+	}
 
 	/**
 	 * @return the id
@@ -68,6 +95,5 @@ public class IpAddress  {
 	public void setAddress(InetAddress address) {
 		this.address = address;
 	}
-
 
 }
