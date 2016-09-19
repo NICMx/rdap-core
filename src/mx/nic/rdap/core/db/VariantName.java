@@ -1,14 +1,14 @@
 
 package mx.nic.rdap.core.db;
 
-
 /**
+ * POJO for the VariantName Object, it contains the LDH names of a variant
  * 
  * @author evaldes
  *
  */
-public class VariantName{
-	
+public class VariantName {
+
 	/**
 	 * A string containing the ASCII name of the nameserver
 	 */
@@ -22,21 +22,21 @@ public class VariantName{
 	}
 
 	/**
-	 * @param ldhName the ldhName to set
+	 * @param ldhName
+	 *            the ldhName to set
 	 */
 	public void setLdhName(String ldhName) {
 		this.ldhName = ldhName;
 	}
-	
+
 	/**
 	 * Return the unicodeName from the ldhName
+	 * 
 	 * @return
 	 */
 	public String getUnicodeName() {
 		// TODO Something
 		return "";
 	}
-
-	
 
 }

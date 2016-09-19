@@ -1,13 +1,15 @@
 package mx.nic.rdap.core.db;
 
 /**
- * POJO representing the DomainPublicId object
+ * POJO representing the PublicId Object. This data structure maps a public
+ * identifier to an object class.
+ * 
  * @author evaldes
  *
  */
 
-public class PublicId{
-	
+public class PublicId {
+
 	/**
 	 * An unique identifier of the public Id
 	 */
@@ -16,7 +18,7 @@ public class PublicId{
 	 * A public identifier of the type denoted by "type"
 	 */
 	private String publicId;
-	
+
 	/**
 	 * A string denoting the type of public identifier
 	 */
@@ -30,7 +32,8 @@ public class PublicId{
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -44,7 +47,8 @@ public class PublicId{
 	}
 
 	/**
-	 * @param publicId the publicId to set
+	 * @param publicId
+	 *            the publicId to set
 	 */
 	public void setPublicId(String publicId) {
 		this.publicId = publicId;
@@ -58,7 +62,8 @@ public class PublicId{
 	}
 
 	/**
-	 * @param type the type to set
+	 * @param type
+	 *            the type to set
 	 */
 	public void setType(String type) {
 		this.type = type;

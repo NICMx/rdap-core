@@ -3,58 +3,60 @@ package mx.nic.rdap.core.db;
 import java.util.List;
 
 /**
- * POJO representing the DsData object.
+ * POJO representing the DsData object. The DsData is one of the representations
+ * of the SecureDNS information that is not stored in the registration database.
+ * 
  * @author evaldes
  *
  */
-public class DsData{
-/**
- * An unique identifier for the DS data.
- */
-	private Integer id;
-	
+public class DsData {
 	/**
-	 *  An integer specified by the key tag field of a DNS DS record.
+	 * An unique identifier for the DS data.
+	 */
+	private Long id;
+
+	/**
+	 * An integer specified by the key tag field of a DNS DS record.
 	 */
 	private Integer keytag;
-	
+
 	/**
 	 * An integer as specified by the algorithm field of a DNS DS record.
 	 */
 	private Integer algorithm;
-	
+
 	/**
 	 * A string specified by the digest field of a DNS DS record.
 	 */
 	private String digest;
-	
+
 	/**
 	 * An integer as specified by the digest type field of a DNS DS record.
 	 */
-	private String digestType;	
-	
+	private String digestType;
+
 	/**
 	 * An array of Event objects {@link Event}
 	 */
 	private List<Event> events;
-	
+
 	/**
 	 * An array of Link objects {@link Link}
 	 */
 	private List<Link> links;
-	
 
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -66,7 +68,8 @@ public class DsData{
 	}
 
 	/**
-	 * @param keytag the keytag to set
+	 * @param keytag
+	 *            the keytag to set
 	 */
 	public void setKeytag(Integer keytag) {
 		this.keytag = keytag;
@@ -80,7 +83,8 @@ public class DsData{
 	}
 
 	/**
-	 * @param algorithm the algorithm to set
+	 * @param algorithm
+	 *            the algorithm to set
 	 */
 	public void setAlgorithm(Integer algorithm) {
 		this.algorithm = algorithm;
@@ -94,7 +98,8 @@ public class DsData{
 	}
 
 	/**
-	 * @param digest the digest to set
+	 * @param digest
+	 *            the digest to set
 	 */
 	public void setDigest(String digest) {
 		this.digest = digest;
@@ -108,7 +113,8 @@ public class DsData{
 	}
 
 	/**
-	 * @param digestType the digestType to set
+	 * @param digestType
+	 *            the digestType to set
 	 */
 	public void setDigestType(String digestType) {
 		this.digestType = digestType;
@@ -122,7 +128,8 @@ public class DsData{
 	}
 
 	/**
-	 * @param events the events to set
+	 * @param events
+	 *            the events to set
 	 */
 	public void setEvents(List<Event> events) {
 		this.events = events;
@@ -136,7 +143,8 @@ public class DsData{
 	}
 
 	/**
-	 * @param links the links to set
+	 * @param links
+	 *            the links to set
 	 */
 	public void setLinks(List<Link> links) {
 		this.links = links;

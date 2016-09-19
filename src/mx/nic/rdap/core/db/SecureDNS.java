@@ -1,31 +1,33 @@
 package mx.nic.rdap.core.db;
 
 /**
- * POJO representing the SecureDNS object
+ * POJO representing the SecureDNS object that represents secure DNS information
+ * about domain names.
+ * 
  * @author evaldes
  *
  */
-public class SecureDNS{
+public class SecureDNS {
 	/**
 	 * An unique identifier for the secureDNS object
 	 */
 	private Long id;
-	
+
 	/**
 	 * A boolean that is true when zone is signed
 	 */
 	private Boolean zoneSigned;
-	
+
 	/**
 	 * A boolean that is true when delegation is signed
 	 */
 	private Boolean delegationSigned;
-	
+
 	/**
 	 * An integer representing the signature lifetime in seconds
 	 */
-	private Integer maxSigLife; 
-	
+	private Integer maxSigLife;
+
 	/**
 	 * An object containing information about the DS record
 	 */
@@ -39,7 +41,8 @@ public class SecureDNS{
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -53,7 +56,8 @@ public class SecureDNS{
 	}
 
 	/**
-	 * @param zoneSigned the zoneSigned to set
+	 * @param zoneSigned
+	 *            the zoneSigned to set
 	 */
 	public void setZoneSigned(Boolean zoneSigned) {
 		this.zoneSigned = zoneSigned;
@@ -67,7 +71,8 @@ public class SecureDNS{
 	}
 
 	/**
-	 * @param delegationSigned the delegationSigned to set
+	 * @param delegationSigned
+	 *            the delegationSigned to set
 	 */
 	public void setDelegationSigned(Boolean delegationSigned) {
 		this.delegationSigned = delegationSigned;
@@ -81,7 +86,8 @@ public class SecureDNS{
 	}
 
 	/**
-	 * @param maxSigLife the maxSigLife to set
+	 * @param maxSigLife
+	 *            the maxSigLife to set
 	 */
 	public void setMaxSigLife(Integer maxSigLife) {
 		this.maxSigLife = maxSigLife;
@@ -95,7 +101,8 @@ public class SecureDNS{
 	}
 
 	/**
-	 * @param dsData the dsData to set
+	 * @param dsData
+	 *            the dsData to set
 	 */
 	public void setDsData(DsData dsData) {
 		this.dsData = dsData;

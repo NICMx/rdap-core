@@ -2,7 +2,9 @@
 package mx.nix.rdap.core.catalog;
 
 /**
- * Catalog of the types of variant relations
+ * Catalog of the types of variant relations. It denotes a relationship between
+ * a domain and a domain variant
+ * 
  * @author evaldes
  *
  */
@@ -14,31 +16,56 @@ public enum VariantRelation {
 	OPEN_REGISTRATION(4, "open registration", "Registration of the variant names is available to generally qualified registrants."),
 	CONJOINED(5, "conjoined", "Registration of the variant names occurs automatically with the registration of the containing domain registration."),
 	UNKNOWN(0, null, null);
-	
+
 	/**
 	 * An unique identifier for the variant relation
 	 */
 	private int id;
-	
+
 	/**
 	 * The value of the variant relation
 	 */
 	private String value;
-	
+
 	/**
 	 * Description of the variant relation
 	 */
 	private String description;
 
 	/**
+	 * Constructor
+	 * 
 	 * @param id
 	 * @param value
 	 * @param description
 	 */
-	private VariantRelation(int id, String value, String description) {
+	VariantRelation(int id, String value, String description) {
 		this.id = id;
 		this.value = value;
 		this.description = description;
+	}
+
+	/**
+	 * Get Relation from Variant Id
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public static VariantRelation getById(int id) {
+		switch (id) {
+		case 1:
+			return VariantRelation.REGISTERED;
+		case 2:
+			return VariantRelation.UNREGISTERED;
+		case 3:
+			return VariantRelation.REGISTRATION_RESTRICTED;
+		case 4:
+			return VariantRelation.OPEN_REGISTRATION;
+		case 5:
+			return VariantRelation.CONJOINED;
+		default:
+			return VariantRelation.UNKNOWN;
+		}
 	}
 
 	/**
@@ -49,7 +76,8 @@ public enum VariantRelation {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -63,7 +91,8 @@ public enum VariantRelation {
 	}
 
 	/**
-	 * @param value the value to set
+	 * @param value
+	 *            the value to set
 	 */
 	public void setValue(String value) {
 		this.value = value;
@@ -77,14 +106,11 @@ public enum VariantRelation {
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param description
+	 *            the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	
-	
-	
 
 }

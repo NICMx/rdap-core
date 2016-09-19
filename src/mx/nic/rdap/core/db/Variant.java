@@ -4,43 +4,47 @@ import java.util.List;
 
 import mx.nix.rdap.core.catalog.VariantRelation;
 
-/**POJO representing the Variant object
+/**
+ * POJO representing the Variant object.
+ * 
  * @author evaldes
  *
  */
-public class Variant{
+public class Variant {
 
 	/**
 	 * An unique identifier for the variant
 	 */
-	private Integer id;
-	
+	private Long id;
+
 	/**
-	 * A string containing the name of the IDN table of codepoints 
+	 * A string containing the name of the Internationalized Domain Name
+	 * (IDN)table of codepoints
 	 */
 	private String idnTable;
-	
+
 	/**
 	 * An array of VariantName objects {@link VariantName}
 	 */
 	private List<VariantName> variantNames;
-	
+
 	/**
 	 * An array of VariantRelation objects {@link VariantRelation}
 	 */
 	private List<VariantRelation> relations;
-	
+
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -52,7 +56,8 @@ public class Variant{
 	}
 
 	/**
-	 * @param idnTable the idnTable to set
+	 * @param idnTable
+	 *            the idnTable to set
 	 */
 	public void setIdnTable(String idnTable) {
 		this.idnTable = idnTable;
@@ -66,7 +71,8 @@ public class Variant{
 	}
 
 	/**
-	 * @param variantNames the variantNames to set
+	 * @param variantNames
+	 *            the variantNames to set
 	 */
 	public void setVariantNames(List<VariantName> variantNames) {
 		this.variantNames = variantNames;
@@ -80,7 +86,8 @@ public class Variant{
 	}
 
 	/**
-	 * @param relations the relations to set
+	 * @param relations
+	 *            the relations to set
 	 */
 	public void setRelations(List<VariantRelation> relations) {
 		this.relations = relations;
