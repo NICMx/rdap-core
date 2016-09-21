@@ -36,12 +36,18 @@ public class Remark {
 	 * An array of description {@link RemarkDescription}
 	 */
 	private List<RemarkDescription> descriptions;
-
+	
+	/**
+	 * An array of links {@link Link} 
+	 */
+	private List<Link> links;
+	
 	/**
 	 * Constructor default
 	 */
 	public Remark() {
 		descriptions = new ArrayList<RemarkDescription>();
+		links=new ArrayList<Link>();
 	}
 
 	/**
@@ -119,4 +125,19 @@ public class Remark {
 		this.descriptions = descriptions;
 	}
 
+	/**
+	 * @return the links
+	 */
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	/**
+	 * @param links the links to set
+	 */
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+
+	
 }
