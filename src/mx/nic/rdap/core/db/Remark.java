@@ -1,5 +1,6 @@
 package mx.nic.rdap.core.db;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,6 +36,13 @@ public class Remark {
 	 * An array of description {@link RemarkDescription}
 	 */
 	private List<RemarkDescription> descriptions;
+
+	/**
+	 * Constructor default
+	 */
+	public Remark() {
+		descriptions = new ArrayList<RemarkDescription>();
+	}
 
 	/**
 	 * @return the id
