@@ -1,6 +1,7 @@
 package mx.nic.rdap.core.db;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import mx.nix.rdap.core.catalog.EventAction;
@@ -30,9 +31,9 @@ public class Event {
 	private String eventActor;
 
 	/**
-	 * a string containing the time and date the event occurred.
+	 * the time and date the event occurred.
 	 */
-	private String eventDate;
+	private Date eventDate;
 
 	/**
 	 * An array of links {@link Link}
@@ -91,18 +92,18 @@ public class Event {
 		this.eventActor = eventActor;
 	}
 
+
 	/**
 	 * @return the eventDate
 	 */
-	public String getEventDate() {
+	public Date getEventDate() {
 		return eventDate;
 	}
 
 	/**
-	 * @param eventDate
-	 *            the eventDate to set
+	 * @param eventDate the eventDate to set
 	 */
-	public void setEventDate(String eventDate) {
+	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;
 	}
 
