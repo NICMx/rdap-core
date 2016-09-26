@@ -14,6 +14,11 @@ public class SecureDNS {
 	private Long id;
 
 	/**
+	 * A Long value containing the identifier of a SecureDNS's domain
+	 */
+	private Long domainId;
+
+	/**
 	 * A boolean that is true when zone is signed
 	 */
 	private Boolean zoneSigned;
@@ -46,6 +51,21 @@ public class SecureDNS {
 	 */
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the domainId
+	 */
+	public Long getDomainId() {
+		return domainId;
+	}
+
+	/**
+	 * @param domainId
+	 *            the domainId to set
+	 */
+	public void setDomainId(Long domainId) {
+		this.domainId = domainId;
 	}
 
 	/**

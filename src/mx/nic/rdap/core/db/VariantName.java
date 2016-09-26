@@ -10,9 +10,14 @@ package mx.nic.rdap.core.db;
 public class VariantName {
 
 	/**
-	 * A string containing the ASCII name of the nameserver
+	 * A string containing the ASCII name of the variant
 	 */
 	private String ldhName;
+
+	/**
+	 * A Long value containing a variant´s unique identifier
+	 */
+	private Long variantId;
 
 	/**
 	 * @return the ldhName
@@ -30,13 +35,17 @@ public class VariantName {
 	}
 
 	/**
-	 * Return the unicodeName from the ldhName
-	 * 
-	 * @return
+	 * @return the variantId
 	 */
-	public String getUnicodeName() {
-		// TODO Something
-		return "";
+	public Long getVariantId() {
+		return variantId;
 	}
 
+	/**
+	 * @param variantId
+	 *            the variantId to set
+	 */
+	public void setVariantId(Long variantId) {
+		this.variantId = variantId;
+	}
 }

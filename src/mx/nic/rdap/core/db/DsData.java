@@ -16,6 +16,11 @@ public class DsData {
 	private Long id;
 
 	/**
+	 * A long value containing a DsData´s Secure DNS identifier
+	 */
+	private Long secureDNSId;
+
+	/**
 	 * An integer specified by the key tag field of a DNS DS record.
 	 */
 	private Integer keytag;
@@ -33,7 +38,7 @@ public class DsData {
 	/**
 	 * An integer as specified by the digest type field of a DNS DS record.
 	 */
-	private String digestType;
+	private Integer digestType;
 
 	/**
 	 * An array of Event objects {@link Event}
@@ -58,6 +63,21 @@ public class DsData {
 	 */
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the secueDNSId
+	 */
+	public Long getSecureDNSId() {
+		return secureDNSId;
+	}
+
+	/**
+	 * @param secueDNSId
+	 *            the secueDNSId to set
+	 */
+	public void setSecureDNSId(Long secureDNSId) {
+		this.secureDNSId = secureDNSId;
 	}
 
 	/**
@@ -108,7 +128,7 @@ public class DsData {
 	/**
 	 * @return the digestType
 	 */
-	public String getDigestType() {
+	public Integer getDigestType() {
 		return digestType;
 	}
 
@@ -116,7 +136,7 @@ public class DsData {
 	 * @param digestType
 	 *            the digestType to set
 	 */
-	public void setDigestType(String digestType) {
+	public void setDigestType(Integer digestType) {
 		this.digestType = digestType;
 	}
 

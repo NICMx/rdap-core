@@ -24,6 +24,11 @@ public class Variant {
 	private String idnTable;
 
 	/**
+	 * An unique identifier of a variant´s domain
+	 */
+	private Long domainId;
+
+	/**
 	 * An array of VariantName objects {@link VariantName}
 	 */
 	private List<VariantName> variantNames;
@@ -61,6 +66,21 @@ public class Variant {
 	 */
 	public void setIdnTable(String idnTable) {
 		this.idnTable = idnTable;
+	}
+
+	/**
+	 * @return the domainId
+	 */
+	public Long getDomainId() {
+		return domainId;
+	}
+
+	/**
+	 * @param domainId
+	 *            the domainId to set
+	 */
+	public void setDomainId(Long domainId) {
+		this.domainId = domainId;
 	}
 
 	/**

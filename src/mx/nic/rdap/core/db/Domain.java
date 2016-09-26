@@ -11,7 +11,7 @@ import mx.nix.rdap.core.catalog.Status;
  * @author evaldes
  *
  */
-public class Domain {
+public class Domain extends RdapObject {
 	/**
 	 * An unique identifier of the domain
 	 */
@@ -34,6 +34,21 @@ public class Domain {
 	 * the domain object instance may be found
 	 */
 	private String port43;
+
+	/**
+	 * Id of a domain's zone or top level domain (TLD)
+	 */
+	private int zoneId;
+
+	/**
+	 * Id of the entity registrar
+	 */
+	private Long registrarId;
+
+	/**
+	 * A registrar entity, also called sponsor
+	 */
+	private Registrar registrar;
 
 	/**
 	 * An array of entity objects {@link Entity}
@@ -130,11 +145,6 @@ public class Domain {
 		this.ldhName = punycodeName;
 	}
 
-	public String getUnicodeName() {
-		// TODO Something
-		return "";
-	}
-
 	/**
 	 * @return the port43
 	 */
@@ -148,6 +158,51 @@ public class Domain {
 	 */
 	public void setPort43(String port43) {
 		this.port43 = port43;
+	}
+
+	/**
+	 * @return the zoneId
+	 */
+	public int getZoneId() {
+		return zoneId;
+	}
+
+	/**
+	 * @param zoneId
+	 *            the zoneId to set
+	 */
+	public void setZoneId(int zoneId) {
+		this.zoneId = zoneId;
+	}
+
+	/**
+	 * @return the registrarId
+	 */
+	public Long getRegistrarId() {
+		return registrarId;
+	}
+
+	/**
+	 * @param registrarId
+	 *            the registrarId to set
+	 */
+	public void setRegistrarId(Long registrarId) {
+		this.registrarId = registrarId;
+	}
+
+	/**
+	 * @return the registrar
+	 */
+	public Registrar getRegistrar() {
+		return registrar;
+	}
+
+	/**
+	 * @param registrar
+	 *            the registrar to set
+	 */
+	public void setRegistrar(Registrar registrar) {
+		this.registrar = registrar;
 	}
 
 	/**
