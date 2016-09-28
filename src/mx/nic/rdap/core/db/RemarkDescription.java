@@ -30,6 +30,40 @@ public class RemarkDescription {
 		return remarkId;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + order;
+		result = prime * result + ((remarkId == null) ? 0 : remarkId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof RemarkDescription))
+			return false;
+		RemarkDescription other = (RemarkDescription) obj;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (order != other.order)
+			return false;
+		if (remarkId == null) {
+			if (other.remarkId != null)
+				return false;
+		} else if (!remarkId.equals(other.remarkId))
+			return false;
+		return true;
+	}
+
 	/**
 	 * @param remarkId
 	 *            the remarkId to set

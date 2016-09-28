@@ -47,6 +47,52 @@ public class Event {
 		links = new ArrayList<Link>();
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((eventAction == null) ? 0 : eventAction.hashCode());
+		result = prime * result + ((eventActor == null) ? 0 : eventActor.hashCode());
+		result = prime * result + ((eventDate == null) ? 0 : eventDate.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((links == null) ? 0 : links.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Event))
+			return false;
+		Event other = (Event) obj;
+		if (eventAction != other.eventAction)
+			return false;
+		if (eventActor == null) {
+			if (other.eventActor != null)
+				return false;
+		} else if (!eventActor.equals(other.eventActor))
+			return false;
+		if (eventDate == null) {
+			if (other.eventDate != null)
+				return false;
+		} else if (!eventDate.equals(other.eventDate))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (links == null) {
+			if (other.links != null)
+				return false;
+		} else if (links.size() != other.links.size() || !links.containsAll(other.links))// !links.equals(other.links))
+			return false;
+		return true;
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -92,7 +138,6 @@ public class Event {
 		this.eventActor = eventActor;
 	}
 
-
 	/**
 	 * @return the eventDate
 	 */
@@ -101,7 +146,8 @@ public class Event {
 	}
 
 	/**
-	 * @param eventDate the eventDate to set
+	 * @param eventDate
+	 *            the eventDate to set
 	 */
 	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;

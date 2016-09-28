@@ -8,23 +8,12 @@ package mx.nic.rdap.core.db;
  * @author dhfelix
  *
  */
-public class Entity {
+public class Entity extends RdapObject {
 
 	/**
 	 * A unique identifier of the entity.
 	 */
 	private Long id;
-
-	/**
-	 * string representing a registry unique identifier of the entity
-	 */
-	private String handle;
-
-	/**
-	 * string containing the fully qualified host name or IP address of the
-	 * WHOIS server where the containing object instance may be found.
-	 */
-	private String port43;
 
 	/**
 	 * The registrar sponsor of this entity.
@@ -49,10 +38,8 @@ public class Entity {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((handle == null) ? 0 : handle.hashCode());
+		int result = super.hashCode();
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((port43 == null) ? 0 : port43.hashCode());
 		result = prime * result + ((rarId == null) ? 0 : rarId.hashCode());
 		result = prime * result + ((registrar == null) ? 0 : registrar.hashCode());
 		result = prime * result + ((vCard == null) ? 0 : vCard.hashCode());
@@ -62,6 +49,8 @@ public class Entity {
 
 	@Override
 	public boolean equals(Object obj) {
+		if (!super.equals(obj))
+			return false;
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -69,20 +58,10 @@ public class Entity {
 		if (!(obj instanceof Entity))
 			return false;
 		Entity other = (Entity) obj;
-		if (handle == null) {
-			if (other.handle != null)
-				return false;
-		} else if (!handle.equals(other.handle))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (port43 == null) {
-			if (other.port43 != null)
-				return false;
-		} else if (!port43.equals(other.port43))
 			return false;
 		if (rarId == null) {
 			if (other.rarId != null)
@@ -114,22 +93,6 @@ public class Entity {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getHandle() {
-		return handle;
-	}
-
-	public void setHandle(String handle) {
-		this.handle = handle;
-	}
-
-	public String getPort43() {
-		return port43;
-	}
-
-	public void setPort43(String port43) {
-		this.port43 = port43;
 	}
 
 	public Registrar getRegistrar() {
