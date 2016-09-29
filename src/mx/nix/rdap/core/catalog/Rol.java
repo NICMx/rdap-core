@@ -1,6 +1,12 @@
 package mx.nix.rdap.core.catalog;
 
-public enum Roles {
+/**
+ * Rol of an entity.
+ * 
+ * @author dhfelix
+ *
+ */
+public enum Rol {
 	REGISTRANT(1,"registrant", "The entity object instance is the registrant of the registration. In some registries, this is known as a maintainer."),
 	TECHNICAL(2,"technical", "The entity object instance is a technical contact for the registration."),
 	ADMINISTRATIVE(3,"administrative", "The entity object instance is an administrative contact for the registration."),
@@ -33,7 +39,7 @@ public enum Roles {
 	 * @param id
 	 * @param description
 	 */
-	Roles(int id,String value,String description){
+	Rol(int id,String value,String description){
 		this.id=id;
 		this.value=value;
 		this.description=description;
@@ -86,30 +92,30 @@ public enum Roles {
 	 * @param id
 	 * @return the status
 	 */
-	public static Roles getById(int id){
+	public static Rol getById(int id){
 		switch(id){
 		case 1:
-			return Roles.REGISTRANT;
+			return Rol.REGISTRANT;
 		case 2:
-			return Roles.TECHNICAL;
+			return Rol.TECHNICAL;
 		case 3:
-			return Roles.ADMINISTRATIVE;
+			return Rol.ADMINISTRATIVE;
 		case 4:
-			return Roles.ABUSE;
+			return Rol.ABUSE;
 		case 5:
-			return Roles.BILLING;
+			return Rol.BILLING;
 		case 6:
-			return Roles.REGISTRAR;
+			return Rol.REGISTRAR;
 		case 7:
-			return Roles.RESELLER;
+			return Rol.RESELLER;
 		case 8:
-			return Roles.SPONSOR;
+			return Rol.SPONSOR;
 		case 9:
-			return Roles.PROXY;
+			return Rol.PROXY;
 		case 10:
-			return Roles.NOTIFICATIONS;
+			return Rol.NOTIFICATIONS;
 		case 11: 
-			return Roles.NOC;
+			return Rol.NOC;
 		default:
 			return UNKNOWN;
 		}

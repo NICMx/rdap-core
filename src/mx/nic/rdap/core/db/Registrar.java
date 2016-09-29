@@ -3,7 +3,7 @@ package mx.nic.rdap.core.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import mx.nix.rdap.core.catalog.Roles;
+import mx.nix.rdap.core.catalog.Rol;
 
 /**
  * POJO for the entity (registrar) object. This object class represents the
@@ -30,7 +30,7 @@ public class Registrar extends RdapObject {
 	/**
 	 * Rol of this registrar, only could be Registrar or sponsor
 	 */
-	private Roles rol;
+	private Rol rol;
 	
 	/**
 	 * Registrar's public ids.
@@ -102,11 +102,11 @@ public class Registrar extends RdapObject {
 		vCardList.add(vCard);
 	}
 	
-	public Roles getRol() {
+	public Rol getRol() {
 		return rol;
 	}
 	
-	public void setRol(Roles rol) {
+	public void setRol(Rol rol) {
 		this.rol = rol;
 	}
 	
