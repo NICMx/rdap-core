@@ -1,5 +1,8 @@
 package mx.nic.rdap.core.db;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * POJO for the entity object.This object class represents the information of
  * organizations, corporations, governments, non-profits, clubs, individual
@@ -34,7 +37,17 @@ public class Entity extends RdapObject {
 	 * The jCard id
 	 */
 	private Long vCardId;
+	
+	
+	/**
+	 * Entity's public ids. 
+	 */
+	private List<PublicId> publicIds;
 
+	public Entity() {
+		publicIds = new ArrayList<>();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -44,6 +57,7 @@ public class Entity extends RdapObject {
 		result = prime * result + ((registrar == null) ? 0 : registrar.hashCode());
 		result = prime * result + ((vCard == null) ? 0 : vCard.hashCode());
 		result = prime * result + ((vCardId == null) ? 0 : vCardId.hashCode());
+		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		return result;
 	}
 
@@ -82,6 +96,11 @@ public class Entity extends RdapObject {
 			if (other.vCardId != null)
 				return false;
 		} else if (!vCardId.equals(other.vCardId))
+			return false;
+		if (publicIds == null) {
+			if (other.publicIds != null)
+				return false;
+		} else if (publicIds.size() != other.publicIds.size() || !publicIds.containsAll(other.publicIds))
 			return false;
 		return true;
 	}
@@ -125,5 +144,13 @@ public class Entity extends RdapObject {
 
 	public void setVCardId(Long vCardId) {
 		this.vCardId = vCardId;
+	}
+	
+	public List<PublicId> getPublicIds() {
+		return publicIds;
+	}
+	
+	public void setPublicIds(List<PublicId> publicIds) {
+		this.publicIds = publicIds;
 	}
 }

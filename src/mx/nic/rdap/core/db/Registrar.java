@@ -3,6 +3,8 @@ package mx.nic.rdap.core.db;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.nix.rdap.core.catalog.Roles;
+
 /**
  * POJO for the entity (registrar) object. This object class represents the
  * information of a registrar. This separation from entity is because we want to
@@ -25,8 +27,19 @@ public class Registrar extends RdapObject {
 	// TODO Add password, hash and encryption attributes and modify the
 	// registrar.sql file too.
 
+	/**
+	 * Rol of this registrar, only could be Registrar or sponsor
+	 */
+	private Roles rol;
+	
+	/**
+	 * Registrar's public ids.
+	 */
+	private List<PublicId> publicIds;
+	
 	public Registrar() {
 		vCardList = new ArrayList<>();
+		publicIds = new ArrayList<>();
 	}
 
 	@Override
@@ -35,6 +48,7 @@ public class Registrar extends RdapObject {
 		int result = super.hashCode();
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((vCardList == null) ? 0 : vCardList.hashCode());
+		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		return result;
 	}
 
@@ -59,6 +73,11 @@ public class Registrar extends RdapObject {
 				return false;
 		} else if (vCardList.size() != other.vCardList.size() || !vCardList.containsAll(other.vCardList))
 			return false;
+		if (publicIds == null) {
+			if (other.publicIds != null)
+				return false;
+		} else if (publicIds.size() != other.publicIds.size() || !publicIds.containsAll(other.publicIds))
+			return false;
 		return true;
 	}
 
@@ -82,5 +101,21 @@ public class Registrar extends RdapObject {
 	public void setVCardToList(VCard vCard) {
 		vCardList.add(vCard);
 	}
-
+	
+	public Roles getRol() {
+		return rol;
+	}
+	
+	public void setRol(Roles rol) {
+		this.rol = rol;
+	}
+	
+	public List<PublicId> getPublicIds() {
+		return publicIds;
+	}
+	
+	public void setPublicIds(List<PublicId> publicIds) {
+		this.publicIds = publicIds;
+	}
+	
 }
