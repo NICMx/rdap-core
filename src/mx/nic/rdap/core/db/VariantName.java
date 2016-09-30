@@ -15,15 +15,35 @@ public class VariantName {
 	private String ldhName;
 
 	/**
-	 * A Long value containing a variant´s unique identifier
-	 */
-	private Long variantId;
-
-	/**
 	 * @return the ldhName
 	 */
 	public String getLdhName() {
 		return ldhName;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ldhName == null) ? 0 : ldhName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof VariantName))
+			return false;
+		VariantName other = (VariantName) obj;
+		if (ldhName == null) {
+			if (other.ldhName != null)
+				return false;
+		} else if (!ldhName.equals(other.ldhName))
+			return false;
+		return true;
 	}
 
 	/**
@@ -34,18 +54,12 @@ public class VariantName {
 		this.ldhName = ldhName;
 	}
 
-	/**
-	 * @return the variantId
-	 */
-	public Long getVariantId() {
-		return variantId;
+	public String getUnicode() {
+		// TODO magic stuff here;
+		return ldhName;
 	}
 
-	/**
-	 * @param variantId
-	 *            the variantId to set
-	 */
-	public void setVariantId(Long variantId) {
-		this.variantId = variantId;
+	public String getPunycode() {
+		return ldhName;
 	}
 }
