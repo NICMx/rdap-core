@@ -1,5 +1,8 @@
 package mx.nic.rdap.core.db;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * POJO representing the SecureDNS object that represents secure DNS information
  * about domain names.
@@ -19,12 +22,12 @@ public class SecureDNS {
 	private Long domainId;
 
 	/**
-	 * A boolean that is true when zone is signed
+	 * true if the zone has been signed, false otherwise.
 	 */
 	private Boolean zoneSigned;
 
 	/**
-	 * A boolean that is true when delegation is signed
+	 * boolean true if there are DS records in the parent, false otherwise
 	 */
 	private Boolean delegationSigned;
 
@@ -36,7 +39,66 @@ public class SecureDNS {
 	/**
 	 * An object containing information about the DS record
 	 */
-	private DsData dsData;
+	private List<DsData> dsData;
+
+	public SecureDNS() {
+		dsData = new ArrayList<>();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((delegationSigned == null) ? 0 : delegationSigned.hashCode());
+		result = prime * result + ((domainId == null) ? 0 : domainId.hashCode());
+		result = prime * result + ((dsData == null) ? 0 : dsData.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((maxSigLife == null) ? 0 : maxSigLife.hashCode());
+		result = prime * result + ((zoneSigned == null) ? 0 : zoneSigned.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof SecureDNS))
+			return false;
+		SecureDNS other = (SecureDNS) obj;
+		if (delegationSigned == null) {
+			if (other.delegationSigned != null)
+				return false;
+		} else if (!delegationSigned.equals(other.delegationSigned))
+			return false;
+		if (domainId == null) {
+			if (other.domainId != null)
+				return false;
+		} else if (!domainId.equals(other.domainId))
+			return false;
+		if (dsData == null) {
+			if (other.dsData != null)
+				return false;
+		} else if (dsData.size() != other.dsData.size() || !dsData.containsAll(other.dsData))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (maxSigLife == null) {
+			if (other.maxSigLife != null)
+				return false;
+		} else if (!maxSigLife.equals(other.maxSigLife))
+			return false;
+		if (zoneSigned == null) {
+			if (other.zoneSigned != null)
+				return false;
+		} else if (!zoneSigned.equals(other.zoneSigned))
+			return false;
+		return true;
+	}
 
 	/**
 	 * @return the id
@@ -116,7 +178,7 @@ public class SecureDNS {
 	/**
 	 * @return the dsData
 	 */
-	public DsData getDsData() {
+	public List<DsData> getDsData() {
 		return dsData;
 	}
 
@@ -124,7 +186,7 @@ public class SecureDNS {
 	 * @param dsData
 	 *            the dsData to set
 	 */
-	public void setDsData(DsData dsData) {
+	public void setDsData(List<DsData> dsData) {
 		this.dsData = dsData;
 	}
 
