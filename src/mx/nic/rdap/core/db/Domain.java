@@ -1,8 +1,7 @@
 package mx.nic.rdap.core.db;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import mx.nix.rdap.core.catalog.Status;
 
 /**
  * POJO for the Domain object. The domain object class represents a DNS name and
@@ -18,22 +17,11 @@ public class Domain extends RdapObject {
 	private Long id;
 
 	/**
-	 * A string representing a registry unique id of the domain
-	 */
-	private String handle;
-
-	/**
 	 * A string containing the ldh name of the domains. Textual representations
 	 * of DNS names where the labels of the domain are all "letters, digits,
 	 * hyphen"
 	 */
 	private String ldhName;
-
-	/**
-	 * A string containing the host name or IP address oh the WHOIS server where
-	 * the domain object instance may be found
-	 */
-	private String port43;
 
 	/**
 	 * Id of a domain's zone or top level domain (TLD)
@@ -66,21 +54,6 @@ public class Domain extends RdapObject {
 	private List<Variant> variants;
 
 	/**
-	 * An array of Remark objects {@link Remark}
-	 */
-	private List<Remark> remarks;
-
-	/**
-	 * An array of Event objects {@link Event}
-	 */
-	private List<Event> events;
-
-	/**
-	 * An array of Link objects {@link Link}
-	 */
-	private List<Link> links;
-
-	/**
 	 * An object containing information about signatures {@link SecureDNS}
 	 */
 	private SecureDNS secureDNS;
@@ -95,10 +68,13 @@ public class Domain extends RdapObject {
 	 */
 	private Zone zone;
 
-	/**
-	 * An array of the Status objects {@link Status}
-	 */
-	private List<Status> status;
+	public Domain() {
+		super();
+		entities = new ArrayList<>();
+		nameServers = new ArrayList<>();
+		variants = new ArrayList<>();
+		publicIds = new ArrayList<>();
+	}
 
 	/**
 	 * @return the id
@@ -116,21 +92,6 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @return the handle
-	 */
-	public String getHandle() {
-		return handle;
-	}
-
-	/**
-	 * @param handle
-	 *            the handle to set
-	 */
-	public void setHandle(String handle) {
-		this.handle = handle;
-	}
-
-	/**
 	 * @return the ldhName
 	 */
 	public String getLdhName() {
@@ -143,21 +104,6 @@ public class Domain extends RdapObject {
 	 */
 	public void setLdhName(String punycodeName) {
 		this.ldhName = punycodeName;
-	}
-
-	/**
-	 * @return the port43
-	 */
-	public String getPort43() {
-		return port43;
-	}
-
-	/**
-	 * @param port43
-	 *            the port43 to set
-	 */
-	public void setPort43(String port43) {
-		this.port43 = port43;
 	}
 
 	/**
@@ -251,51 +197,6 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @return the remarks
-	 */
-	public List<Remark> getRemarks() {
-		return remarks;
-	}
-
-	/**
-	 * @param remarks
-	 *            the remarks to set
-	 */
-	public void setRemarks(List<Remark> remarks) {
-		this.remarks = remarks;
-	}
-
-	/**
-	 * @return the events
-	 */
-	public List<Event> getEvents() {
-		return events;
-	}
-
-	/**
-	 * @param events
-	 *            the events to set
-	 */
-	public void setEvents(List<Event> events) {
-		this.events = events;
-	}
-
-	/**
-	 * @return the links
-	 */
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	/**
-	 * @param links
-	 *            the links to set
-	 */
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
-
-	/**
 	 * @return the secureDNS
 	 */
 	public SecureDNS getSecureDNS() {
@@ -338,21 +239,6 @@ public class Domain extends RdapObject {
 	 */
 	public void setZone(Zone zone) {
 		this.zone = zone;
-	}
-
-	/**
-	 * @return the status
-	 */
-	public List<Status> getStatus() {
-		return status;
-	}
-
-	/**
-	 * @param status
-	 *            the status to set
-	 */
-	public void setStatus(List<Status> status) {
-		this.status = status;
 	}
 
 }
