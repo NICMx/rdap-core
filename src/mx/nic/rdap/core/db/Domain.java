@@ -29,16 +29,6 @@ public class Domain extends RdapObject {
 	private int zoneId;
 
 	/**
-	 * Id of the entity registrar
-	 */
-	private Long registrarId;
-
-	/**
-	 * A registrar entity, also called sponsor
-	 */
-	private Registrar registrar;
-
-	/**
 	 * An array of entity objects {@link Entity}
 	 */
 	private List<Entity> entities;
@@ -119,36 +109,6 @@ public class Domain extends RdapObject {
 	 */
 	public void setZoneId(int zoneId) {
 		this.zoneId = zoneId;
-	}
-
-	/**
-	 * @return the registrarId
-	 */
-	public Long getRegistrarId() {
-		return registrarId;
-	}
-
-	/**
-	 * @param registrarId
-	 *            the registrarId to set
-	 */
-	public void setRegistrarId(Long registrarId) {
-		this.registrarId = registrarId;
-	}
-
-	/**
-	 * @return the registrar
-	 */
-	public Registrar getRegistrar() {
-		return registrar;
-	}
-
-	/**
-	 * @param registrar
-	 *            the registrar to set
-	 */
-	public void setRegistrar(Registrar registrar) {
-		this.registrar = registrar;
 	}
 
 	/**
