@@ -44,6 +44,11 @@ public class RdapObject {
 	private String port43;
 
 	/**
+	 * An array of entity objects
+	 */
+	private List<Entity> entities;
+
+	/**
 	 * Constructor default
 	 */
 	public RdapObject() {
@@ -51,6 +56,7 @@ public class RdapObject {
 		remarks = new ArrayList<Remark>();
 		links = new ArrayList<Link>();
 		events = new ArrayList<Event>();
+		entities = new ArrayList<Entity>();
 	}
 
 	@Override
@@ -63,6 +69,7 @@ public class RdapObject {
 		result = prime * result + ((port43 == null) ? 0 : port43.hashCode());
 		result = prime * result + ((remarks == null) ? 0 : remarks.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((entities == null) ? 0 : entities.hashCode());
 		return result;
 	}
 
@@ -78,7 +85,7 @@ public class RdapObject {
 		if (events == null) {
 			if (other.events != null)
 				return false;
-		} else if (events.size() != other.events.size() || !events.containsAll(other.events))// !events.equals(other.events))
+		} else if (events.size() != other.events.size() || !events.containsAll(other.events))
 			return false;
 		if (handle == null) {
 			if (other.handle != null)
@@ -88,7 +95,7 @@ public class RdapObject {
 		if (links == null) {
 			if (other.links != null)
 				return false;
-		} else if (links.size() != other.links.size() || !links.containsAll(other.links))// !links.equals(other.links))
+		} else if (links.size() != other.links.size() || !links.containsAll(other.links))
 			return false;
 		if (port43 == null) {
 			if (other.port43 != null)
@@ -98,12 +105,17 @@ public class RdapObject {
 		if (remarks == null) {
 			if (other.remarks != null)
 				return false;
-		} else if (remarks.size() != other.remarks.size() || !remarks.containsAll(other.remarks))// !remarks.equals(other.remarks))
+		} else if (remarks.size() != other.remarks.size() || !remarks.containsAll(other.remarks))
 			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;
-		} else if (status.size() != other.status.size() || !status.containsAll(other.status))// !status.equals(other.status))
+		} else if (status.size() != other.status.size() || !status.containsAll(other.status))
+			return false;
+		if (entities == null) {
+			if (other.entities != null)
+				return false;
+		} else if (entities.size() != other.entities.size() || !entities.containsAll(other.entities))
 			return false;
 		return true;
 	}
@@ -196,6 +208,14 @@ public class RdapObject {
 	 */
 	public void setPort43(String port43) {
 		this.port43 = port43;
+	}
+
+	public List<Entity> getEntities() {
+		return entities;
+	}
+
+	public void setEntities(List<Entity> entities) {
+		this.entities = entities;
 	}
 
 }
