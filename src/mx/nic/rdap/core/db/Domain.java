@@ -24,16 +24,6 @@ public class Domain extends RdapObject {
 	private String ldhName;
 
 	/**
-	 * Id of a domain's zone or top level domain (TLD)
-	 */
-	private int zoneId;
-
-	/**
-	 * An array of entity objects {@link Entity}
-	 */
-	private List<Entity> entities;
-
-	/**
 	 * An array of Nameserver objects {@link Nameserver}
 	 */
 	private List<Nameserver> nameServers;
@@ -60,10 +50,70 @@ public class Domain extends RdapObject {
 
 	public Domain() {
 		super();
-		entities = new ArrayList<>();
 		nameServers = new ArrayList<>();
 		variants = new ArrayList<>();
 		publicIds = new ArrayList<>();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((ldhName == null) ? 0 : ldhName.hashCode());
+		result = prime * result + ((nameServers == null) ? 0 : nameServers.hashCode());
+		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
+		result = prime * result + ((secureDNS == null) ? 0 : secureDNS.hashCode());
+		result = prime * result + ((variants == null) ? 0 : variants.hashCode());
+		result = prime * result + ((zone == null) ? 0 : zone.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (!(obj instanceof Domain))
+			return false;
+		Domain other = (Domain) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (ldhName == null) {
+			if (other.ldhName != null)
+				return false;
+		} else if (!ldhName.equals(other.ldhName))
+			return false;
+		if (nameServers == null) {
+			if (other.nameServers != null)
+				return false;
+		} else if (nameServers.size() != other.nameServers.size() || !nameServers.containsAll(other.nameServers))
+			return false;
+		if (publicIds == null) {
+			if (other.publicIds != null)
+				return false;
+		} else if (publicIds.size() != other.publicIds.size() || !publicIds.containsAll(other.publicIds))
+			return false;
+		if (secureDNS == null) {
+			if (other.secureDNS != null)
+				return false;
+		} else if (!secureDNS.equals(other.secureDNS))
+			return false;
+		if (variants == null) {
+			if (other.variants != null)
+				return false;
+		} else if (variants.size() != other.variants.size() || !variants.containsAll(other.variants))
+			return false;
+		if (zone == null) {
+			if (other.zone != null)
+				return false;
+		} else if (!zone.equals(other.zone))
+			return false;
+		return true;
 	}
 
 	/**
@@ -94,36 +144,6 @@ public class Domain extends RdapObject {
 	 */
 	public void setLdhName(String punycodeName) {
 		this.ldhName = punycodeName;
-	}
-
-	/**
-	 * @return the zoneId
-	 */
-	public int getZoneId() {
-		return zoneId;
-	}
-
-	/**
-	 * @param zoneId
-	 *            the zoneId to set
-	 */
-	public void setZoneId(int zoneId) {
-		this.zoneId = zoneId;
-	}
-
-	/**
-	 * @return the entities
-	 */
-	public List<Entity> getEntities() {
-		return entities;
-	}
-
-	/**
-	 * @param entities
-	 *            the entities to set
-	 */
-	public void setEntities(List<Entity> entities) {
-		this.entities = entities;
 	}
 
 	/**

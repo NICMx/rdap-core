@@ -18,6 +18,37 @@ public class Zone {
 	 */
 	private String zoneName;
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((zoneName == null) ? 0 : zoneName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Zone))
+			return false;
+		Zone other = (Zone) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (zoneName == null) {
+			if (other.zoneName != null)
+				return false;
+		} else if (!zoneName.equals(other.zoneName))
+			return false;
+		return true;
+	}
+
 	/**
 	 * @return the id
 	 */

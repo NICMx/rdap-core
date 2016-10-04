@@ -1,8 +1,5 @@
 package mx.nic.rdap.core.db;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import mx.nic.rdap.core.db.struct.NameserverIpAddressesStruct;
 
 /**
@@ -30,23 +27,48 @@ public class Nameserver extends RdapObject {
 	private NameserverIpAddressesStruct ipAddresses;
 
 	/**
-	 * An array of entity objects {@link Entity}
-	 */
-	private List<Entity> entities;
-
-	/**
-	 * The id of the rar sponsor
-	 */
-	private Long rarId;
-
-	/**
 	 * Constructor
 	 */
 	public Nameserver() {
 		super();
 		ipAddresses = new NameserverIpAddressesStruct();
-		entities = new ArrayList<Entity>();
-		
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((ipAddresses == null) ? 0 : ipAddresses.hashCode());
+		result = prime * result + ((punycodeName == null) ? 0 : punycodeName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (!(obj instanceof Nameserver))
+			return false;
+		Nameserver other = (Nameserver) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (ipAddresses == null) {
+			if (other.ipAddresses != null)
+				return false;
+		} else if (!ipAddresses.equals(other.ipAddresses))
+			return false;
+		if (punycodeName == null) {
+			if (other.punycodeName != null)
+				return false;
+		} else if (!punycodeName.equals(other.punycodeName))
+			return false;
+		return true;
 	}
 
 	/**
@@ -63,7 +85,6 @@ public class Nameserver extends RdapObject {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	/**
 	 * @return the punycodeName
@@ -99,7 +120,6 @@ public class Nameserver extends RdapObject {
 		return "";// ldh name is the punycode
 	}
 
-
 	/**
 	 * @return the ipAddresses
 	 */
@@ -113,36 +133,6 @@ public class Nameserver extends RdapObject {
 	 */
 	public void setIpAddresses(NameserverIpAddressesStruct ipAddresses) {
 		this.ipAddresses = ipAddresses;
-	}
-
-	/**
-	 * @return the entities
-	 */
-	public List<Entity> getEntities() {
-		return entities;
-	}
-
-	/**
-	 * @param entities
-	 *            the entities to set
-	 */
-	public void setEntities(List<Entity> entities) {
-		this.entities = entities;
-	}
-
-	/**
-	 * @return the rarId
-	 */
-	public Long getRarId() {
-		return rarId;
-	}
-
-	/**
-	 * @param rarId
-	 *            the rarId to set
-	 */
-	public void setRarId(Long rarId) {
-		this.rarId = rarId;
 	}
 
 }
