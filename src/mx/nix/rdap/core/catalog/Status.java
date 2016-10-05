@@ -139,7 +139,81 @@ public enum Status {
 		case 18:
 			return Status.PENDING_DELETE;
 		default:
-			return Status.UNKNOWN;
+			return null;
+		}
+	}
+	
+	/**
+	 * Get the status from a name
+	 * @param name
+	 * @return the status
+	 */
+	public static Status getByName(String name){
+		switch(name){
+		case "validated":
+			return Status.VALIDATED;
+		case "renew prohibited":
+			return Status.RENEW_PROHIBITED;
+		case "update prohibited":
+			return Status.UPDATE_PROHIBITED;
+		case "transfer prohibited":
+			return Status.TRANSFER_PROHIBITED;
+		case "delete prohibited":
+			return Status.DELETE_PROHIBITED;
+		case "proxy":
+			return Status.PROXY;
+		case "private":
+			return Status.PRIVATE;
+		case "removed":
+			return Status.REMOVED;
+		case "obscured":
+			return Status.OBSCURED;
+		case "associated":
+			return Status.ASSOCIATED;
+		case "active":
+			return Status.ACTIVE;
+		case "inactive":
+			return Status.INACTIVE;
+		case "locked":
+			return Status.LOCKED;
+		case "pending create":
+			return Status.PENDING_CREATE;
+		case "pending renew":
+			return Status.PENDING_RENEW;
+		case "pending transfer":
+			return Status.PENDING_TRANSFER;
+		case "pending update":
+			return Status.PENDING_UPDATE;
+		case "pending delete":
+			return Status.PENDING_DELETE;
+		default:
+			return null;
+		}
+	}
+	
+	/**
+	 * Get the status from a name
+	 * @param name
+	 * @return the status
+	 */
+	public static Status getByEPPName(String eppName){
+		switch(eppName){
+		case "linked":
+			return Status.ASSOCIATED;
+		case "ok":
+			return Status.ACTIVE;
+		case "inactive":
+			return Status.INACTIVE;
+		case "pendingCreate":
+			return Status.PENDING_CREATE;
+		case "pendingRenew":
+			return Status.PENDING_RENEW;
+		case "pendingTransfer":
+			return Status.PENDING_TRANSFER;
+		case "pendingUpdate":
+			return Status.PENDING_UPDATE;
+		default:
+			return null;
 		}
 	}
 }
