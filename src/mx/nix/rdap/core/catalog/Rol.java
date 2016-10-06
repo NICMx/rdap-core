@@ -17,8 +17,7 @@ public enum Rol {
 	SPONSOR(8,"sponsor", "The entity object instance represents a domain policy sponsor, such as an ICANN-approved sponsor."),
 	PROXY(9,"proxy", "The entity object instance represents a proxy for another entity object, such as a registrant."),
 	NOTIFICATIONS(10,"notifications", "An entity object instance designated to receive notifications about association object instances."),
-	NOC(11,"noc", "The entity object instance handles communications related to a network operations center (NOC)."),
-	UNKNOWN(0,null,null);
+	NOC(11,"noc", "The entity object instance handles communications related to a network operations center (NOC).");
 	/**
 	 * An unique identifier
 	 */
@@ -117,7 +116,41 @@ public enum Rol {
 		case 11: 
 			return Rol.NOC;
 		default:
-			return UNKNOWN;
+			return null;
+		}
+	}
+	
+	/**
+	 * Get the status from a name
+	 * @param name
+	 * @return the status
+	 */
+	public static Rol getByName(String name){
+		switch(name){
+		case "registrant":
+			return Rol.REGISTRANT;
+		case "technical":
+			return Rol.TECHNICAL;
+		case "administrative":
+			return Rol.ADMINISTRATIVE;
+		case "abuse":
+			return Rol.ABUSE;
+		case "billing":
+			return Rol.BILLING;
+		case "registrar":
+			return Rol.REGISTRAR;
+		case "reseller":
+			return Rol.RESELLER;
+		case "sponsor":
+			return Rol.SPONSOR;
+		case "proxy":
+			return Rol.PROXY;
+		case "notifications":
+			return Rol.NOTIFICATIONS;
+		case "noc": 
+			return Rol.NOC;
+		default:
+			return null;
 		}
 	}
 }

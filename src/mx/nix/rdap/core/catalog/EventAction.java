@@ -15,8 +15,7 @@ public enum EventAction {
 	REINSTANTIAION(6,"reinstantiation","The object instance was reregistered after having been removed from the registry."),
 	TRANSFER(7,"transfer","The object instance was transferred from one registrant to another."),
 	LOCKED(8,"locked","The object instance was locked"),
-	UNLOCKED(9,"unlocked","The object instance was unlocked"),
-	UNKNOWN(0,null,null);
+	UNLOCKED(9,"unlocked","The object instance was unlocked");
 	
 	/**
 	 * An unique identifier
@@ -112,9 +111,38 @@ public enum EventAction {
 		case 9:
 			return EventAction.UNLOCKED;
 		default:
-			return EventAction.UNKNOWN;
+			return null;
 		}
 	}
 	
+	/**
+	 * Get the EventAction from a name
+	 * @param name
+	 * @return the eventAction
+	 */
+	public static EventAction getByName(String name){
+		switch(name){
+		case "registration":
+			return EventAction.REGISTRATION;
+		case "reregistration":
+			return EventAction.REREGISTRATION;
+		case "last changed":
+			return EventAction.LAST_CHANGED;
+		case "expiration":
+			return EventAction.EXPIRATION;
+		case "deletion":
+			return EventAction.DELETION;
+		case "reinstantiation":
+			return EventAction.REINSTANTIAION;
+		case "transfer":
+			return EventAction.TRANSFER;
+		case "locked":
+			return EventAction.LOCKED;
+		case "unlocked":
+			return EventAction.UNLOCKED;
+		default:
+			return null;
+		}
+	}
 	
 }

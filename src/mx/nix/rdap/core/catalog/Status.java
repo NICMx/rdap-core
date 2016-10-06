@@ -25,8 +25,7 @@ public enum Status {
 	PENDING_RENEW(15,"pending renew","A request has been received for the renewal of the object instance, but this action is not yet complete."),
 	PENDING_TRANSFER(16,"pending transfer","A request has been received for the transfer of the object instance, but this action is not yet complete."),
 	PENDING_UPDATE(17,"pending update","A request has been received for the update or modification of the object instance, but this action is not yet complete."),
-	PENDING_DELETE(18,"pending delete","A request has been received for the deletion or removal of the object instance, but this action is not yet complete. For domains, this might mean that the name is no longer published in DNS but has not yet been purged from the registry database."),
-	UNKNOWN(0,null,null);
+	PENDING_DELETE(18,"pending delete","A request has been received for the deletion or removal of the object instance, but this action is not yet complete. For domains, this might mean that the name is no longer published in DNS but has not yet been purged from the registry database.");
 	/**
 	 * An unique identifier
 	 */
