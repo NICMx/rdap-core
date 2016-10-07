@@ -46,7 +46,7 @@ public class Domain extends RdapObject {
 	/**
 	 * An object containing a string with the zone and the id {@link Zone}
 	 */
-	private Zone zone;
+	private Integer zoneId;
 
 	public Domain() {
 		super();
@@ -65,7 +65,7 @@ public class Domain extends RdapObject {
 		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		result = prime * result + ((secureDNS == null) ? 0 : secureDNS.hashCode());
 		result = prime * result + ((variants == null) ? 0 : variants.hashCode());
-		result = prime * result + ((zone == null) ? 0 : zone.hashCode());
+		result = prime * result + ((zoneId == null) ? 0 : zoneId.hashCode());
 		return result;
 	}
 
@@ -108,10 +108,10 @@ public class Domain extends RdapObject {
 				return false;
 		} else if (variants.size() != other.variants.size() || !variants.containsAll(other.variants))
 			return false;
-		if (zone == null) {
-			if (other.zone != null)
+		if (zoneId == null) {
+			if (other.zoneId != null)
 				return false;
-		} else if (!zone.equals(other.zone))
+		} else if (!zoneId.equals(other.zoneId))
 			return false;
 		return true;
 	}
@@ -209,16 +209,16 @@ public class Domain extends RdapObject {
 	/**
 	 * @return the zone
 	 */
-	public Zone getZone() {
-		return zone;
+	public Integer getZoneId() {
+		return zoneId;
 	}
 
 	/**
 	 * @param zone
 	 *            the zone to set
 	 */
-	public void setZone(Zone zone) {
-		this.zone = zone;
+	public void setZoneId(Integer zoneId) {
+		this.zoneId = zoneId;
 	}
 
 }
