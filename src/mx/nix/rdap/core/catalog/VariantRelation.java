@@ -16,8 +16,7 @@ public enum VariantRelation {
 							4, "open registration",
 							"Registration of the variant names is available to generally qualified registrants."), CONJOINED(
 									5, "conjoined",
-									"Registration of the variant names occurs automatically with the registration of the containing domain registration."), UNKNOWN(
-											0, null, null);
+									"Registration of the variant names occurs automatically with the registration of the containing domain registration.");
 
 	/**
 	 * An unique identifier for the variant relation
@@ -66,7 +65,7 @@ public enum VariantRelation {
 		case 5:
 			return VariantRelation.CONJOINED;
 		default:
-			return VariantRelation.UNKNOWN;
+			return null;
 		}
 	}
 
@@ -89,7 +88,7 @@ public enum VariantRelation {
 		case "conjoined":
 			return VariantRelation.CONJOINED;
 		default:
-			return VariantRelation.UNKNOWN;
+			return null;
 		}
 	}
 
