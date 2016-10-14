@@ -10,13 +10,11 @@ package mx.nix.rdap.core.catalog;
  */
 public enum VariantRelation {
 
-	REGISTERED(1, "registered", "The variant names are registered in the registry."), UNREGISTERED(2, "unregistered",
-			"The variant names are not found in the registry."), REGISTRATION_RESTRICTED(3, "registration restricted",
-					"Registration of the variant names is restricted to certain parties or within certain rules."), OPEN_REGISTRATION(
-							4, "open registration",
-							"Registration of the variant names is available to generally qualified registrants."), CONJOINED(
-									5, "conjoined",
-									"Registration of the variant names occurs automatically with the registration of the containing domain registration.");
+	REGISTERED(1, "registered", "The variant names are registered in the registry."), 
+	UNREGISTERED(2, "unregistered","The variant names are not found in the registry."), 
+	REGISTRATION_RESTRICTED(3, "registration restricted","Registration of the variant names is restricted to certain parties or within certain rules."), 
+	OPEN_REGISTRATION(4, "open registration","Registration of the variant names is available to generally qualified registrants."), 
+	CONJOINED(5, "conjoined","Registration of the variant names occurs automatically with the registration of the containing domain registration.");
 
 	/**
 	 * An unique identifier for the variant relation
