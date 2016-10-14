@@ -1,5 +1,7 @@
 package mx.nic.rdap.core.db;
 
+import java.net.IDN;
+
 import mx.nic.rdap.core.db.struct.NameserverIpAddressesStruct;
 
 /**
@@ -98,7 +100,7 @@ public class Nameserver extends RdapObject {
 	 *            the punycodeName to set
 	 */
 	public void setPunycodeName(String punycodeName) {
-		this.punycodeName = punycodeName;
+		this.punycodeName = IDN.toASCII(punycodeName);
 	}
 
 	/**
@@ -116,8 +118,7 @@ public class Nameserver extends RdapObject {
 	 * @return the unicode name of the domain
 	 */
 	public String getUnicodeName() {
-		// TODO:Magic stuff here
-		return "";// ldh name is the punycode
+		return IDN.toUnicode(this.getLdhName());
 	}
 
 	/**
