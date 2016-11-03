@@ -1,9 +1,8 @@
 package mx.nic.rdap.core.exception;
 
 /**
- * Generic problems with the search request.
- * 
- * @author dalpuche
+ * Throws when a server receives a search request but cannot process the request
+ * because it does not support a particular style of partial match searching
  *
  */
 public class UnprocessableEntityException extends Exception {
@@ -14,6 +13,7 @@ public class UnprocessableEntityException extends Exception {
 	 * https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 	 */
 	private int httpResponseStatusCode = 422;
+
 	/**
 	 * 
 	 * @param attributeName
@@ -22,13 +22,13 @@ public class UnprocessableEntityException extends Exception {
 	 *            the class
 	 */
 	public UnprocessableEntityException(String message) {
-		super( message);
+		super(message);
 	}
 
 	public UnprocessableEntityException() {
 		super("Unprocessable Entity");
 	}
-	
+
 	/**
 	 * @see #httpResponseStatusCode
 	 */
