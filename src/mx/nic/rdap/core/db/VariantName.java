@@ -2,9 +2,7 @@
 package mx.nic.rdap.core.db;
 
 /**
- * POJO for the VariantName Object, it contains the LDH names of a variant
- * 
- * @author evaldes
+ * Contains the LDH names of a variant
  *
  */
 public class VariantName {

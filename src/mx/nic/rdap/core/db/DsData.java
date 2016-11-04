@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * POJO representing the DsData object. The DsData is one of the representations
- * of the SecureDNS information that is not stored in the registration database.
+ * Representation of the SecureDNS information that is not stored in the
+ * registration database.
  * 
- * @author evaldes
- *
  */
 public class DsData {
 	/**

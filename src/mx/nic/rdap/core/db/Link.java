@@ -1,10 +1,8 @@
 package mx.nic.rdap.core.db;
 
 /**
- * POJO for the Link object.The object is a data structure that signify link an
- * object to other resources on the Internet.
- * 
- * @author dalpuche
+ * Represents a data structure that signify link an object to other resources on
+ * the Internet.
  *
  */
 public class Link {

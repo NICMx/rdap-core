@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * POJO for the Domain object. The domain object class represents a DNS name and
- * point of delegation.
- * 
- * @author evaldes
+ * Represents a DNS name and point of delegation.
  *
  */
 public class Domain extends RdapObject {

@@ -6,11 +6,8 @@ import java.util.List;
 import mx.nix.rdap.core.catalog.Rol;
 
 /**
- * POJO for the entity object.This object class represents the information of
- * organizations, corporations, governments, non-profits, clubs, individual
- * persons, and informal groups of people.
- * 
- * @author dhfelix
+ * Represents the information of organizations, corporations, governments,
+ * non-profits, clubs, individual persons, and informal groups of people.
  *
  */
 public class Entity extends RdapObject {

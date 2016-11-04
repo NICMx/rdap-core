@@ -3,9 +3,8 @@ package mx.nic.rdap.core.db;
 import java.net.InetAddress;
 
 /**
- * POJO for the IpAddress object, different to {@link IpNetwork}
+ * IpAddress object for a Nameserver, different to {@link IpNetwork}
  * 
- * @author dalpuche
  *
  */
 public class IpAddress {

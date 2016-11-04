@@ -3,8 +3,6 @@ package mx.nix.rdap.core.catalog;
 /**
  * Rol of an entity.
  * 
- * @author dhfelix
- *
  */
 public enum Rol {
 	REGISTRANT(1,"registrant", "The entity object instance is the registrant of the registration. In some registries, this is known as a maintainer."),

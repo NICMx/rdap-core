@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class represents a jCard with the entity’s contact information.
- * 
- * @author dhfelix
+ * Represents a jCard with the entity’s contact information.
  *
  */
 public class VCard {

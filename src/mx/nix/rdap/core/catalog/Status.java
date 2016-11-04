@@ -3,8 +3,6 @@ package mx.nix.rdap.core.catalog;
 /**
  * The state of a registered object
  * 
- * @author dalpuche
- *
  */
 public enum Status {
 

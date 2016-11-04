@@ -7,8 +7,6 @@ import mx.nix.rdap.core.catalog.Status;
 
 /**
  * Base object containing common rdap objects attributes
- * 
- * @author dalpuche
  *
  */
 public class RdapObject {

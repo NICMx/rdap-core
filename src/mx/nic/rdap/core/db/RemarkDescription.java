@@ -1,10 +1,6 @@
 package mx.nic.rdap.core.db;
 
 /**
- * POJO for the RemarkDescription object
- * 
- * @author dalpuche
- *
  */
 public class RemarkDescription {
 

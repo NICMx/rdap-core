@@ -3,8 +3,6 @@ package mx.nic.rdap.core.db;
 /**
  * Contact Postal Information related to a Contact ({@link VCard}).
  * 
- * @author dhfelix
- *
  */
 public class VCardPostalInfo {
 

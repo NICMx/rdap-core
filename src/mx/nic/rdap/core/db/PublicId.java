@@ -1,11 +1,8 @@
 package mx.nic.rdap.core.db;
 
 /**
- * POJO representing the PublicId Object. This data structure maps a public
- * identifier to an object class.
+ * Represents a public identifier to an object class.
  * 
- * @author evaldes
- *
  */
 
 public class PublicId {

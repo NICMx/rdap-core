@@ -6,9 +6,6 @@ import java.util.List;
 import mx.nix.rdap.core.catalog.VariantRelation;
 
 /**
- * POJO representing the Variant object.
- * 
- * @author evaldes
  *
  */
 public class Variant {

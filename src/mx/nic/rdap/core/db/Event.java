@@ -7,10 +7,7 @@ import java.util.List;
 import mx.nix.rdap.core.catalog.EventAction;
 
 /**
- * POJO for the Event object.This data structure represents events that have
- * occurred on an instance of an object class
- * 
- * @author dalpuche
+ * Represents events that have occurred on an instance of an object class
  *
  */
 public class Event {

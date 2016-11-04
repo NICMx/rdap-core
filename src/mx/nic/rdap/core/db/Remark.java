@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * POJO for the remark object. A remark structure denotes information about the
- * object class that contains it
- * 
- * @author dalpuche
+ * Contains information about the object class that contains it
  *
  */
 public class Remark {
@@ -23,7 +20,7 @@ public class Remark {
 	private String title;
 
 	/**
-	 * 
+	 * The type of the remark
 	 */
 	private String type;
 

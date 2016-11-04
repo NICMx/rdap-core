@@ -4,8 +4,6 @@ package mx.nix.rdap.core.catalog;
 /**
  * Catalog of the types of variant relations. It denotes a relationship between
  * a domain and a domain variant
- * 
- * @author evaldes
  *
  */
 public enum VariantRelation {

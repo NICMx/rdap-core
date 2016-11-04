@@ -5,10 +5,8 @@ import java.net.IDN;
 import mx.nic.rdap.core.db.struct.NameserverIpAddressesStruct;
 
 /**
- * POJO for the Nameserver object.The nameserver object class represents
- * information regarding DNS nameservers used in both forward and reverse DNS
- * 
- * @author dalpuche
+ * Represents information regarding DNS nameservers used in both forward and
+ * reverse DNS
  *
  */
 public class Nameserver extends RdapObject {

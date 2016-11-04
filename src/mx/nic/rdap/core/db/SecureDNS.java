@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * POJO representing the SecureDNS object that represents secure DNS information
- * about domain names.
- * 
- * @author evaldes
+ * Represents secure DNS information about domain names.
  *
  */
 public class SecureDNS {

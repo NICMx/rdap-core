@@ -6,10 +6,8 @@ import java.util.List;
 import mx.nic.rdap.core.db.IpAddress;
 
 /**
- * Struct containing arrays of ipAddress
+ * Struct containing arrays of ipAddress for a Nameserver
  * 
- * @author dalpuche
- *
  */
 public class NameserverIpAddressesStruct {
 
