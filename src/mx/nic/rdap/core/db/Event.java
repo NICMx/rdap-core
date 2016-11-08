@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import mx.nix.rdap.core.catalog.EventAction;
+import mx.nic.rdap.core.catalog.EventAction;
 
 /**
  * Represents events that have occurred on an instance of an object class

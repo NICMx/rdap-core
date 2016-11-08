@@ -3,7 +3,7 @@ package mx.nic.rdap.core.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import mx.nix.rdap.core.catalog.VariantRelation;
+import mx.nic.rdap.core.catalog.VariantRelation;
 
 /**
  *

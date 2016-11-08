@@ -3,7 +3,7 @@ package mx.nic.rdap.core.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import mx.nix.rdap.core.catalog.Status;
+import mx.nic.rdap.core.catalog.Status;
 
 /**
  * Base object containing common rdap objects attributes

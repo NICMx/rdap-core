@@ -1,5 +1,5 @@
 
-package mx.nix.rdap.core.catalog;
+package mx.nic.rdap.core.catalog;
 
 /**
  * Catalog of the types of variant relations. It denotes a relationship between

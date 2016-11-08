@@ -1,4 +1,4 @@
-package mx.nix.rdap.core.catalog;
+package mx.nic.rdap.core.catalog;
 
 /**
  * An Event action that have ocurred on an instance of a registered object

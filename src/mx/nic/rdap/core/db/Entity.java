@@ -3,7 +3,7 @@ package mx.nic.rdap.core.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import mx.nix.rdap.core.catalog.Rol;
+import mx.nic.rdap.core.catalog.Rol;
 
 /**
  * Represents the information of organizations, corporations, governments,

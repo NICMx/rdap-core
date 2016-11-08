@@ -1,4 +1,4 @@
-package mx.nix.rdap.core.catalog;
+package mx.nic.rdap.core.catalog;
 
 /**
  * Rol of an entity.
