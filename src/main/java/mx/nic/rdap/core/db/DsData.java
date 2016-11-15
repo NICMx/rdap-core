@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Representation of the SecureDNS information that is not stored in the
+ * Representation of the {@link SecureDNS} information that is not stored in the
  * registration database.
  * 
  */

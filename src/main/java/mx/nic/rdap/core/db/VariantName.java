@@ -2,7 +2,7 @@
 package mx.nic.rdap.core.db;
 
 /**
- * Contains the LDH names of a variant
+ * Contains one of the variant names of a {@link Variant}
  *
  */
 public class VariantName {
@@ -50,11 +50,6 @@ public class VariantName {
 	 */
 	public void setLdhName(String ldhName) {
 		this.ldhName = ldhName;
-	}
-
-	public String getUnicode() {
-		// TODO magic stuff here;
-		return ldhName;
 	}
 
 	public String getPunycode() {

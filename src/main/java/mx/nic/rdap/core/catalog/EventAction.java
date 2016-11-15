@@ -1,7 +1,7 @@
 package mx.nic.rdap.core.catalog;
 
 /**
- * An Event action that have ocurred on an instance of a registered object
+ * An Event action that have occurred on an instance of a registered object
  *
  */
 public enum EventAction {

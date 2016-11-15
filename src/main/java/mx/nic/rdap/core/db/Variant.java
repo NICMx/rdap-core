@@ -6,12 +6,13 @@ import java.util.List;
 import mx.nic.rdap.core.catalog.VariantRelation;
 
 /**
- *
+ * Alternative names of a {@link Domain}, also contains
  */
 public class Variant {
 
 	/**
-	 * An unique identifier for the variant
+	 * An unique identifier for the variant, also contains it´s relation with
+	 * the domain.
 	 */
 	private Long id;
 

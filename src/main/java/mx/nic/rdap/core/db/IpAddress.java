@@ -3,7 +3,7 @@ package mx.nic.rdap.core.db;
 import java.net.InetAddress;
 
 /**
- * IpAddress object for a Nameserver, different to {@link IpNetwork}
+ * IpAddress object for a {@link Nameserver}, different to {@link IpNetwork}
  * 
  *
  */

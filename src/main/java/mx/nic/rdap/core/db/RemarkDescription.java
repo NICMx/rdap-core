@@ -1,6 +1,7 @@
 package mx.nic.rdap.core.db;
 
 /**
+ * Each description of a {@link Remark} with its order of appearance
  */
 public class RemarkDescription {
 
