@@ -104,7 +104,6 @@ public class Nameserver extends RdapObject {
 	/**
 	 * Return the ldh name from the punycode name
 	 * 
-	 * @return the ldh name of the domain
 	 */
 	public String getLdhName() {
 		return this.getPunycodeName();// ldh name is the punycode
@@ -113,7 +112,6 @@ public class Nameserver extends RdapObject {
 	/**
 	 * Return the unicode name from the punycode name
 	 * 
-	 * @return the unicode name of the domain
 	 */
 	public String getUnicodeName() {
 		return IDN.toUnicode(this.getLdhName());

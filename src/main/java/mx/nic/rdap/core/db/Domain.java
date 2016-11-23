@@ -1,5 +1,6 @@
 package mx.nic.rdap.core.db;
 
+import java.net.IDN;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class Domain extends RdapObject {
 	 * of DNS names where the labels of the domain are all "letters, digits,
 	 * hyphen"
 	 */
-	private String ldhName;
+	private String punycodeName;
 
 	/**
 	 * An array of Nameserver objects {@link Nameserver}
@@ -57,7 +58,7 @@ public class Domain extends RdapObject {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((ldhName == null) ? 0 : ldhName.hashCode());
+		result = prime * result + ((punycodeName == null) ? 0 : punycodeName.hashCode());
 		result = prime * result + ((nameServers == null) ? 0 : nameServers.hashCode());
 		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		result = prime * result + ((secureDNS == null) ? 0 : secureDNS.hashCode());
@@ -80,10 +81,10 @@ public class Domain extends RdapObject {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (ldhName == null) {
-			if (other.ldhName != null)
+		if (punycodeName == null) {
+			if (other.punycodeName != null)
 				return false;
-		} else if (!ldhName.equals(other.ldhName))
+		} else if (!punycodeName.equals(other.punycodeName))
 			return false;
 		if (nameServers == null) {
 			if (other.nameServers != null)
@@ -129,19 +130,36 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @return the ldhName
+	 * @return the punycodeName
 	 */
-	public String getLdhName() {
-		return ldhName;
+	public String getPunycodeName() {
+		return punycodeName;
 	}
 
 	/**
-	 * @param ldhName
-	 *            the ldhName to set
+	 * @param punycodeName
+	 *            the punycodeName to set
 	 */
-	public void setLdhName(String punycodeName) {
-		this.ldhName = punycodeName;
+	public void setPunycodeName(String punycodeName) {
+		this.punycodeName = IDN.toASCII(punycodeName);
 	}
+
+	/**
+	 * Return the ldh name from the punycode name
+	 * 
+	 */
+	public String getLdhName() {
+		return this.getPunycodeName();// ldh name is the punycode
+	}
+
+	/**
+	 * Return the unicode name from the punycode name
+	 * 
+	 */
+	public String getUnicodeName() {
+		return IDN.toUnicode(this.getLdhName());
+	}
+
 
 	/**
 	 * @return the nameServers
