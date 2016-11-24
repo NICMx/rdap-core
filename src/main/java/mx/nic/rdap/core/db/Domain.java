@@ -46,6 +46,11 @@ public class Domain extends RdapObject {
 	 */
 	private Integer zoneId;
 
+	/**
+	 * represents the IP network for which a reverse DNS domain is referenced
+	 */
+	private IpNetwork ipNetwork;
+
 	public Domain() {
 		super();
 		nameServers = new ArrayList<>();
@@ -64,6 +69,7 @@ public class Domain extends RdapObject {
 		result = prime * result + ((secureDNS == null) ? 0 : secureDNS.hashCode());
 		result = prime * result + ((variants == null) ? 0 : variants.hashCode());
 		result = prime * result + ((zoneId == null) ? 0 : zoneId.hashCode());
+		result = prime * result + ((ipNetwork == null) ? 0 : ipNetwork.hashCode());
 		return result;
 	}
 
@@ -110,6 +116,11 @@ public class Domain extends RdapObject {
 			if (other.zoneId != null)
 				return false;
 		} else if (!zoneId.equals(other.zoneId))
+			return false;
+		if (ipNetwork == null) {
+			if (other.ipNetwork != null)
+				return false;
+		} else if (!ipNetwork.equals(other.ipNetwork))
 			return false;
 		return true;
 	}
@@ -159,7 +170,6 @@ public class Domain extends RdapObject {
 	public String getUnicodeName() {
 		return IDN.toUnicode(this.getLdhName());
 	}
-
 
 	/**
 	 * @return the nameServers
@@ -236,4 +246,11 @@ public class Domain extends RdapObject {
 		this.zoneId = zoneId;
 	}
 
+	public IpNetwork getIpNetwork() {
+		return ipNetwork;
+	}
+
+	public void setIpNetwork(IpNetwork ipNetwork) {
+		this.ipNetwork = ipNetwork;
+	}
 }
