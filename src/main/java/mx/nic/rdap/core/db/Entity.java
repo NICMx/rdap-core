@@ -32,10 +32,16 @@ public class Entity extends RdapObject {
 	 */
 	private List<Rol> roles;
 
+	/**
+	 * An array of ip network objects
+	 */
+	private List<IpNetwork> ipNetworks;
+
 	public Entity() {
 		publicIds = new ArrayList<>();
 		vCardList = new ArrayList<>();
 		roles = new ArrayList<>();
+		ipNetworks = new ArrayList<>();
 	}
 
 	@Override
@@ -46,6 +52,7 @@ public class Entity extends RdapObject {
 		result = prime * result + ((vCardList == null) ? 0 : vCardList.hashCode());
 		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		result = prime * result + ((roles == null) ? 0 : roles.hashCode());
+		result = prime * result + ((ipNetworks == null) ? 0 : ipNetworks.hashCode());
 		return result;
 	}
 
@@ -79,6 +86,11 @@ public class Entity extends RdapObject {
 			if (other.roles != null)
 				return false;
 		} else if (roles.size() != other.roles.size() || !roles.containsAll(other.roles))
+			return false;
+		if (ipNetworks == null) {
+			if (other.ipNetworks != null)
+				return false;
+		} else if (ipNetworks.size() != other.ipNetworks.size() || !ipNetworks.containsAll(other.ipNetworks))
 			return false;
 		return true;
 	}
@@ -114,6 +126,14 @@ public class Entity extends RdapObject {
 
 	public void setRoles(List<Rol> roles) {
 		this.roles = roles;
+	}
+
+	public List<IpNetwork> getIpNetworks() {
+		return ipNetworks;
+	}
+
+	public void setIpNetworks(List<IpNetwork> ipNetworks) {
+		this.ipNetworks = ipNetworks;
 	}
 
 }

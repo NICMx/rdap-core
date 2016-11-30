@@ -4,16 +4,57 @@ import java.net.InetAddress;
 
 import mx.nic.rdap.core.catalog.IpVersion;
 
+/**
+ * The IP network object class models IP network registrations found in RIRs
+ */
 public class IpNetwork extends RdapObject {
 
+	/**
+	 * unique identifier of the IP network
+	 */
 	private Long id;
+
+	/**
+	 * a string signifying the IP protocol version of the network: "v4"
+	 * signifies an IPv4 network, and "v6" signifies an IPv6 network
+	 */
 	private IpVersion ipVersion;
+
+	/**
+	 * the starting IP address of the network, either IPv4 or IPv6
+	 */
 	private InetAddress startAddress;
+
+	/**
+	 * the ending IP address of the network, either IPv4 or IPv6
+	 */
 	private InetAddress endAddress;
+
+	/**
+	 * an identifier assigned to the network registration by the registration
+	 * holder
+	 */
 	private String name;
+
+	/**
+	 * a string containing an RIR-specific classification of the network
+	 */
 	private String type;
+
+	/**
+	 * a string containing the two-character country code of the network
+	 */
 	private String country;
+
+	/**
+	 * a string containing an RIR-unique identifier of the parent network of
+	 * this network registration
+	 */
 	private String parentHandle;
+
+	/**
+	 * Network mask length of the IP address
+	 */
 	private Integer cidr;
 
 	@Override
