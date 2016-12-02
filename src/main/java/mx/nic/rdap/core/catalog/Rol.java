@@ -33,8 +33,6 @@ public enum Rol {
 	
 	/**
 	 * Constructor
-	 * @param id
-	 * @param description
 	 */
 	Rol(int id,String value,String description){
 		this.id=id;
@@ -42,6 +40,70 @@ public enum Rol {
 		this.description=description;
 	}
 
+	/**
+	 * Get the status from an id
+	 */
+	public static Rol getById(int id){
+		switch(id){
+		case 1:
+			return Rol.REGISTRANT;
+		case 2:
+			return Rol.TECHNICAL;
+		case 3:
+			return Rol.ADMINISTRATIVE;
+		case 4:
+			return Rol.ABUSE;
+		case 5:
+			return Rol.BILLING;
+		case 6:
+			return Rol.REGISTRAR;
+		case 7:
+			return Rol.RESELLER;
+		case 8:
+			return Rol.SPONSOR;
+		case 9:
+			return Rol.PROXY;
+		case 10:
+			return Rol.NOTIFICATIONS;
+		case 11: 
+			return Rol.NOC;
+		default:
+			return null;
+		}
+	}
+	
+	/**
+	 * Get the status from a name
+	 */
+	public static Rol getByName(String name){
+		switch(name){
+		case "registrant":
+			return Rol.REGISTRANT;
+		case "technical":
+			return Rol.TECHNICAL;
+		case "administrative":
+			return Rol.ADMINISTRATIVE;
+		case "abuse":
+			return Rol.ABUSE;
+		case "billing":
+			return Rol.BILLING;
+		case "registrar":
+			return Rol.REGISTRAR;
+		case "reseller":
+			return Rol.RESELLER;
+		case "sponsor":
+			return Rol.SPONSOR;
+		case "proxy":
+			return Rol.PROXY;
+		case "notifications":
+			return Rol.NOTIFICATIONS;
+		case "noc": 
+			return Rol.NOC;
+		default:
+			return null;
+		}
+	}
+	
 	/**
 	 * @return the id
 	 */
@@ -84,71 +146,5 @@ public enum Rol {
 		this.description = description;
 	}
 	
-	/**
-	 * Get the status from an id
-	 * @param id
-	 * @return the status
-	 */
-	public static Rol getById(int id){
-		switch(id){
-		case 1:
-			return Rol.REGISTRANT;
-		case 2:
-			return Rol.TECHNICAL;
-		case 3:
-			return Rol.ADMINISTRATIVE;
-		case 4:
-			return Rol.ABUSE;
-		case 5:
-			return Rol.BILLING;
-		case 6:
-			return Rol.REGISTRAR;
-		case 7:
-			return Rol.RESELLER;
-		case 8:
-			return Rol.SPONSOR;
-		case 9:
-			return Rol.PROXY;
-		case 10:
-			return Rol.NOTIFICATIONS;
-		case 11: 
-			return Rol.NOC;
-		default:
-			return null;
-		}
-	}
 	
-	/**
-	 * Get the status from a name
-	 * @param name
-	 * @return the status
-	 */
-	public static Rol getByName(String name){
-		switch(name){
-		case "registrant":
-			return Rol.REGISTRANT;
-		case "technical":
-			return Rol.TECHNICAL;
-		case "administrative":
-			return Rol.ADMINISTRATIVE;
-		case "abuse":
-			return Rol.ABUSE;
-		case "billing":
-			return Rol.BILLING;
-		case "registrar":
-			return Rol.REGISTRAR;
-		case "reseller":
-			return Rol.RESELLER;
-		case "sponsor":
-			return Rol.SPONSOR;
-		case "proxy":
-			return Rol.PROXY;
-		case "notifications":
-			return Rol.NOTIFICATIONS;
-		case "noc": 
-			return Rol.NOC;
-		default:
-			return null;
-		}
-	}
 }

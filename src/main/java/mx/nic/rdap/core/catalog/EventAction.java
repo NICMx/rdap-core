@@ -33,8 +33,6 @@ public enum EventAction {
 	
 	/**
 	 * Constructor
-	 * @param id
-	 * @param description
 	 */
 	EventAction(int id,String value,String description){
 		this.id=id;
@@ -42,6 +40,62 @@ public enum EventAction {
 		this.description=description;
 	}
 
+	/**
+	 * Get the EventAction from an id
+	 */
+	public static EventAction getById(int id){
+		switch(id){
+		case 1:
+			return EventAction.REGISTRATION;
+		case 2:
+			return EventAction.REREGISTRATION;
+		case 3:
+			return EventAction.LAST_CHANGED;
+		case 4:
+			return EventAction.EXPIRATION;
+		case 5:
+			return EventAction.DELETION;
+		case 6:
+			return EventAction.REINSTANTIAION;
+		case 7:
+			return EventAction.TRANSFER;
+		case 8:
+			return EventAction.LOCKED;
+		case 9:
+			return EventAction.UNLOCKED;
+		default:
+			return null;
+		}
+	}
+	
+	/**
+	 * Get the EventAction from a name
+	 */
+	public static EventAction getByName(String name){
+		switch(name){
+		case "registration":
+			return EventAction.REGISTRATION;
+		case "reregistration":
+			return EventAction.REREGISTRATION;
+		case "last changed":
+			return EventAction.LAST_CHANGED;
+		case "expiration":
+			return EventAction.EXPIRATION;
+		case "deletion":
+			return EventAction.DELETION;
+		case "reinstantiation":
+			return EventAction.REINSTANTIAION;
+		case "transfer":
+			return EventAction.TRANSFER;
+		case "locked":
+			return EventAction.LOCKED;
+		case "unlocked":
+			return EventAction.UNLOCKED;
+		default:
+			return null;
+		}
+	}
+	
 	/**
 	 * @return the id
 	 */
@@ -84,64 +138,6 @@ public enum EventAction {
 		this.description = description;
 	}
 	
-	/**
-	 * Get the EventAction from an id
-	 * @param id
-	 * @return the eventAction
-	 */
-	public static EventAction getById(int id){
-		switch(id){
-		case 1:
-			return EventAction.REGISTRATION;
-		case 2:
-			return EventAction.REREGISTRATION;
-		case 3:
-			return EventAction.LAST_CHANGED;
-		case 4:
-			return EventAction.EXPIRATION;
-		case 5:
-			return EventAction.DELETION;
-		case 6:
-			return EventAction.REINSTANTIAION;
-		case 7:
-			return EventAction.TRANSFER;
-		case 8:
-			return EventAction.LOCKED;
-		case 9:
-			return EventAction.UNLOCKED;
-		default:
-			return null;
-		}
-	}
-	
-	/**
-	 * Get the EventAction from a name
-	 * @param name
-	 * @return the eventAction
-	 */
-	public static EventAction getByName(String name){
-		switch(name){
-		case "registration":
-			return EventAction.REGISTRATION;
-		case "reregistration":
-			return EventAction.REREGISTRATION;
-		case "last changed":
-			return EventAction.LAST_CHANGED;
-		case "expiration":
-			return EventAction.EXPIRATION;
-		case "deletion":
-			return EventAction.DELETION;
-		case "reinstantiation":
-			return EventAction.REINSTANTIAION;
-		case "transfer":
-			return EventAction.TRANSFER;
-		case "locked":
-			return EventAction.LOCKED;
-		case "unlocked":
-			return EventAction.UNLOCKED;
-		default:
-			return null;
-		}
-	}
+
 	
 }

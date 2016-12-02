@@ -2,7 +2,7 @@ package mx.nic.rdap.core.catalog;
 
 /**
  * The state of a registered object
- * 
+ *
  */
 public enum Status {
 
@@ -41,8 +41,6 @@ public enum Status {
 	
 	/**
 	 * Constructor
-	 * @param id
-	 * @param description
 	 */
 	Status(int id,String value,String description){
 		this.id=id;
@@ -51,51 +49,7 @@ public enum Status {
 	}
 
 	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the value
-	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value the value to set
-	 */
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	/**
 	 * Get the status from an id
-	 * @param id
-	 * @return the status
 	 */
 	public static Status getById(int id){
 		switch(id){
@@ -142,8 +96,6 @@ public enum Status {
 	
 	/**
 	 * Get the status from a name
-	 * @param name
-	 * @return the status
 	 */
 	public static Status getByName(String name){
 		switch(name){
@@ -190,8 +142,6 @@ public enum Status {
 	
 	/**
 	 * Get the status from a name
-	 * @param name
-	 * @return the status
 	 */
 	public static Status getByEPPName(String eppName){
 		switch(eppName){
@@ -213,4 +163,47 @@ public enum Status {
 			return null;
 		}
 	}
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the value
+	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * @param value the value to set
+	 */
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+
 }

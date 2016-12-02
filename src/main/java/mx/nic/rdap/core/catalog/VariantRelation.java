@@ -32,9 +32,6 @@ public enum VariantRelation {
 	/**
 	 * Constructor
 	 * 
-	 * @param id
-	 * @param value
-	 * @param description
 	 */
 	VariantRelation(int id, String value, String description) {
 		this.id = id;
@@ -45,8 +42,6 @@ public enum VariantRelation {
 	/**
 	 * Get Relation from Variant Id
 	 * 
-	 * @param id
-	 * @return
 	 */
 	public static VariantRelation getById(int id) {
 		switch (id) {
@@ -68,8 +63,6 @@ public enum VariantRelation {
 	/**
 	 * Get relation from a String of a variant
 	 * 
-	 * @param name
-	 * @return
 	 */
 	public static VariantRelation getByName(String name) {
 		switch (name) {
