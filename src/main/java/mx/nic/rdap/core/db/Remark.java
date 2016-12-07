@@ -3,6 +3,8 @@ package mx.nic.rdap.core.db;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.nic.rdap.core.catalog.RemarkType;
+
 /**
  * Contains information about the object class that contains it
  *
@@ -45,6 +47,17 @@ public class Remark {
 	public Remark() {
 		descriptions = new ArrayList<RemarkDescription>();
 		links = new ArrayList<Link>();
+	}
+
+	/*
+	 * Remark constructor using default values
+	 */
+	public Remark(RemarkType remark) {
+		RemarkDescription description = new RemarkDescription();
+		description.setDescription(remark.getDescription());
+		description.setOrder(1);
+		this.type = remark.getType();
+		this.descriptions.add(description);
 	}
 
 	@Override
