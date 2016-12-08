@@ -53,6 +53,8 @@ public class Remark {
 	 * Remark constructor using default values
 	 */
 	public Remark(RemarkType remark) {
+		descriptions = new ArrayList<RemarkDescription>();
+		links = new ArrayList<Link>();
 		RemarkDescription description = new RemarkDescription();
 		description.setDescription(remark.getDescription());
 		description.setOrder(1);
