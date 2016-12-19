@@ -14,7 +14,10 @@ public enum EventAction {
 	REINSTANTIAION(6,"reinstantiation","The object instance was reregistered after having been removed from the registry."),
 	TRANSFER(7,"transfer","The object instance was transferred from one registrant to another."),
 	LOCKED(8,"locked","The object instance was locked"),
-	UNLOCKED(9,"unlocked","The object instance was unlocked");
+	UNLOCKED(9,"unlocked","The object instance was unlocked"),
+	LAST_UPDATE_OF_RDAP_DATABASE(10,"last update of RDAP database","An action noting when the information in the object instance in the RDAP database was last synchronized from the authoritative database (e.g. registry database)."),
+	REGISTRAR_EXPIRATION(11,"registrar expiration","An action noting the expiration date of the object in the registrar system."),
+	ENUM_VALIDATION_EXPIRATION(12,"enum validation expiration","Association of phone number represented by this ENUM domain to registrant has expired or will expire at a pre-determined date and time.");	
 	
 	/**
 	 * An unique identifier
@@ -63,6 +66,12 @@ public enum EventAction {
 			return EventAction.LOCKED;
 		case 9:
 			return EventAction.UNLOCKED;
+		case 10:
+			return EventAction.LAST_UPDATE_OF_RDAP_DATABASE;
+		case 11:
+			return EventAction.REGISTRAR_EXPIRATION;
+		case 12:
+			return EventAction.ENUM_VALIDATION_EXPIRATION;
 		default:
 			return null;
 		}
@@ -91,6 +100,12 @@ public enum EventAction {
 			return EventAction.LOCKED;
 		case "unlocked":
 			return EventAction.UNLOCKED;
+		case "last update of RDAP database":
+			return EventAction.LAST_UPDATE_OF_RDAP_DATABASE;
+		case "registrar expiration":
+			return EventAction.REGISTRAR_EXPIRATION;
+		case "enum validation expiration":
+			return EventAction.ENUM_VALIDATION_EXPIRATION;
 		default:
 			return null;
 		}
