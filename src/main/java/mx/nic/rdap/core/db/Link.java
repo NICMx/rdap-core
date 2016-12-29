@@ -31,6 +31,17 @@ public class Link {
 
 	}
 
+	/**
+	 * Construct a "self" Link
+	 * 
+	 */
+	public Link(String header, String contextPath, String objectClassName, String query) {
+		this.setValue(header + contextPath + "/" + objectClassName + "/" + query);
+		this.setRel("self");
+		this.setHref(header + contextPath + "/" + objectClassName + "/" + query);
+		this.setType("application/rdap+json");
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
