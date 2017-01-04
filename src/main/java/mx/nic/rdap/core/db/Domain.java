@@ -15,11 +15,16 @@ public class Domain extends RdapObject {
 	private Long id;
 
 	/**
-	 * A string containing the ldh name of the domains. Textual representations
+	 * A string containing the ldh name of the domain. Textual representations
 	 * of DNS names where the labels of the domain are all "letters, digits,
 	 * hyphen"
 	 */
 	private String punycodeName;
+
+	/**
+	 * A string containing the unicode name of the domain.
+	 */
+	private String unicodeName;
 
 	/**
 	 * An array of Nameserver objects {@link Nameserver}
@@ -164,14 +169,6 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * Return the unicode name from the punycode name
-	 * 
-	 */
-	public String getUnicodeName() {
-		return IDN.toUnicode(this.getLdhName());
-	}
-
-	/**
 	 * @return the nameServers
 	 */
 	public List<Nameserver> getNameServers() {
@@ -252,5 +249,21 @@ public class Domain extends RdapObject {
 
 	public void setIpNetwork(IpNetwork ipNetwork) {
 		this.ipNetwork = ipNetwork;
+	}
+
+	/**
+	 * @return the unicodeName
+	 * 
+	 */
+	public String getUnicodeName() {
+		return this.unicodeName;
+	}
+
+	/**
+	 * @param unicodeName
+	 *            the unicodeName to set
+	 */
+	public void setUnicodeName(String unicodeName) {
+		this.unicodeName = unicodeName;
 	}
 }

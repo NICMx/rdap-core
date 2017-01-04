@@ -27,6 +27,11 @@ public class Nameserver extends RdapObject {
 	private NameserverIpAddressesStruct ipAddresses;
 
 	/**
+	 * A string containing the unicode name of the nameserver
+	 */
+	private String unicodeName;
+
+	/**
 	 * Constructor
 	 */
 	public Nameserver() {
@@ -110,14 +115,6 @@ public class Nameserver extends RdapObject {
 	}
 
 	/**
-	 * Return the unicode name from the punycode name
-	 * 
-	 */
-	public String getUnicodeName() {
-		return IDN.toUnicode(this.getLdhName());
-	}
-
-	/**
 	 * @return the ipAddresses
 	 */
 	public NameserverIpAddressesStruct getIpAddresses() {
@@ -130,6 +127,22 @@ public class Nameserver extends RdapObject {
 	 */
 	public void setIpAddresses(NameserverIpAddressesStruct ipAddresses) {
 		this.ipAddresses = ipAddresses;
+	}
+
+	/**
+	 * @return the unicodeName
+	 * 
+	 */
+	public String getUnicodeName() {
+		return this.unicodeName;
+	}
+
+	/**
+	 * @param unicodeName
+	 *            the unicodeName to set
+	 */
+	public void setUnicodeName(String unicodeName) {
+		this.unicodeName = unicodeName;
 	}
 
 }
