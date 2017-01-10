@@ -47,9 +47,9 @@ public class Domain extends RdapObject {
 	private List<PublicId> publicIds;
 
 	/**
-	 * An object containing a string with the zone and the id {@link Zone}
+	 * An object containing a string with the zone
 	 */
-	private Integer zoneId;
+	private String zone;
 
 	/**
 	 * represents the IP network for which a reverse DNS domain is referenced
@@ -73,7 +73,7 @@ public class Domain extends RdapObject {
 		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		result = prime * result + ((secureDNS == null) ? 0 : secureDNS.hashCode());
 		result = prime * result + ((variants == null) ? 0 : variants.hashCode());
-		result = prime * result + ((zoneId == null) ? 0 : zoneId.hashCode());
+		result = prime * result + ((zone == null) ? 0 : zone.hashCode());
 		result = prime * result + ((ipNetwork == null) ? 0 : ipNetwork.hashCode());
 		return result;
 	}
@@ -117,10 +117,10 @@ public class Domain extends RdapObject {
 				return false;
 		} else if (variants.size() != other.variants.size() || !variants.containsAll(other.variants))
 			return false;
-		if (zoneId == null) {
-			if (other.zoneId != null)
+		if (zone == null) {
+			if (other.zone != null)
 				return false;
-		} else if (!zoneId.equals(other.zoneId))
+		} else if (!zone.equals(other.zone))
 			return false;
 		if (ipNetwork == null) {
 			if (other.ipNetwork != null)
@@ -231,16 +231,16 @@ public class Domain extends RdapObject {
 	/**
 	 * @return the zone
 	 */
-	public Integer getZoneId() {
-		return zoneId;
+	public String getZone() {
+		return zone;
 	}
 
 	/**
 	 * @param zone
 	 *            the zone to set
 	 */
-	public void setZoneId(Integer zoneId) {
-		this.zoneId = zoneId;
+	public void setZone(String zoneId) {
+		this.zone = zoneId;
 	}
 
 	public IpNetwork getIpNetwork() {
@@ -265,5 +265,21 @@ public class Domain extends RdapObject {
 	 */
 	public void setUnicodeName(String unicodeName) {
 		this.unicodeName = unicodeName;
+	}
+
+	public String getFQDN() {
+		if (this.zone == null) {
+			return this.punycodeName;
+		}
+
+		return this.punycodeName + "." + this.zone;
+	}
+
+	public String getUnicodeFQDN() {
+		if (this.zone == null) {
+			return this.unicodeName;
+		}
+
+		return this.unicodeName + "." + this.zone;
 	}
 }

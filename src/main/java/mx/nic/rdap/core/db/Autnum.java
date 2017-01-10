@@ -35,10 +35,9 @@ public class Autnum extends RdapObject {
 	private String type;
 
 	/**
-	 * An integer containing the id of the two character country code of the
-	 * autnum
+	 * A String containing the two character country code of the autnum
 	 */
-	private Integer countryId;
+	private String countryCode;
 
 	/**
 	 * 
@@ -56,7 +55,7 @@ public class Autnum extends RdapObject {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((countryId == null) ? 0 : countryId.hashCode());
+		result = prime * result + ((countryCode == null) ? 0 : countryCode.hashCode());
 		result = prime * result + ((endAutnum == null) ? 0 : endAutnum.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -79,10 +78,10 @@ public class Autnum extends RdapObject {
 		if (!(obj instanceof Autnum))
 			return false;
 		Autnum other = (Autnum) obj;
-		if (countryId == null) {
-			if (other.countryId != null)
+		if (countryCode == null) {
+			if (other.countryCode != null)
 				return false;
-		} else if (!countryId.equals(other.countryId))
+		} else if (!countryCode.equals(other.countryCode))
 			return false;
 		if (endAutnum == null) {
 			if (other.endAutnum != null)
@@ -190,16 +189,16 @@ public class Autnum extends RdapObject {
 	/**
 	 * @return id assigned to country
 	 */
-	public Integer getCountry() {
-		return countryId;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
 	/**
 	 * @param countryId
 	 *            the country id must be set to retrieve it from model.
 	 */
-	public void setCountry(Integer countryId) {
-		this.countryId = countryId;
+	public void setCountry(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 }
