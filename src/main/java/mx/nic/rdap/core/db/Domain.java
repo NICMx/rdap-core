@@ -63,6 +63,18 @@ public class Domain extends RdapObject {
 		publicIds = new ArrayList<>();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Domain [" + super.toString() + "id=" + id + ", punycodeName=" + punycodeName + ", unicodeName="
+				+ unicodeName + ", nameServers=" + nameServers + ", variants=" + variants + ", secureDNS=" + secureDNS
+				+ ", publicIds=" + publicIds + ", zone=" + zone + ", ipNetwork=" + ipNetwork + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

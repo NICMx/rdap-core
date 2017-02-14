@@ -35,6 +35,17 @@ public class IpAddress {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "IpAddress [id=" + id + ", nameserverId=" + nameserverId + ", type=" + type + ", address=" + address
+				+ "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

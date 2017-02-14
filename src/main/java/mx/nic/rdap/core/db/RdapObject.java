@@ -57,6 +57,17 @@ public class RdapObject {
 		entities = new ArrayList<Entity>();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "handle=" + handle + ", remarks=" + remarks + ", links=" + links + ", events=" + events + ", status="
+				+ status + ", port43=" + port43 + ", entities=" + entities;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

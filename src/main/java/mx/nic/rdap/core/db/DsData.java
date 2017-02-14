@@ -54,6 +54,17 @@ public class DsData {
 		links = new ArrayList<>();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "DsData [id=" + id + ", secureDNSId=" + secureDNSId + ", keytag=" + keytag + ", algorithm=" + algorithm
+				+ ", digest=" + digest + ", digestType=" + digestType + ", events=" + events + ", links=" + links + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

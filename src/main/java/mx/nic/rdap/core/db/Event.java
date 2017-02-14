@@ -44,6 +44,17 @@ public class Event {
 		links = new ArrayList<Link>();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", eventAction=" + eventAction + ", eventActor=" + eventActor + ", eventDate="
+				+ eventDate + ", links=" + links + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

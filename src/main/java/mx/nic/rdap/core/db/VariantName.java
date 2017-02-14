@@ -12,6 +12,16 @@ public class VariantName {
 	 */
 	private String ldhName;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "VariantName [ldhName=" + ldhName + "]";
+	}
+
 	/**
 	 * @return the ldhName
 	 */

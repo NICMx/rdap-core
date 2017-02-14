@@ -42,6 +42,17 @@ public class SecureDNS {
 		dsData = new ArrayList<>();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "SecureDNS [id=" + id + ", domainId=" + domainId + ", zoneSigned=" + zoneSigned + ", delegationSigned="
+				+ delegationSigned + ", maxSigLife=" + maxSigLife + ", dsData=" + dsData + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
