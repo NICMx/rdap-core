@@ -57,6 +57,18 @@ public class IpNetwork extends RdapObject {
 	 */
 	private Integer cidr;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "IpNetwork [" + super.toString() + ", id=" + id + ", ipVersion=" + ipVersion + ", startAddress="
+				+ startAddress + ", endAddress=" + endAddress + ", name=" + name + ", type=" + type + ", country="
+				+ country + ", parentHandle=" + parentHandle + ", cidr=" + cidr + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

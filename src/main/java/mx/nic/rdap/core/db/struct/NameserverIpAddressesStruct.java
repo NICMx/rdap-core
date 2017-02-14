@@ -26,6 +26,16 @@ public class NameserverIpAddressesStruct {
 		ipv6Adresses = new ArrayList<IpAddress>();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "NameserverIpAddressesStruct [ipv4Adresses=" + ipv4Adresses + ", ipv6Adresses=" + ipv6Adresses + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

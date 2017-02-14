@@ -42,6 +42,17 @@ public class Link {
 		this.setType("application/rdap+json");
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Link [id=" + id + ", value=" + value + ", rel=" + rel + ", href=" + href + ", hreflag=" + hreflag
+				+ ", title=" + title + ", media=" + media + ", type=" + type + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

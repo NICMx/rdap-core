@@ -39,6 +39,18 @@ public class Nameserver extends RdapObject {
 		ipAddresses = new NameserverIpAddressesStruct();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Nameserver [" + super.toString() + "id=" + id + ", punycodeName=" + punycodeName + ", ipAddresses="
+				+ ipAddresses
+				+ ", unicodeName=" + unicodeName + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

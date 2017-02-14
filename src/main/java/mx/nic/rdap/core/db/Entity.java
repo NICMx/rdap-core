@@ -44,6 +44,17 @@ public class Entity extends RdapObject {
 		ipNetworks = new ArrayList<>();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Entity [" + super.toString() + ", id=" + id + ", vCardList=" + vCardList + ", publicIds=" + publicIds
+				+ ", roles=" + roles + ", ipNetworks=" + ipNetworks + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -20,6 +20,16 @@ public class RemarkDescription {
 	 */
 	private int order;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "RemarkDescription [remarkId=" + remarkId + ", description=" + description + ", order=" + order + "]";
+	}
+
 	/**
 	 * @return the remarkId
 	 */

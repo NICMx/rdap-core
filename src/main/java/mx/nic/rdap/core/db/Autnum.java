@@ -49,6 +49,19 @@ public class Autnum extends RdapObject {
 	/*
 	 * (non-Javadoc)
 	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Autnum [" + super.toString() + ", id=" + id + ", startAutnum=" + startAutnum + ", endAutnum="
+				+ endAutnum
+				+ ", name=" + name
+				+ ", type=" + type + ", countryCode=" + countryCode + "]";
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override

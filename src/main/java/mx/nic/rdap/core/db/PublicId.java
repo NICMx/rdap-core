@@ -21,6 +21,16 @@ public class PublicId {
 	 */
 	private String type;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PublicId [id=" + id + ", publicId=" + publicId + ", type=" + type + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

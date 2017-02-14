@@ -61,6 +61,18 @@ public class VCard {
 		postalInfo = new ArrayList<>();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "VCard [id=" + id + ", name=" + name + ", companyName=" + companyName + ", companyURL=" + companyURL
+				+ ", email=" + email + ", voice=" + voice + ", cellphone=" + cellphone + ", fax=" + fax + ", jobTitle="
+				+ jobTitle + ", postalInfo=" + postalInfo + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

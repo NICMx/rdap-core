@@ -62,6 +62,17 @@ public class Remark {
 		this.descriptions.add(description);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Remark [id=" + id + ", title=" + title + ", type=" + type + ", language=" + language + ", descriptions="
+				+ descriptions + ", links=" + links + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
