@@ -65,12 +65,12 @@ public class Entity extends RdapObject {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + ((autnums == null) ? 0 : autnums.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((vCardList == null) ? 0 : vCardList.hashCode());
 		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		result = prime * result + ((roles == null) ? 0 : roles.hashCode());
 		result = prime * result + ((ipNetworks == null) ? 0 : ipNetworks.hashCode());
-		result = prime * result + ((autnums == null) ? 0 : autnums.hashCode());
 		return result;
 	}
 

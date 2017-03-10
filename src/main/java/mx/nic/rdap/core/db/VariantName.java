@@ -1,6 +1,8 @@
 
 package mx.nic.rdap.core.db;
 
+import java.net.IDN;
+
 /**
  * Contains one of the variant names of a {@link Variant}
  *
@@ -62,7 +64,7 @@ public class VariantName {
 		this.ldhName = ldhName;
 	}
 
-	public String getPunycode() {
-		return ldhName;
+	public String getUnicodeName() {
+		return IDN.toUnicode(ldhName);
 	}
 }

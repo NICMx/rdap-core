@@ -38,6 +38,8 @@ public class SecureDNS {
 	 */
 	private List<DsData> dsData;
 
+	private List<KeyData> keyData;
+
 	public SecureDNS() {
 		dsData = new ArrayList<>();
 	}
@@ -50,9 +52,14 @@ public class SecureDNS {
 	@Override
 	public String toString() {
 		return "SecureDNS [id=" + id + ", domainId=" + domainId + ", zoneSigned=" + zoneSigned + ", delegationSigned="
-				+ delegationSigned + ", maxSigLife=" + maxSigLife + ", dsData=" + dsData + "]";
+				+ delegationSigned + ", maxSigLife=" + maxSigLife + ", dsData=" + dsData + ", keyData=" + keyData + "]";
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -61,11 +68,17 @@ public class SecureDNS {
 		result = prime * result + ((domainId == null) ? 0 : domainId.hashCode());
 		result = prime * result + ((dsData == null) ? 0 : dsData.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((keyData == null) ? 0 : keyData.hashCode());
 		result = prime * result + ((maxSigLife == null) ? 0 : maxSigLife.hashCode());
 		result = prime * result + ((zoneSigned == null) ? 0 : zoneSigned.hashCode());
 		return result;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -88,12 +101,17 @@ public class SecureDNS {
 		if (dsData == null) {
 			if (other.dsData != null)
 				return false;
-		} else if (dsData.size() != other.dsData.size() || !dsData.containsAll(other.dsData))
+		} else if (!dsData.equals(other.dsData))
 			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (keyData == null) {
+			if (other.keyData != null)
+				return false;
+		} else if (!keyData.equals(other.keyData))
 			return false;
 		if (maxSigLife == null) {
 			if (other.maxSigLife != null)
@@ -196,6 +214,21 @@ public class SecureDNS {
 	 */
 	public void setDsData(List<DsData> dsData) {
 		this.dsData = dsData;
+	}
+
+	/**
+	 * @return the keyData
+	 */
+	public List<KeyData> getKeyData() {
+		return keyData;
+	}
+
+	/**
+	 * @param keyData
+	 *            the keyData to set
+	 */
+	public void setKeyData(List<KeyData> keyData) {
+		this.keyData = keyData;
 	}
 
 }

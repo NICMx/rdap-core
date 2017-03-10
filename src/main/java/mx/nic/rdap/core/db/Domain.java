@@ -19,7 +19,7 @@ public class Domain extends RdapObject {
 	 * of DNS names where the labels of the domain are all "letters, digits,
 	 * hyphen"
 	 */
-	private String punycodeName;
+	private String ldhName;
 
 	/**
 	 * A string containing the unicode name of the domain.
@@ -70,7 +70,7 @@ public class Domain extends RdapObject {
 	 */
 	@Override
 	public String toString() {
-		return "Domain [" + super.toString() + "id=" + id + ", punycodeName=" + punycodeName + ", unicodeName="
+		return "Domain [" + super.toString() + "id=" + id + ", punycodeName=" + ldhName + ", unicodeName="
 				+ unicodeName + ", nameServers=" + nameServers + ", variants=" + variants + ", secureDNS=" + secureDNS
 				+ ", publicIds=" + publicIds + ", zone=" + zone + ", ipNetwork=" + ipNetwork + "]";
 	}
@@ -80,7 +80,7 @@ public class Domain extends RdapObject {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((punycodeName == null) ? 0 : punycodeName.hashCode());
+		result = prime * result + ((ldhName == null) ? 0 : ldhName.hashCode());
 		result = prime * result + ((nameServers == null) ? 0 : nameServers.hashCode());
 		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		result = prime * result + ((secureDNS == null) ? 0 : secureDNS.hashCode());
@@ -104,10 +104,10 @@ public class Domain extends RdapObject {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (punycodeName == null) {
-			if (other.punycodeName != null)
+		if (ldhName == null) {
+			if (other.ldhName != null)
 				return false;
-		} else if (!punycodeName.equals(other.punycodeName))
+		} else if (!ldhName.equals(other.ldhName))
 			return false;
 		if (nameServers == null) {
 			if (other.nameServers != null)
@@ -158,26 +158,18 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @return the punycodeName
-	 */
-	public String getPunycodeName() {
-		return punycodeName;
-	}
-
-	/**
-	 * @param punycodeName
-	 *            the punycodeName to set
-	 */
-	public void setPunycodeName(String punycodeName) {
-		this.punycodeName = IDN.toASCII(punycodeName);
-	}
-
-	/**
-	 * Return the ldh name from the punycode name
-	 * 
+	 * @return the ldhName
 	 */
 	public String getLdhName() {
-		return this.getPunycodeName();// ldh name is the punycode
+		return ldhName;// ldh name is the punycode
+	}
+
+	/**
+	 * @param ldhName
+	 *            the punycodeName to set
+	 */
+	public void setLdhName(String ldhName) {
+		this.ldhName = IDN.toASCII(ldhName);
 	}
 
 	/**
@@ -281,10 +273,10 @@ public class Domain extends RdapObject {
 
 	public String getFQDN() {
 		if (this.zone == null) {
-			return this.punycodeName;
+			return this.ldhName;
 		}
 
-		return this.punycodeName + "." + this.zone;
+		return this.ldhName + "." + this.zone;
 	}
 
 	public String getUnicodeFQDN() {
