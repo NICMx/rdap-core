@@ -37,11 +37,17 @@ public class Entity extends RdapObject {
 	 */
 	private List<IpNetwork> ipNetworks;
 
+	/**
+	 * An array of autnum objects
+	 */
+	private List<Autnum> autnums;
+
 	public Entity() {
 		publicIds = new ArrayList<>();
 		vCardList = new ArrayList<>();
 		roles = new ArrayList<>();
 		ipNetworks = new ArrayList<>();
+		autnums = new ArrayList<>();
 	}
 
 	/*
@@ -52,7 +58,7 @@ public class Entity extends RdapObject {
 	@Override
 	public String toString() {
 		return "Entity [" + super.toString() + ", id=" + id + ", vCardList=" + vCardList + ", publicIds=" + publicIds
-				+ ", roles=" + roles + ", ipNetworks=" + ipNetworks + "]";
+				+ ", roles=" + roles + ", ipNetworks=" + ipNetworks + ", autnums" + autnums + "]";
 	}
 
 	@Override
@@ -64,6 +70,7 @@ public class Entity extends RdapObject {
 		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		result = prime * result + ((roles == null) ? 0 : roles.hashCode());
 		result = prime * result + ((ipNetworks == null) ? 0 : ipNetworks.hashCode());
+		result = prime * result + ((autnums == null) ? 0 : autnums.hashCode());
 		return result;
 	}
 
@@ -102,6 +109,11 @@ public class Entity extends RdapObject {
 			if (other.ipNetworks != null)
 				return false;
 		} else if (ipNetworks.size() != other.ipNetworks.size() || !ipNetworks.containsAll(other.ipNetworks))
+			return false;
+		if (autnums == null) {
+			if (other.autnums != null)
+				return false;
+		} else if (autnums.size() != other.autnums.size() || !autnums.containsAll(other.autnums))
 			return false;
 		return true;
 	}
@@ -145,6 +157,14 @@ public class Entity extends RdapObject {
 
 	public void setIpNetworks(List<IpNetwork> ipNetworks) {
 		this.ipNetworks = ipNetworks;
+	}
+
+	public List<Autnum> getAutnums() {
+		return autnums;
+	}
+
+	public void setAutnums(List<Autnum> autnums) {
+		this.autnums = autnums;
 	}
 
 }
