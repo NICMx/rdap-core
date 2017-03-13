@@ -38,10 +38,14 @@ public class SecureDNS {
 	 */
 	private List<DsData> dsData;
 
+	/**
+	 * An array of Dnskey data.
+	 */
 	private List<KeyData> keyData;
 
 	public SecureDNS() {
 		dsData = new ArrayList<>();
+		keyData = new ArrayList<>();
 	}
 
 	/*
