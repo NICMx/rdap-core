@@ -3,7 +3,7 @@ package mx.nic.rdap.core.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import mx.nic.rdap.core.catalog.Rol;
+import mx.nic.rdap.core.catalog.Role;
 
 /**
  * Represents the information of organizations, corporations, governments,
@@ -30,7 +30,7 @@ public class Entity extends RdapObject {
 	/**
 	 * Roles of the entity
 	 */
-	private List<Rol> roles;
+	private List<Role> roles;
 
 	/**
 	 * An array of ip network objects
@@ -143,11 +143,11 @@ public class Entity extends RdapObject {
 		this.publicIds = publicIds;
 	}
 
-	public List<Rol> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<Rol> roles) {
+	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
 

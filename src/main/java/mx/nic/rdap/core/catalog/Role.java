@@ -1,10 +1,10 @@
 package mx.nic.rdap.core.catalog;
 
 /**
- * Rol of an entity.
+ * Role of an entity.
  * 
  */
-public enum Rol {
+public enum Role {
 	REGISTRANT(1,"registrant", "The entity object instance is the registrant of the registration. In some registries, this is known as a maintainer."),
 	TECHNICAL(2,"technical", "The entity object instance is a technical contact for the registration."),
 	ADMINISTRATIVE(3,"administrative", "The entity object instance is an administrative contact for the registration."),
@@ -22,19 +22,19 @@ public enum Rol {
 	private int id;
 	
 	/**
-	 * The value of the rol
+	 * The value of the role
 	 */
 	private String value;
 	
 	/**
-	 *The description of the rol 
+	 *The description of the role
 	 */
 	private String description;
 	
 	/**
 	 * Constructor
 	 */
-	Rol(int id,String value,String description){
+	Role(int id,String value,String description){
 		this.id=id;
 		this.value=value;
 		this.description=description;
@@ -43,30 +43,30 @@ public enum Rol {
 	/**
 	 * Get the status from an id
 	 */
-	public static Rol getById(int id){
+	public static Role getById(int id){
 		switch(id){
 		case 1:
-			return Rol.REGISTRANT;
+			return Role.REGISTRANT;
 		case 2:
-			return Rol.TECHNICAL;
+			return Role.TECHNICAL;
 		case 3:
-			return Rol.ADMINISTRATIVE;
+			return Role.ADMINISTRATIVE;
 		case 4:
-			return Rol.ABUSE;
+			return Role.ABUSE;
 		case 5:
-			return Rol.BILLING;
+			return Role.BILLING;
 		case 6:
-			return Rol.REGISTRAR;
+			return Role.REGISTRAR;
 		case 7:
-			return Rol.RESELLER;
+			return Role.RESELLER;
 		case 8:
-			return Rol.SPONSOR;
+			return Role.SPONSOR;
 		case 9:
-			return Rol.PROXY;
+			return Role.PROXY;
 		case 10:
-			return Rol.NOTIFICATIONS;
+			return Role.NOTIFICATIONS;
 		case 11: 
-			return Rol.NOC;
+			return Role.NOC;
 		default:
 			return null;
 		}
@@ -75,30 +75,30 @@ public enum Rol {
 	/**
 	 * Get the status from a name
 	 */
-	public static Rol getByName(String name){
+	public static Role getByName(String name){
 		switch(name){
 		case "registrant":
-			return Rol.REGISTRANT;
+			return Role.REGISTRANT;
 		case "technical":
-			return Rol.TECHNICAL;
+			return Role.TECHNICAL;
 		case "administrative":
-			return Rol.ADMINISTRATIVE;
+			return Role.ADMINISTRATIVE;
 		case "abuse":
-			return Rol.ABUSE;
+			return Role.ABUSE;
 		case "billing":
-			return Rol.BILLING;
+			return Role.BILLING;
 		case "registrar":
-			return Rol.REGISTRAR;
+			return Role.REGISTRAR;
 		case "reseller":
-			return Rol.RESELLER;
+			return Role.RESELLER;
 		case "sponsor":
-			return Rol.SPONSOR;
+			return Role.SPONSOR;
 		case "proxy":
-			return Rol.PROXY;
+			return Role.PROXY;
 		case "notifications":
-			return Rol.NOTIFICATIONS;
+			return Role.NOTIFICATIONS;
 		case "noc": 
-			return Rol.NOC;
+			return Role.NOC;
 		default:
 			return null;
 		}
