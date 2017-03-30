@@ -8,16 +8,11 @@ package mx.nic.rdap.core.catalog;
  */
 public enum VariantRelation {
 
-	REGISTERED(1, "registered", "The variant names are registered in the registry."), 
-	UNREGISTERED(2, "unregistered","The variant names are not found in the registry."), 
-	REGISTRATION_RESTRICTED(3, "registration restricted","Registration of the variant names is restricted to certain parties or within certain rules."), 
-	OPEN_REGISTRATION(4, "open registration","Registration of the variant names is available to generally qualified registrants."), 
-	CONJOINED(5, "conjoined","Registration of the variant names occurs automatically with the registration of the containing domain registration.");
-
-	/**
-	 * An unique identifier for the variant relation
-	 */
-	private int id;
+	REGISTERED("registered", "The variant names are registered in the registry."), 
+	UNREGISTERED("unregistered","The variant names are not found in the registry."), 
+	REGISTRATION_RESTRICTED("registration restricted","Registration of the variant names is restricted to certain parties or within certain rules."), 
+	OPEN_REGISTRATION("open registration","Registration of the variant names is available to generally qualified registrants."), 
+	CONJOINED("conjoined","Registration of the variant names occurs automatically with the registration of the containing domain registration.");
 
 	/**
 	 * The value of the variant relation
@@ -33,8 +28,7 @@ public enum VariantRelation {
 	 * Constructor
 	 * 
 	 */
-	VariantRelation(int id, String value, String description) {
-		this.id = id;
+	VariantRelation(String value, String description) {
 		this.value = value;
 		this.description = description;
 	}
@@ -44,20 +38,8 @@ public enum VariantRelation {
 	 * 
 	 */
 	public static VariantRelation getById(int id) {
-		switch (id) {
-		case 1:
-			return VariantRelation.REGISTERED;
-		case 2:
-			return VariantRelation.UNREGISTERED;
-		case 3:
-			return VariantRelation.REGISTRATION_RESTRICTED;
-		case 4:
-			return VariantRelation.OPEN_REGISTRATION;
-		case 5:
-			return VariantRelation.CONJOINED;
-		default:
-			return null;
-		}
+		VariantRelation[] relations = VariantRelation.values();
+		return (0 < id && id <= relations.length) ? relations[id - 1] : null;
 	}
 
 	/**
@@ -65,35 +47,27 @@ public enum VariantRelation {
 	 * 
 	 */
 	public static VariantRelation getByName(String name) {
-		switch (name) {
-		case "registered":
-			return VariantRelation.REGISTERED;
-		case "unregistered":
-			return VariantRelation.UNREGISTERED;
-		case "registration restricted":
-			return VariantRelation.REGISTRATION_RESTRICTED;
-		case "open registration":
-			return VariantRelation.OPEN_REGISTRATION;
-		case "conjoined":
-			return VariantRelation.CONJOINED;
-		default:
-			return null;
+		for (VariantRelation vr : VariantRelation.values()) {
+			if (vr.value.equals(name)) {
+				return vr;
+			}
 		}
+		return null;
 	}
 
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
-	}
+		VariantRelation[] relations = VariantRelation.values();
+		for (int i = 0; i < relations.length; i++) {
+			if (relations[i] == this) {
+				return i + 1;
+			}
+		}
 
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
+		throw new RuntimeException("Programming error: VariantRelation '" + this //
+				+ "' is not in the VariantRelation list.");
 	}
 
 	/**
@@ -104,26 +78,10 @@ public enum VariantRelation {
 	}
 
 	/**
-	 * @param value
-	 *            the value to set
-	 */
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	/**
 	 * @return the description
 	 */
 	public String getDescription() {
 		return description;
-	}
-
-	/**
-	 * @param description
-	 *            the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 }

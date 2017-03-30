@@ -6,23 +6,18 @@ package mx.nic.rdap.core.catalog;
  */
 public enum EventAction {
 	
-	REGISTRATION(1,"registration","The object instance was initially registered."),
-	REREGISTRATION(2,"reregistration","The object instance was registered subsequently to initial registration."),
-	LAST_CHANGED(3,"last changed","An action noting when the information in the object instance was last changed."),
-	EXPIRATION(4,"expiration","The object instance has been removed or will be removed at a predetermined date and time from the registry."),
-	DELETION(5,"deletion","The object instance was removed from the registry at a point in time that was not predetermined."),
-	REINSTANTIAION(6,"reinstantiation","The object instance was reregistered after having been removed from the registry."),
-	TRANSFER(7,"transfer","The object instance was transferred from one registrant to another."),
-	LOCKED(8,"locked","The object instance was locked"),
-	UNLOCKED(9,"unlocked","The object instance was unlocked"),
-	LAST_UPDATE_OF_RDAP_DATABASE(10,"last update of RDAP database","An action noting when the information in the object instance in the RDAP database was last synchronized from the authoritative database (e.g. registry database)."),
-	REGISTRAR_EXPIRATION(11,"registrar expiration","An action noting the expiration date of the object in the registrar system."),
-	ENUM_VALIDATION_EXPIRATION(12,"enum validation expiration","Association of phone number represented by this ENUM domain to registrant has expired or will expire at a pre-determined date and time.");	
-	
-	/**
-	 * An unique identifier
-	 */
-	private int id;
+	REGISTRATION("registration","The object instance was initially registered."),
+	REREGISTRATION("reregistration","The object instance was registered subsequently to initial registration."),
+	LAST_CHANGED("last changed","An action noting when the information in the object instance was last changed."),
+	EXPIRATION("expiration","The object instance has been removed or will be removed at a predetermined date and time from the registry."),
+	DELETION("deletion","The object instance was removed from the registry at a point in time that was not predetermined."),
+	REINSTANTIAION("reinstantiation","The object instance was reregistered after having been removed from the registry."),
+	TRANSFER("transfer","The object instance was transferred from one registrant to another."),
+	LOCKED("locked","The object instance was locked"),
+	UNLOCKED("unlocked","The object instance was unlocked"),
+	LAST_UPDATE_OF_RDAP_DATABASE("last update of RDAP database","An action noting when the information in the object instance in the RDAP database was last synchronized from the authoritative database (e.g. registry database)."),
+	REGISTRAR_EXPIRATION("registrar expiration","An action noting the expiration date of the object in the registrar system."),
+	ENUM_VALIDATION_EXPIRATION("enum validation expiration","Association of phone number represented by this ENUM domain to registrant has expired or will expire at a pre-determined date and time.");	
 	
 	/**
 	 * The value of the event action
@@ -37,8 +32,7 @@ public enum EventAction {
 	/**
 	 * Constructor
 	 */
-	EventAction(int id,String value,String description){
-		this.id=id;
+	EventAction(String value, String description) {
 		this.value=value;
 		this.description=description;
 	}
@@ -46,83 +40,35 @@ public enum EventAction {
 	/**
 	 * Get the EventAction from an id
 	 */
-	public static EventAction getById(int id){
-		switch(id){
-		case 1:
-			return EventAction.REGISTRATION;
-		case 2:
-			return EventAction.REREGISTRATION;
-		case 3:
-			return EventAction.LAST_CHANGED;
-		case 4:
-			return EventAction.EXPIRATION;
-		case 5:
-			return EventAction.DELETION;
-		case 6:
-			return EventAction.REINSTANTIAION;
-		case 7:
-			return EventAction.TRANSFER;
-		case 8:
-			return EventAction.LOCKED;
-		case 9:
-			return EventAction.UNLOCKED;
-		case 10:
-			return EventAction.LAST_UPDATE_OF_RDAP_DATABASE;
-		case 11:
-			return EventAction.REGISTRAR_EXPIRATION;
-		case 12:
-			return EventAction.ENUM_VALIDATION_EXPIRATION;
-		default:
-			return null;
-		}
+	public static EventAction getById(int id) {
+		EventAction[] actions = EventAction.values();
+		return (0 < id && id <= actions.length) ? actions[id - 1] : null;
 	}
 	
 	/**
 	 * Get the EventAction from a name
 	 */
 	public static EventAction getByName(String name){
-		switch(name){
-		case "registration":
-			return EventAction.REGISTRATION;
-		case "reregistration":
-			return EventAction.REREGISTRATION;
-		case "last changed":
-			return EventAction.LAST_CHANGED;
-		case "expiration":
-			return EventAction.EXPIRATION;
-		case "deletion":
-			return EventAction.DELETION;
-		case "reinstantiation":
-			return EventAction.REINSTANTIAION;
-		case "transfer":
-			return EventAction.TRANSFER;
-		case "locked":
-			return EventAction.LOCKED;
-		case "unlocked":
-			return EventAction.UNLOCKED;
-		case "last update of RDAP database":
-			return EventAction.LAST_UPDATE_OF_RDAP_DATABASE;
-		case "registrar expiration":
-			return EventAction.REGISTRAR_EXPIRATION;
-		case "enum validation expiration":
-			return EventAction.ENUM_VALIDATION_EXPIRATION;
-		default:
-			return null;
+		for (EventAction ea : EventAction.values()) {
+			if (ea.value.equals(name)) {
+				return ea;
+			}
 		}
+		return null;
 	}
 	
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
-	}
+		EventAction[] actions = EventAction.values();
+		for (int i = 0; i < actions.length; i++) {
+			if (actions[i] == this) {
+				return i + 1;
+			}
+		}
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
+		throw new RuntimeException("Programming error: EventAction '" + this + "' is not in the EventAction list.");
 	}
 
 	/**
@@ -133,26 +79,10 @@ public enum EventAction {
 	}
 
 	/**
-	 * @param value the value to set
-	 */
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	/**
 	 * @return the description
 	 */
 	public String getDescription() {
 		return description;
 	}
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-
-	
 }

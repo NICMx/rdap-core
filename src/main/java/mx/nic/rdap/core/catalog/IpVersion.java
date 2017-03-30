@@ -27,14 +27,12 @@ public enum IpVersion {
 	 *Get the ipversion by a number of version 
 	 */
 	public static IpVersion getByVersionNumber(int version) {
-		switch (version) {
-		case 4:
-			return V4;
-		case 6:
-			return V6;
-		default:
-			return null;
+		for (IpVersion iv : IpVersion.values()) {
+			if (iv.version == version) {
+				return iv;
+			}
 		}
+		return null;
 	}
 	
 	public int getVersion() {
@@ -44,7 +42,5 @@ public enum IpVersion {
 	public String getVersionName() {
 		return versionName;
 	}
-
-	
 
 }

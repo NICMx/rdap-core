@@ -6,29 +6,25 @@ package mx.nic.rdap.core.catalog;
  */
 public enum Status {
 
-	VALIDATED(1,"validated","Signifies that the data of the object instance has been found to be accurate. This type of status is usually found on entity object instances to note the validity of identifying contact information."),
-	RENEW_PROHIBITED(2,"renew prohibited","Renewal or reregistration of the object instance is forbidden."),
-	UPDATE_PROHIBITED(3,"update prohibited","Updates to the object instance are forbidde"),
-	TRANSFER_PROHIBITED(4,"transfer prohibited","Transfers of the registration from one registrar to another are forbidden."),
-	DELETE_PROHIBITED(5,"delete prohibited","Deletion of the registration of the object instance is forbidden."),
-	PROXY(6,"proxy","The registration of the object instance has been performed by a third party."),
-	PRIVATE(7,"private","The information of the object instance is not designated for public consumption"),
-	REMOVED(8,"removed","Some of the information of the object instance has not been made available and has been removed."),
-	OBSCURED(9,"obscured","Some of the information of the object instance has been altered for the purposes of not readily revealing the actual information of the object instance."),
-	ASSOCIATED(10,"associated","The object instance is associated with other object instances in the registry."),
-	ACTIVE(11,"active","The object instance is in use. For domain names, it signifies that the domain name is published in DNS. For network and autnum registrations, it signifies that they are allocated or assigned for use in operational networks. This maps to the \"OK\" status of the Extensible Provisioning Protocol (EPP)"),
-	INACTIVE(12,"inactive","The object instance is not in use."),
-	LOCKED(13,"locked","Changes to the object instance cannot be made, including the association of other object instances."),
-	PENDING_CREATE(14,"pending create","A request has been received for the creation of the object instance, but this action is not yet complete."),
-	PENDING_RENEW(15,"pending renew","A request has been received for the renewal of the object instance, but this action is not yet complete."),
-	PENDING_TRANSFER(16,"pending transfer","A request has been received for the transfer of the object instance, but this action is not yet complete."),
-	PENDING_UPDATE(17,"pending update","A request has been received for the update or modification of the object instance, but this action is not yet complete."),
-	PENDING_DELETE(18,"pending delete","A request has been received for the deletion or removal of the object instance, but this action is not yet complete. For domains, this might mean that the name is no longer published in DNS but has not yet been purged from the registry database.");
-	/**
-	 * An unique identifier
-	 */
-	private int id;
-	
+	VALIDATED("validated","Signifies that the data of the object instance has been found to be accurate. This type of status is usually found on entity object instances to note the validity of identifying contact information."),
+	RENEW_PROHIBITED("renew prohibited","Renewal or reregistration of the object instance is forbidden."),
+	UPDATE_PROHIBITED("update prohibited","Updates to the object instance are forbidde"),
+	TRANSFER_PROHIBITED("transfer prohibited","Transfers of the registration from one registrar to another are forbidden."),
+	DELETE_PROHIBITED("delete prohibited","Deletion of the registration of the object instance is forbidden."),
+	PROXY("proxy","The registration of the object instance has been performed by a third party."),
+	PRIVATE("private","The information of the object instance is not designated for public consumption"),
+	REMOVED("removed","Some of the information of the object instance has not been made available and has been removed."),
+	OBSCURED("obscured","Some of the information of the object instance has been altered for the purposes of not readily revealing the actual information of the object instance."),
+	ASSOCIATED("associated","The object instance is associated with other object instances in the registry."),
+	ACTIVE("active","The object instance is in use. For domain names, it signifies that the domain name is published in DNS. For network and autnum registrations, it signifies that they are allocated or assigned for use in operational networks. This maps to the \"OK\" status of the Extensible Provisioning Protocol (EPP)"),
+	INACTIVE("inactive","The object instance is not in use."),
+	LOCKED("locked","Changes to the object instance cannot be made, including the association of other object instances."),
+	PENDING_CREATE("pending create","A request has been received for the creation of the object instance, but this action is not yet complete."),
+	PENDING_RENEW("pending renew","A request has been received for the renewal of the object instance, but this action is not yet complete."),
+	PENDING_TRANSFER("pending transfer","A request has been received for the transfer of the object instance, but this action is not yet complete."),
+	PENDING_UPDATE("pending update","A request has been received for the update or modification of the object instance, but this action is not yet complete."),
+	PENDING_DELETE("pending delete","A request has been received for the deletion or removal of the object instance, but this action is not yet complete. For domains, this might mean that the name is no longer published in DNS but has not yet been purged from the registry database.");
+
 	/**
 	 * The value of the status
 	 */
@@ -42,8 +38,7 @@ public enum Status {
 	/**
 	 * Constructor
 	 */
-	Status(int id,String value,String description){
-		this.id=id;
+	Status(String value, String description) {
 		this.value=value;
 		this.description=description;
 	}
@@ -52,92 +47,20 @@ public enum Status {
 	 * Get the status from an id
 	 */
 	public static Status getById(int id){
-		switch(id){
-		case 1:
-			return Status.VALIDATED;
-		case 2:
-			return Status.RENEW_PROHIBITED;
-		case 3:
-			return Status.UPDATE_PROHIBITED;
-		case 4:
-			return Status.TRANSFER_PROHIBITED;
-		case 5:
-			return Status.DELETE_PROHIBITED;
-		case 6:
-			return Status.PROXY;
-		case 7:
-			return Status.PRIVATE;
-		case 8:
-			return Status.REMOVED;
-		case 9:
-			return Status.OBSCURED;
-		case 10:
-			return Status.ASSOCIATED;
-		case 11:
-			return Status.ACTIVE;
-		case 12:
-			return Status.INACTIVE;
-		case 13:
-			return Status.LOCKED;
-		case 14:
-			return Status.PENDING_CREATE;
-		case 15:
-			return Status.PENDING_RENEW;
-		case 16:
-			return Status.PENDING_TRANSFER;
-		case 17:
-			return Status.PENDING_UPDATE;
-		case 18:
-			return Status.PENDING_DELETE;
-		default:
-			return null;
-		}
+		Status[] statuses = Status.values();
+		return (0 < id && id <= statuses.length) ? statuses[id - 1] : null;
 	}
 	
 	/**
 	 * Get the status from a name
 	 */
 	public static Status getByName(String name){
-		switch(name){
-		case "validated":
-			return Status.VALIDATED;
-		case "renew prohibited":
-			return Status.RENEW_PROHIBITED;
-		case "update prohibited":
-			return Status.UPDATE_PROHIBITED;
-		case "transfer prohibited":
-			return Status.TRANSFER_PROHIBITED;
-		case "delete prohibited":
-			return Status.DELETE_PROHIBITED;
-		case "proxy":
-			return Status.PROXY;
-		case "private":
-			return Status.PRIVATE;
-		case "removed":
-			return Status.REMOVED;
-		case "obscured":
-			return Status.OBSCURED;
-		case "associated":
-			return Status.ASSOCIATED;
-		case "active":
-			return Status.ACTIVE;
-		case "inactive":
-			return Status.INACTIVE;
-		case "locked":
-			return Status.LOCKED;
-		case "pending create":
-			return Status.PENDING_CREATE;
-		case "pending renew":
-			return Status.PENDING_RENEW;
-		case "pending transfer":
-			return Status.PENDING_TRANSFER;
-		case "pending update":
-			return Status.PENDING_UPDATE;
-		case "pending delete":
-			return Status.PENDING_DELETE;
-		default:
-			return null;
+		for (Status status : Status.values()) {
+			if (status.value.equals(name)) {
+				return status;
+			}
 		}
+		return null;
 	}
 	
 	/**
@@ -163,18 +86,19 @@ public enum Status {
 			return null;
 		}
 	}
+
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		return id;
-	}
+		Status[] statuses = Status.values();
+		for (int i = 0; i < statuses.length; i++) {
+			if (statuses[i] == this) {
+				return i + 1;
+			}
+		}
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
+		throw new RuntimeException("Programming error: Status '" + this + "' is not in the Status list.");
 	}
 
 	/**
@@ -185,25 +109,10 @@ public enum Status {
 	}
 
 	/**
-	 * @param value the value to set
-	 */
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	/**
 	 * @return the description
 	 */
 	public String getDescription() {
 		return description;
 	}
-
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
 
 }
