@@ -1,8 +1,7 @@
 package mx.nic.rdap.core.db;
 
-import java.net.InetAddress;
-
 import mx.nic.rdap.core.catalog.IpVersion;
+import mx.nic.rdap.core.ip.AddressBlock;
 
 /**
  * The IP network object class models IP network registrations found in RIRs
@@ -15,20 +14,9 @@ public class IpNetwork extends RdapObject {
 	private Long id;
 
 	/**
-	 * a string signifying the IP protocol version of the network: "v4"
-	 * signifies an IPv4 network, and "v6" signifies an IPv6 network
+	 * Bunch of addresses that make up the network.
 	 */
-	private IpVersion ipVersion;
-
-	/**
-	 * the starting IP address of the network, either IPv4 or IPv6
-	 */
-	private InetAddress startAddress;
-
-	/**
-	 * the ending IP address of the network, either IPv4 or IPv6
-	 */
-	private InetAddress endAddress;
+	private AddressBlock addressBlock;
 
 	/**
 	 * an identifier assigned to the network registration by the registration
@@ -52,11 +40,6 @@ public class IpNetwork extends RdapObject {
 	 */
 	private String parentHandle;
 
-	/**
-	 * Network mask length of the IP address
-	 */
-	private Integer cidr;
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -64,23 +47,19 @@ public class IpNetwork extends RdapObject {
 	 */
 	@Override
 	public String toString() {
-		return "IpNetwork [" + super.toString() + ", id=" + id + ", ipVersion=" + ipVersion + ", startAddress="
-				+ startAddress + ", endAddress=" + endAddress + ", name=" + name + ", type=" + type + ", country="
-				+ country + ", parentHandle=" + parentHandle + ", cidr=" + cidr + "]";
+		return "IpNetwork [" + super.toString() + ", id=" + id + ", addressBlock=" + addressBlock + ", name=" + name
+				+ ", type=" + type + ", country=" + country + ", parentHandle=" + parentHandle + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((cidr == null) ? 0 : cidr.hashCode());
 		result = prime * result + ((country == null) ? 0 : country.hashCode());
-		result = prime * result + ((endAddress == null) ? 0 : endAddress.hashCode());
+		result = prime * result + ((addressBlock == null) ? 0 : addressBlock.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((ipVersion == null) ? 0 : ipVersion.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((parentHandle == null) ? 0 : parentHandle.hashCode());
-		result = prime * result + ((startAddress == null) ? 0 : startAddress.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
@@ -94,30 +73,20 @@ public class IpNetwork extends RdapObject {
 		if (!(obj instanceof IpNetwork))
 			return false;
 		IpNetwork other = (IpNetwork) obj;
-		if (cidr == null) {
-			if (other.cidr != null)
-				return false;
-		} else if (!cidr.equals(other.cidr))
-			return false;
 		if (country == null) {
 			if (other.country != null)
 				return false;
 		} else if (!country.equals(other.country))
 			return false;
-		if (endAddress == null) {
-			if (other.endAddress != null)
+		if (addressBlock == null) {
+			if (other.addressBlock != null)
 				return false;
-		} else if (!endAddress.equals(other.endAddress))
+		} else if (!addressBlock.equals(other.addressBlock))
 			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (ipVersion == null) {
-			if (other.ipVersion != null)
-				return false;
-		} else if (!ipVersion.equals(other.ipVersion))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -128,11 +97,6 @@ public class IpNetwork extends RdapObject {
 			if (other.parentHandle != null)
 				return false;
 		} else if (!parentHandle.equals(other.parentHandle))
-			return false;
-		if (startAddress == null) {
-			if (other.startAddress != null)
-				return false;
-		} else if (!startAddress.equals(other.startAddress))
 			return false;
 		if (type == null) {
 			if (other.type != null)
@@ -151,27 +115,15 @@ public class IpNetwork extends RdapObject {
 	}
 
 	public IpVersion getIpVersion() {
-		return ipVersion;
+		return addressBlock.getIpVersion();
 	}
 
-	public void setIpVersion(IpVersion ipVersion) {
-		this.ipVersion = ipVersion;
+	public AddressBlock getAddressBlock() {
+		return addressBlock;
 	}
 
-	public InetAddress getStartAddress() {
-		return startAddress;
-	}
-
-	public void setStartAddress(InetAddress startAddress) {
-		this.startAddress = startAddress;
-	}
-
-	public InetAddress getEndAddress() {
-		return endAddress;
-	}
-
-	public void setEndAddress(InetAddress endAddress) {
-		this.endAddress = endAddress;
+	public void setAddressBlock(AddressBlock addressBlock) {
+		this.addressBlock = addressBlock;
 	}
 
 	public String getName() {
@@ -204,14 +156,6 @@ public class IpNetwork extends RdapObject {
 
 	public void setParentHandle(String parentHandle) {
 		this.parentHandle = parentHandle;
-	}
-
-	public Integer getCidr() {
-		return cidr;
-	}
-
-	public void setCidr(Integer cidr) {
-		this.cidr = cidr;
 	}
 
 }
