@@ -3,6 +3,7 @@ package mx.nic.rdap.core.db;
 import java.net.InetAddress;
 
 import mx.nic.rdap.core.catalog.IpVersion;
+import mx.nic.rdap.core.ip.AddressBlock;
 
 /**
  * The IP network object class models IP network registrations found in RIRs
@@ -55,7 +56,7 @@ public class IpNetwork extends RdapObject {
 	/**
 	 * Network mask length of the IP address
 	 */
-	private Integer cidr;
+	private Integer prefix;
 
 	/*
 	 * (non-Javadoc)
@@ -66,14 +67,14 @@ public class IpNetwork extends RdapObject {
 	public String toString() {
 		return "IpNetwork [" + super.toString() + ", id=" + id + ", ipVersion=" + ipVersion + ", startAddress="
 				+ startAddress + ", endAddress=" + endAddress + ", name=" + name + ", type=" + type + ", country="
-				+ country + ", parentHandle=" + parentHandle + ", cidr=" + cidr + "]";
+				+ country + ", parentHandle=" + parentHandle + ", prefix=" + prefix + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((cidr == null) ? 0 : cidr.hashCode());
+		result = prime * result + ((prefix == null) ? 0 : prefix.hashCode());
 		result = prime * result + ((country == null) ? 0 : country.hashCode());
 		result = prime * result + ((endAddress == null) ? 0 : endAddress.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -94,10 +95,10 @@ public class IpNetwork extends RdapObject {
 		if (!(obj instanceof IpNetwork))
 			return false;
 		IpNetwork other = (IpNetwork) obj;
-		if (cidr == null) {
-			if (other.cidr != null)
+		if (prefix == null) {
+			if (other.prefix != null)
 				return false;
-		} else if (!cidr.equals(other.cidr))
+		} else if (!prefix.equals(other.prefix))
 			return false;
 		if (country == null) {
 			if (other.country != null)
@@ -206,12 +207,19 @@ public class IpNetwork extends RdapObject {
 		this.parentHandle = parentHandle;
 	}
 
-	public Integer getCidr() {
-		return cidr;
+	public Integer getPrefix() {
+		return prefix;
 	}
 
-	public void setCidr(Integer cidr) {
-		this.cidr = cidr;
+	public void setPrefix(Integer prefix) {
+		this.prefix = prefix;
+	}
+
+	public void setAddressBlock(AddressBlock block) {
+		this.startAddress = block.getAddress();
+		this.endAddress = block.getLastAddress();
+		this.prefix = block.getPrefix();
+		this.ipVersion = block.getIpVersion();
 	}
 
 }

@@ -97,10 +97,10 @@ public class AddressBlock {
 
 	private int parsePrefix(Integer prefix) throws IpAddressFormatException {
 		if (address instanceof Inet4Address) {
-			return parsePrefix(prefix, MAX_IPV6_CIDR);
+			return parsePrefix(prefix, MAX_IPV4_CIDR);
 		}
 		if (address instanceof Inet6Address) {
-			return parsePrefix(prefix, MAX_IPV4_CIDR);
+			return parsePrefix(prefix, MAX_IPV6_CIDR);
 		}
 
 		throw new IpAddressFormatException("Only IPv4 and IPv6 addresses are supported.");
