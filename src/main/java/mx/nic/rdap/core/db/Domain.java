@@ -1,6 +1,5 @@
 package mx.nic.rdap.core.db;
 
-import java.net.IDN;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,8 +69,8 @@ public class Domain extends RdapObject {
 	 */
 	@Override
 	public String toString() {
-		return "Domain [" + super.toString() + "id=" + id + ", punycodeName=" + ldhName + ", unicodeName="
-				+ unicodeName + ", nameServers=" + nameServers + ", variants=" + variants + ", secureDNS=" + secureDNS
+		return "Domain [" + super.toString() + "id=" + id + ", ldhName=" + ldhName + ", unicodeName=" + unicodeName
+				+ ", nameServers=" + nameServers + ", variants=" + variants + ", secureDNS=" + secureDNS
 				+ ", publicIds=" + publicIds + ", zone=" + zone + ", ipNetwork=" + ipNetwork + "]";
 	}
 
@@ -161,15 +160,15 @@ public class Domain extends RdapObject {
 	 * @return the ldhName
 	 */
 	public String getLdhName() {
-		return ldhName;// ldh name is the punycode
+		return ldhName;
 	}
 
 	/**
 	 * @param ldhName
-	 *            the punycodeName to set
+	 *            the LDHname to set
 	 */
 	public void setLdhName(String ldhName) {
-		this.ldhName = IDN.toASCII(ldhName);
+		this.ldhName = ldhName;
 	}
 
 	/**

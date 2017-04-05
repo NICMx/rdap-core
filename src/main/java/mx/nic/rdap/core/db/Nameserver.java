@@ -1,12 +1,14 @@
 package mx.nic.rdap.core.db;
 
-import java.net.IDN;
-
 import mx.nic.rdap.core.db.struct.NameserverIpAddressesStruct;
 
 /**
  * Represents information regarding DNS nameservers used in both forward and
  * reverse DNS
+ *
+ */
+/**
+ * @author L03018987
  *
  */
 public class Nameserver extends RdapObject {
@@ -16,9 +18,9 @@ public class Nameserver extends RdapObject {
 	private Long id;
 
 	/**
-	 * A string containing the unicode name of the nameserver
+	 * A string containing the ldh name of the nameserver
 	 */
-	private String punycodeName;
+	private String ldhName;
 
 	/**
 	 * An object containing two arrays (v4 and v6) of ipAddresses
@@ -46,8 +48,7 @@ public class Nameserver extends RdapObject {
 	 */
 	@Override
 	public String toString() {
-		return "Nameserver [" + super.toString() + "id=" + id + ", punycodeName=" + punycodeName + ", ipAddresses="
-				+ ipAddresses
+		return "Nameserver [" + super.toString() + "id=" + id + ", ldhName=" + ldhName + ", ipAddresses=" + ipAddresses
 				+ ", unicodeName=" + unicodeName + "]";
 	}
 
@@ -57,7 +58,7 @@ public class Nameserver extends RdapObject {
 		int result = super.hashCode();
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((ipAddresses == null) ? 0 : ipAddresses.hashCode());
-		result = prime * result + ((punycodeName == null) ? 0 : punycodeName.hashCode());
+		result = prime * result + ((ldhName == null) ? 0 : ldhName.hashCode());
 		return result;
 	}
 
@@ -80,10 +81,10 @@ public class Nameserver extends RdapObject {
 				return false;
 		} else if (!ipAddresses.equals(other.ipAddresses))
 			return false;
-		if (punycodeName == null) {
-			if (other.punycodeName != null)
+		if (ldhName == null) {
+			if (other.ldhName != null)
 				return false;
-		} else if (!punycodeName.equals(other.punycodeName))
+		} else if (!ldhName.equals(other.ldhName))
 			return false;
 		return true;
 	}
@@ -104,26 +105,19 @@ public class Nameserver extends RdapObject {
 	}
 
 	/**
-	 * @return the punycodeName
-	 */
-	public String getPunycodeName() {
-		return punycodeName;
-	}
-
-	/**
-	 * @param punycodeName
-	 *            the punycodeName to set
-	 */
-	public void setPunycodeName(String punycodeName) {
-		this.punycodeName = IDN.toASCII(punycodeName);
-	}
-
-	/**
-	 * Return the ldh name from the punycode name
+	 * Return the ldh name
 	 * 
 	 */
 	public String getLdhName() {
-		return this.getPunycodeName();// ldh name is the punycode
+		return ldhName;
+	}
+
+	/**
+	 * @param ldhName
+	 *            The LdhName to set
+	 */
+	public void setLdhName(String ldhName) {
+		this.ldhName = ldhName;
 	}
 
 	/**
