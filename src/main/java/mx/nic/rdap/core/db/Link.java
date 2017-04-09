@@ -1,5 +1,8 @@
 package mx.nic.rdap.core.db;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents a data structure that signify link an object to other resources on
  * the Internet.
@@ -19,7 +22,7 @@ public class Link {
 
 	private String href;
 
-	private String hreflag;
+	private List<String> hreflang;
 
 	private String title;
 
@@ -28,7 +31,7 @@ public class Link {
 	private String type;
 
 	public Link() {
-
+		hreflang = new ArrayList<>();
 	}
 
 	/**
@@ -49,7 +52,7 @@ public class Link {
 	 */
 	@Override
 	public String toString() {
-		return "Link [id=" + id + ", value=" + value + ", rel=" + rel + ", href=" + href + ", hreflag=" + hreflag
+		return "Link [id=" + id + ", value=" + value + ", rel=" + rel + ", href=" + href + ", hreflang=" + hreflang
 				+ ", title=" + title + ", media=" + media + ", type=" + type + "]";
 	}
 
@@ -58,7 +61,7 @@ public class Link {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((href == null) ? 0 : href.hashCode());
-		result = prime * result + ((hreflag == null) ? 0 : hreflag.hashCode());
+		result = prime * result + ((hreflang == null) ? 0 : hreflang.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((media == null) ? 0 : media.hashCode());
 		result = prime * result + ((rel == null) ? 0 : rel.hashCode());
@@ -82,10 +85,10 @@ public class Link {
 				return false;
 		} else if (!href.equals(other.href))
 			return false;
-		if (hreflag == null) {
-			if (other.hreflag != null)
+		if (hreflang == null) {
+			if (other.hreflang != null)
 				return false;
-		} else if (!hreflag.equals(other.hreflag))
+		} else if (!hreflang.equals(other.hreflang))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -183,16 +186,20 @@ public class Link {
 	/**
 	 * @return the hreflag
 	 */
-	public String getHreflag() {
-		return hreflag;
+	public List<String> getHreflang() {
+		return hreflang;
 	}
 
 	/**
 	 * @param hreflag
-	 *            the hreflag to set
+	 *            the Array of hreflags to set
 	 */
-	public void setHreflag(String hreflag) {
-		this.hreflag = hreflag;
+	public void setHreflang(List<String> hreflang) {
+		this.hreflang = hreflang;
+	}
+
+	public void addHreflang(String hreflang) {
+		this.hreflang.add(hreflang);
 	}
 
 	/**
