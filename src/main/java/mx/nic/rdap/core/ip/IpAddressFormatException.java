@@ -1,7 +1,8 @@
 package mx.nic.rdap.core.ip;
 
 /**
- * TODO
+ * The input cannot be converted to an IP address (or a prefix) due to sintactic
+ * or semantic problems.
  */
 public class IpAddressFormatException extends Exception {
 
