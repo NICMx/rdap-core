@@ -12,6 +12,11 @@ public class VariantName {
 	 */
 	private String ldhName;
 
+	/**
+	 * A String containing the Unicode name of the variant
+	 */
+	private String unicodeName;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -19,14 +24,7 @@ public class VariantName {
 	 */
 	@Override
 	public String toString() {
-		return "VariantName [ldhName=" + ldhName + "]";
-	}
-
-	/**
-	 * @return the ldhName
-	 */
-	public String getLdhName() {
-		return ldhName;
+		return "VariantName [ldhName=" + ldhName + ", unicodeName=" + unicodeName + "]";
 	}
 
 	@Override
@@ -34,6 +32,7 @@ public class VariantName {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((ldhName == null) ? 0 : ldhName.hashCode());
+		result = prime * result + ((unicodeName == null) ? 0 : unicodeName.hashCode());
 		return result;
 	}
 
@@ -43,7 +42,7 @@ public class VariantName {
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof VariantName))
+		if (getClass() != obj.getClass())
 			return false;
 		VariantName other = (VariantName) obj;
 		if (ldhName == null) {
@@ -51,7 +50,19 @@ public class VariantName {
 				return false;
 		} else if (!ldhName.equals(other.ldhName))
 			return false;
+		if (unicodeName == null) {
+			if (other.unicodeName != null)
+				return false;
+		} else if (!unicodeName.equals(other.unicodeName))
+			return false;
 		return true;
+	}
+
+	/**
+	 * @return the ldhName
+	 */
+	public String getLdhName() {
+		return ldhName;
 	}
 
 	/**
@@ -63,9 +74,10 @@ public class VariantName {
 	}
 
 	public String getUnicodeName() {
-		if (ldhName == null) {
-			return null;
-		}
-		return DomainLabel.nameToUnicode(ldhName);
+		return unicodeName;
+	}
+
+	public void setUnicodeName(String unicodeName) {
+		this.unicodeName = unicodeName;
 	}
 }
