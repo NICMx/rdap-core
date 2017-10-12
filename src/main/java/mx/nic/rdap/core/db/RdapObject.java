@@ -42,6 +42,11 @@ public class RdapObject {
 	private String port43;
 
 	/**
+	 * A string containing the object language as described in RFC 5646
+	 */
+	private String lang;
+
+	/**
 	 * An array of entity objects
 	 */
 	private List<Entity> entities;
@@ -65,7 +70,7 @@ public class RdapObject {
 	@Override
 	public String toString() {
 		return "handle=" + handle + ", remarks=" + remarks + ", links=" + links + ", events=" + events + ", status="
-				+ status + ", port43=" + port43 + ", entities=" + entities;
+				+ status + ", port43=" + port43 + ", lang=" + lang + ", entities=" + entities;
 	}
 
 	@Override
@@ -78,6 +83,7 @@ public class RdapObject {
 		result = prime * result + ((port43 == null) ? 0 : port43.hashCode());
 		result = prime * result + ((remarks == null) ? 0 : remarks.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((lang == null) ? 0 : lang.hashCode());
 		result = prime * result + ((entities == null) ? 0 : entities.hashCode());
 		return result;
 	}
@@ -120,6 +126,11 @@ public class RdapObject {
 			if (other.status != null)
 				return false;
 		} else if (status.size() != other.status.size() || !status.containsAll(other.status))
+			return false;
+		if (lang == null) {
+			if (other.lang != null)
+				return false;
+		} else if (!lang.equals(other.lang))
 			return false;
 		if (entities == null) {
 			if (other.entities != null)
@@ -217,6 +228,21 @@ public class RdapObject {
 	 */
 	public void setPort43(String port43) {
 		this.port43 = port43;
+	}
+
+	/**
+	 * @return the lang
+	 */
+	public String getLang() {
+		return lang;
+	}
+
+	/**
+	 * @param lang
+	 *            the lang to set
+	 */
+	public void setLang(String lang) {
+		this.lang = lang;
 	}
 
 	public List<Entity> getEntities() {
