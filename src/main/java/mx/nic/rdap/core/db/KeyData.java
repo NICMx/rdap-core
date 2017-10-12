@@ -18,19 +18,19 @@ public class KeyData {
 	/**
 	 * An integer representing the flags field value in the DNSKEY record
 	 */
-	private int flags;
+	private Integer flags;
 
 	/**
 	 * An integer representation of the protocol field value of the DNSKEY
 	 * record
 	 */
-	private int protocol;
+	private Integer protocol;
 
 	/** A string representation of the public key in the DNSKEY record */
 	private String publicKey;
 
 	/** An integer as specified by the algorithm field of a DNSKEY record */
-	private int algorithm;
+	private Integer algorithm;
 
 	/**
 	 * An array of Event objects {@link Event}
@@ -58,12 +58,12 @@ public class KeyData {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + algorithm;
+		result = prime * result + ((algorithm == null) ? 0 : algorithm.hashCode());
 		result = prime * result + ((events == null) ? 0 : events.hashCode());
-		result = prime * result + flags;
+		result = prime * result + ((flags == null) ? 0 : flags.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((links == null) ? 0 : links.hashCode());
-		result = prime * result + protocol;
+		result = prime * result + ((protocol == null) ? 0 : protocol.hashCode());
 		result = prime * result + ((publicKey == null) ? 0 : publicKey.hashCode());
 		result = prime * result + ((secureDNSId == null) ? 0 : secureDNSId.hashCode());
 		return result;
@@ -71,60 +71,53 @@ public class KeyData {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj)
 			return true;
-		}
-		if (obj == null) {
+		if (obj == null)
 			return false;
-		}
-		if (!(obj instanceof KeyData)) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
 		KeyData other = (KeyData) obj;
-		if (algorithm != other.algorithm) {
+		if (algorithm == null) {
+			if (other.algorithm != null)
+				return false;
+		} else if (!algorithm.equals(other.algorithm))
 			return false;
-		}
 		if (events == null) {
-			if (other.events != null) {
+			if (other.events != null)
 				return false;
-			}
-		} else if (!events.equals(other.events)) {
+		} else if (!events.equals(other.events))
 			return false;
-		}
-		if (flags != other.flags) {
+		if (flags == null) {
+			if (other.flags != null)
+				return false;
+		} else if (!flags.equals(other.flags))
 			return false;
-		}
 		if (id == null) {
-			if (other.id != null) {
+			if (other.id != null)
 				return false;
-			}
-		} else if (!id.equals(other.id)) {
+		} else if (!id.equals(other.id))
 			return false;
-		}
 		if (links == null) {
-			if (other.links != null) {
+			if (other.links != null)
 				return false;
-			}
-		} else if (!links.equals(other.links)) {
+		} else if (!links.equals(other.links))
 			return false;
-		}
-		if (protocol != other.protocol) {
+		if (protocol == null) {
+			if (other.protocol != null)
+				return false;
+		} else if (!protocol.equals(other.protocol))
 			return false;
-		}
 		if (publicKey == null) {
-			if (other.publicKey != null) {
+			if (other.publicKey != null)
 				return false;
-			}
-		} else if (!publicKey.equals(other.publicKey)) {
+		} else if (!publicKey.equals(other.publicKey))
 			return false;
-		}
 		if (secureDNSId == null) {
-			if (other.secureDNSId != null) {
+			if (other.secureDNSId != null)
 				return false;
-			}
-		} else if (!secureDNSId.equals(other.secureDNSId)) {
+		} else if (!secureDNSId.equals(other.secureDNSId))
 			return false;
-		}
 		return true;
 	}
 
@@ -145,36 +138,6 @@ public class KeyData {
 	}
 
 	/**
-	 * @return the flags
-	 */
-	public int getFlags() {
-		return flags;
-	}
-
-	/**
-	 * @param flags
-	 *            the flags to set
-	 */
-	public void setFlags(int flags) {
-		this.flags = flags;
-	}
-
-	/**
-	 * @return the protocol
-	 */
-	public int getProtocol() {
-		return protocol;
-	}
-
-	/**
-	 * @param protocol
-	 *            the protocol to set
-	 */
-	public void setProtocol(int protocol) {
-		this.protocol = protocol;
-	}
-
-	/**
 	 * @return the publicKey
 	 */
 	public String getPublicKey() {
@@ -187,21 +150,6 @@ public class KeyData {
 	 */
 	public void setPublicKey(String publicKey) {
 		this.publicKey = publicKey;
-	}
-
-	/**
-	 * @return the algorithm
-	 */
-	public int getAlgorithm() {
-		return algorithm;
-	}
-
-	/**
-	 * @param algorithm
-	 *            the algorithm to set
-	 */
-	public void setAlgorithm(int algorithm) {
-		this.algorithm = algorithm;
 	}
 
 	/**
@@ -232,6 +180,30 @@ public class KeyData {
 	 */
 	public void setLinks(List<Link> links) {
 		this.links = links;
+	}
+	
+	public Integer getAlgorithm() {
+		return algorithm;
+	}
+	
+	public void setAlgorithm(Integer algorithm) {
+		this.algorithm = algorithm;
+	}
+	
+	public Integer getFlags() {
+		return flags;
+	}
+	
+	public void setFlags(Integer flags) {
+		this.flags = flags;
+	}
+	
+	public Integer getProtocol() {
+		return protocol;
+	}
+	
+	public void setProtocol(Integer protocol) {
+		this.protocol = protocol;
 	}
 
 }

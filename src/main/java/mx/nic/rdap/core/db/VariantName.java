@@ -63,6 +63,9 @@ public class VariantName {
 	}
 
 	public String getUnicodeName() {
+		if (ldhName == null) {
+			return null;
+		}
 		return DomainLabel.nameToUnicode(ldhName);
 	}
 }

@@ -11,17 +11,17 @@ public class IpAddress {
 	/**
 	 * An unique identifier
 	 */
-	private long id;
+	private Long id;
 
 	/**
 	 * The Nameserver's id
 	 */
-	private long nameserverId;
+	private Long nameserverId;
 
 	/**
 	 * The type of the IpAddress(IPV4=4, IPV6=6)
 	 */
-	private int type;
+	private Integer type;
 
 	/**
 	 * The value of the address
@@ -51,9 +51,9 @@ public class IpAddress {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + (int) (nameserverId ^ (nameserverId >>> 32));
-		result = prime * result + type;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nameserverId == null) ? 0 : nameserverId.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
@@ -63,7 +63,7 @@ public class IpAddress {
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof IpAddress))
+		if (getClass() != obj.getClass())
 			return false;
 		IpAddress other = (IpAddress) obj;
 		if (address == null) {
@@ -71,11 +71,20 @@ public class IpAddress {
 				return false;
 		} else if (!address.equals(other.address))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
-		if (nameserverId != other.nameserverId)
+		if (nameserverId == null) {
+			if (other.nameserverId != null)
+				return false;
+		} else if (!nameserverId.equals(other.nameserverId))
 			return false;
-		if (type != other.type)
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
 			return false;
 		return true;
 	}
