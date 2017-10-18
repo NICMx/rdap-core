@@ -12,47 +12,47 @@ import mx.nic.rdap.core.catalog.Status;
 public class RdapObject {
 
 	/**
-	 * A string representing a registry unique identifier of the nameserver
+	 * A string representing a unique identifier of the object
 	 */
 	private String handle;
 
 	/**
-	 * An array of remark objects {@link Remark}
+	 * An array of {@link Remark} objects
 	 */
 	private List<Remark> remarks;
 
 	/**
-	 * An array of link objects {@link Link}
+	 * An array of {@link Link} objects
 	 */
 	private List<Link> links;
 	/**
-	 * An array of Event objects {@link Event}
+	 * An array of {@link Event} objects
 	 */
 	private List<Event> events;
 
 	/**
-	 * An array of Status objects {@link Status}
+	 * An array of {@link Status} objects
 	 */
 	private List<Status> status;
 
 	/**
 	 * A string containing the host name or IP address of the WHOIS server where
-	 * the nameserver object instance may be found.
+	 * the object may be found.
 	 */
 	private String port43;
 
 	/**
-	 * A string containing the object language as described in RFC 5646
+	 * A string containing the object language
 	 */
 	private String lang;
 
 	/**
-	 * An array of entity objects
+	 * An array of {@link Entity} objects
 	 */
 	private List<Entity> entities;
 
 	/**
-	 * Constructor default
+	 * Default constructor 
 	 */
 	public RdapObject() {
 		status = new ArrayList<Status>();
@@ -245,10 +245,17 @@ public class RdapObject {
 		this.lang = lang;
 	}
 
+	/**
+	 * @return the entities
+	 */
 	public List<Entity> getEntities() {
 		return entities;
 	}
 
+	/**
+	 * @param entities
+	 *             the entities to set
+	 */
 	public void setEntities(List<Entity> entities) {
 		this.entities = entities;
 	}
