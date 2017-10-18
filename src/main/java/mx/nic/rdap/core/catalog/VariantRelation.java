@@ -48,7 +48,7 @@ public enum VariantRelation {
 	 */
 	public static VariantRelation getByName(String name) {
 		for (VariantRelation vr : VariantRelation.values()) {
-			if (vr.value.equals(name)) {
+			if (vr.value.equalsIgnoreCase(name)) {
 				return vr;
 			}
 		}

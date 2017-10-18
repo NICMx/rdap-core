@@ -50,7 +50,7 @@ public enum EventAction {
 	 */
 	public static EventAction getByName(String name){
 		for (EventAction ea : EventAction.values()) {
-			if (ea.value.equals(name)) {
+			if (ea.value.equalsIgnoreCase(name)) {
 				return ea;
 			}
 		}

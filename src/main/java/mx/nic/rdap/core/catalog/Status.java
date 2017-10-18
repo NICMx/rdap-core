@@ -72,7 +72,7 @@ public enum Status {
 	 */
 	public static Status getByName(String name){
 		for (Status status : Status.values()) {
-			if (status.value.equals(name)) {
+			if (status.value.equalsIgnoreCase(name)) {
 				return status;
 			}
 		}
