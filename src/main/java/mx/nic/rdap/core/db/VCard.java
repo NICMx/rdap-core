@@ -230,10 +230,10 @@ public class VCard {
 	}
 
 	public void setPostalInfo(List<VCardPostalInfo> postalInfo) {
-		this.postalInfo.addAll(postalInfo);
+		this.postalInfo = postalInfo;
 	}
 
-	public void setPostalInfo(VCardPostalInfo postalInfo) {
+	public void addPostalInfo(VCardPostalInfo postalInfo) {
 		this.postalInfo.add(postalInfo);
 	}
 
