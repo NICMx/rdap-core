@@ -1,6 +1,7 @@
 package mx.nic.rdap.core.db;
 
 import mx.nic.rdap.core.db.struct.NameserverIpAddressesStruct;
+import mx.nic.rdap.core.utils.Util;
 
 /**
  * Represents information regarding DNS nameservers used in both forward and
@@ -97,8 +98,7 @@ public class Nameserver extends RdapObject {
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param id the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -113,8 +113,7 @@ public class Nameserver extends RdapObject {
 	}
 
 	/**
-	 * @param ldhName
-	 *            The LdhName to set
+	 * @param ldhName The LdhName to set
 	 */
 	public void setLdhName(String ldhName) {
 		this.ldhName = ldhName;
@@ -128,8 +127,7 @@ public class Nameserver extends RdapObject {
 	}
 
 	/**
-	 * @param ipAddresses
-	 *            the ipAddresses to set
+	 * @param ipAddresses the ipAddresses to set
 	 */
 	public void setIpAddresses(NameserverIpAddressesStruct ipAddresses) {
 		this.ipAddresses = ipAddresses;
@@ -144,11 +142,36 @@ public class Nameserver extends RdapObject {
 	}
 
 	/**
-	 * @param unicodeName
-	 *            the unicodeName to set
+	 * @param unicodeName the unicodeName to set
 	 */
 	public void setUnicodeName(String unicodeName) {
 		this.unicodeName = unicodeName;
+	}
+
+	/**
+	 * @return FQDN unicode name.
+	 */
+	public String getFqdnUnicodeName() {
+		if (this.unicodeName == null || this.unicodeName.isEmpty()) {
+			return null;
+		}
+
+		String dot = this.unicodeName.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
+		return this.unicodeName + dot;
+
+	}
+
+	/**
+	 * Return the FQDN ldh name
+	 * 
+	 */
+	public String getFqdnLdhName() {
+		if (this.ldhName == null || this.ldhName.isEmpty()) {
+			return null;
+		}
+
+		String dot = this.ldhName.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
+		return ldhName + dot;
 	}
 
 }

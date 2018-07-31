@@ -3,6 +3,8 @@ package mx.nic.rdap.core.db;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.nic.rdap.core.utils.Util;
+
 /**
  * Represents a DNS name and point of delegation.
  *
@@ -14,9 +16,8 @@ public class Domain extends RdapObject {
 	private Long id;
 
 	/**
-	 * A string containing the ldh name of the domain. Textual representations
-	 * of DNS names where the labels of the domain are all "letters, digits,
-	 * hyphen"
+	 * A string containing the ldh name of the domain. Textual representations of
+	 * DNS names where the labels of the domain are all "letters, digits, hyphen"
 	 */
 	private String ldhName;
 
@@ -149,8 +150,7 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param id the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -164,8 +164,7 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @param ldhName
-	 *            the LDHname to set
+	 * @param ldhName the LDHname to set
 	 */
 	public void setLdhName(String ldhName) {
 		this.ldhName = ldhName;
@@ -179,8 +178,7 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @param nameServers
-	 *            the nameServers to set
+	 * @param nameServers the nameServers to set
 	 */
 	public void setNameServers(List<Nameserver> nameServers) {
 		this.nameServers = nameServers;
@@ -194,8 +192,7 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @param variants
-	 *            the variants to set
+	 * @param variants the variants to set
 	 */
 	public void setVariants(List<Variant> variants) {
 		this.variants = variants;
@@ -209,8 +206,7 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @param secureDNS
-	 *            the secureDNS to set
+	 * @param secureDNS the secureDNS to set
 	 */
 	public void setSecureDNS(SecureDNS secureDNS) {
 		this.secureDNS = secureDNS;
@@ -224,8 +220,7 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @param publicIds
-	 *            the publicIds to set
+	 * @param publicIds the publicIds to set
 	 */
 	public void setPublicIds(List<PublicId> publicIds) {
 		this.publicIds = publicIds;
@@ -239,8 +234,7 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @param zone
-	 *            the zone to set
+	 * @param zone the zone to set
 	 */
 	public void setZone(String zoneId) {
 		this.zone = zoneId;
@@ -263,26 +257,37 @@ public class Domain extends RdapObject {
 	}
 
 	/**
-	 * @param unicodeName
-	 *            the unicodeName to set
+	 * @param unicodeName the unicodeName to set
 	 */
 	public void setUnicodeName(String unicodeName) {
 		this.unicodeName = unicodeName;
 	}
 
 	public String getFQDN() {
-		if (this.zone == null) {
-			return this.ldhName;
+		if (this.ldhName == null || this.ldhName.isEmpty()) {
+			return null;
 		}
 
-		return this.ldhName + "." + this.zone;
+		if (this.zone == null) {
+			String dot = this.ldhName.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
+			return this.ldhName + dot;
+		}
+
+		String dot = this.zone.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
+		return this.ldhName + "." + this.zone + dot;
 	}
 
 	public String getUnicodeFQDN() {
-		if (this.zone == null) {
-			return this.unicodeName;
+		if (this.unicodeName == null || this.unicodeName.isEmpty()) {
+			return null;
 		}
 
-		return this.unicodeName + "." + this.zone;
+		if (this.zone == null) {
+			String dot = this.unicodeName.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
+			return this.unicodeName + dot;
+		}
+
+		String dot = this.zone.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
+		return this.unicodeName + "." + this.zone + dot;
 	}
 }
