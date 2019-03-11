@@ -147,4 +147,8 @@ public class DomainLabel {
 		}
 		return dest.toString();
 	}
+
+	public boolean isALabel() {
+		return isALabel;
+	}
 }
