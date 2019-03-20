@@ -23,6 +23,8 @@ public class VCardPostalInfo {
 
 	private String country;
 
+	private String countryCode;
+
 	private String city;
 
 	private String state;
@@ -43,8 +45,8 @@ public class VCardPostalInfo {
 	@Override
 	public String toString() {
 		return "VCardPostalInfo [id=" + id + ", vCardId=" + vCardId + ", type=" + type + ", country=" + country
-				+ ", city=" + city + ", state=" + state + ", street1=" + street1 + ", street2=" + street2 + ", street3="
-				+ street3 + ", postalCode=" + postalCode + "]";
+				+ ", countryCode=" + countryCode + ", city=" + city + ", state=" + state + ", street1=" + street1
+				+ ", street2=" + street2 + ", street3=" + street3 + ", postalCode=" + postalCode + "]";
 	}
 
 	@Override
@@ -53,6 +55,7 @@ public class VCardPostalInfo {
 		int result = 1;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((country == null) ? 0 : country.hashCode());
+		result = prime * result + ((countryCode == null) ? 0 : countryCode.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((postalCode == null) ? 0 : postalCode.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
@@ -82,6 +85,11 @@ public class VCardPostalInfo {
 			if (other.country != null)
 				return false;
 		} else if (!country.equals(other.country))
+			return false;
+		if (countryCode == null) {
+			if (other.countryCode != null)
+				return false;
+		} else if (!countryCode.equals(other.countryCode))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -157,6 +165,14 @@ public class VCardPostalInfo {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 
 	public String getCity() {

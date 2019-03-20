@@ -53,12 +53,18 @@ public class VCard {
 	private String jobTitle;
 
 	/**
+	 * Contact URIs
+	 */
+	private List<String> contactUri;
+
+	/**
 	 * Postal Information of this contact.
 	 */
 	private List<VCardPostalInfo> postalInfo;
 
 	public VCard() {
 		postalInfo = new ArrayList<>();
+		contactUri = new ArrayList<>();
 	}
 
 	/*
@@ -69,8 +75,8 @@ public class VCard {
 	@Override
 	public String toString() {
 		return "VCard [id=" + id + ", name=" + name + ", companyName=" + companyName + ", companyURL=" + companyURL
-				+ ", email=" + email + ", voice=" + voice + ", cellphone=" + cellphone + ", fax=" + fax + ", jobTitle="
-				+ jobTitle + ", postalInfo=" + postalInfo + "]";
+				+ ", contactUri=" + contactUri + ", email=" + email + ", voice=" + voice + ", cellphone=" + cellphone
+				+ ", fax=" + fax + ", jobTitle=" + jobTitle + ", postalInfo=" + postalInfo + "]";
 	}
 
 	@Override
@@ -80,6 +86,7 @@ public class VCard {
 		result = prime * result + ((cellphone == null) ? 0 : cellphone.hashCode());
 		result = prime * result + ((companyName == null) ? 0 : companyName.hashCode());
 		result = prime * result + ((companyURL == null) ? 0 : companyURL.hashCode());
+		result = prime * result + ((contactUri == null) ? 0 : contactUri.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((fax == null) ? 0 : fax.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -144,6 +151,11 @@ public class VCard {
 				return false;
 		} else if (postalInfo.size() != other.postalInfo.size() || !postalInfo.containsAll(other.postalInfo))
 			return false;
+		if (contactUri == null) {
+			if (other.contactUri != null)
+				return false;
+		} else if (contactUri.size() != other.contactUri.size() || !contactUri.containsAll(other.contactUri))
+			return false;
 		if (voice == null) {
 			if (other.voice != null)
 				return false;
@@ -183,6 +195,14 @@ public class VCard {
 
 	public void setCompanyURL(String companyURL) {
 		this.companyURL = companyURL;
+	}
+
+	public List<String> getContactUri() {
+		return contactUri;
+	}
+
+	public void setContactUri(List<String> contactUri) {
+		this.contactUri = contactUri;
 	}
 
 	public String getEmail() {
