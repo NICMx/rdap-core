@@ -18,7 +18,7 @@ import com.ibm.icu.text.IDNA.Info;
 public class DomainLabel {
 
 	// The instance is thread-safe, that is, it can be used concurrently.
-	private static IDNA IDNA_INSTANCE = IDNA.getUTS46Instance(IDNA.DEFAULT);
+	private static IDNA IDNA_INSTANCE = IDNA.getUTS46Instance(IDNA.USE_STD3_RULES);
 
 	/**
 	 * The domain label requested by the user.
