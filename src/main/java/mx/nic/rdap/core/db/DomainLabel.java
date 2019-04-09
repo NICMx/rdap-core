@@ -43,8 +43,8 @@ public class DomainLabel {
 	 *                              specification
 	 */
 	public DomainLabel(String label, boolean useStd3Instance) throws DomainLabelException {
-		this.label = getValidLabel(label);
 		this.isStd3Instance = useStd3Instance;
+		this.label = getValidLabel(label);
 	}
 
 	/**
@@ -56,8 +56,8 @@ public class DomainLabel {
 	 *                              specification
 	 */
 	public DomainLabel(String label) throws DomainLabelException {
-		this.label = getValidLabel(label);
 		this.isStd3Instance = true;
+		this.label = getValidLabel(label);
 	}
 
 	/**
@@ -76,8 +76,8 @@ public class DomainLabel {
 
 		String toASCII;
 		try {
-			toASCII = nameToASCII(normalize);
-			nameToUnicode(normalize);
+			toASCII = nameToASCII(normalize, isStd3Instance);
+			nameToUnicode(normalize, isStd3Instance);
 		} catch (IllegalArgumentException e) {
 			throw new DomainLabelException(e.getMessage());
 		}
