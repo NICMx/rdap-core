@@ -18,7 +18,9 @@ import com.ibm.icu.text.IDNA.Info;
 public class DomainLabel {
 
 	// The instance is thread-safe, that is, it can be used concurrently.
-	private static IDNA IDNA_INSTANCE = IDNA.getUTS46Instance(IDNA.USE_STD3_RULES);
+	private static IDNA IDNA_STD3_INSTANCE = IDNA.getUTS46Instance(IDNA.USE_STD3_RULES);
+
+	private static IDNA IDNA_DEFAULT_INSTANCE = IDNA.getUTS46Instance(IDNA.DEFAULT);
 
 	/**
 	 * The domain label requested by the user.
@@ -31,14 +33,31 @@ public class DomainLabel {
 	 */
 	private boolean isALabel;
 
+	private boolean isStd3Instance;
+
 	/**
-	 * @param label
-	 *            A domain label in LDH form or U-Label
-	 * @throws DomainLabelException
-	 *             if the input string doesn't conform to RFC 5890 specification
+	 * @param label           A domain label in LDH form or U-Label
+	 * @param useStd3Instance if this instance would use STD3_RULES for Domain
+	 *                        names.
+	 * @throws DomainLabelException if the input string doesn't conform to RFC 5890
+	 *                              specification
+	 */
+	public DomainLabel(String label, boolean useStd3Instance) throws DomainLabelException {
+		this.label = getValidLabel(label);
+		this.isStd3Instance = useStd3Instance;
+	}
+
+	/**
+	 * This instance use STD3 Rules for domain name parsing.
+	 * 
+	 * @param label A domain label in LDH o U-Label form.
+	 * 
+	 * @throws DomainLabelException if the input string doesn't conform to RFC 5890
+	 *                              specification
 	 */
 	public DomainLabel(String label) throws DomainLabelException {
 		this.label = getValidLabel(label);
+		this.isStd3Instance = true;
 	}
 
 	/**
@@ -90,7 +109,7 @@ public class DomainLabel {
 		if (isALabel) {
 			return label;
 		}
-		return nameToASCII(label);
+		return nameToASCII(label, isStd3Instance);
 	}
 
 	/**
@@ -98,7 +117,7 @@ public class DomainLabel {
 	 */
 	public String getULabel() {
 		if (isALabel) {
-			return nameToUnicode(label);
+			return nameToUnicode(label, isStd3Instance);
 		}
 		return label;
 	}
@@ -114,7 +133,12 @@ public class DomainLabel {
 	 *             if the input string doesn't conform to RFC 5890 specification
 	 */
 	public static String nameToASCII(String label) {
-		return transform(label, false);
+		return transform(label, false, IDNA_STD3_INSTANCE);
+	}
+
+	public static String nameToASCII(String label, boolean useStd3Rules) {
+		IDNA idna = useStd3Rules ? IDNA_STD3_INSTANCE : IDNA_DEFAULT_INSTANCE;
+		return transform(label, false, idna);
 	}
 
 	/**
@@ -129,17 +153,22 @@ public class DomainLabel {
 	 *             if the input string doesn't conform to RFC 5890 specification
 	 */
 	public static String nameToUnicode(String label) {
-		return transform(label, true);
+		return transform(label, true, IDNA_STD3_INSTANCE);
 	}
 
-	private static String transform(String label, boolean toUnicode) {
+	public static String nameToUnicode(String label, boolean useStd3Rules) {
+		IDNA idna = useStd3Rules ? IDNA_STD3_INSTANCE : IDNA_DEFAULT_INSTANCE;
+		return transform(label, true, idna);
+	}
+
+	private static String transform(String label, boolean toUnicode, IDNA idna) {
 		Info info = new Info();
 		StringBuilder dest = new StringBuilder();
 
 		if (toUnicode) {
-			IDNA_INSTANCE.nameToUnicode(label, dest, info);
+			idna.nameToUnicode(label, dest, info);
 		} else {
-			IDNA_INSTANCE.nameToASCII(label, dest, info);
+			idna.nameToASCII(label, dest, info);
 		}
 
 		if (info.hasErrors()) {
@@ -150,5 +179,9 @@ public class DomainLabel {
 
 	public boolean isALabel() {
 		return isALabel;
+	}
+
+	public boolean isStd3Instance() {
+		return isStd3Instance;
 	}
 }
