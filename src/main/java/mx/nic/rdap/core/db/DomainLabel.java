@@ -36,6 +36,12 @@ public class DomainLabel {
 	private boolean isStd3Instance;
 
 	/**
+	 * Indicates if <code>label</code> is a domain name with a mixture of a-label
+	 * and u-label.
+	 */
+	private boolean hasMixture;
+
+	/**
 	 * @param label           A domain label in LDH form or U-Label
 	 * @param useStd3Instance if this instance would use STD3_RULES for Domain
 	 *                        names.
@@ -75,17 +81,22 @@ public class DomainLabel {
 		String normalize = Normalizer.normalize(domainLabel, Form.NFC);
 
 		String toASCII;
+		String toUnicode;
 		try {
 			toASCII = nameToASCII(normalize, isStd3Instance);
-			nameToUnicode(normalize, isStd3Instance);
+			toUnicode = nameToUnicode(normalize, isStd3Instance);
 		} catch (IllegalArgumentException e) {
 			throw new DomainLabelException(e.getMessage());
 		}
 
+		hasMixture = false;
 		if (normalize.equals(toASCII)) {
 			isALabel = true;
 		} else {
 			isALabel = false;
+			if (!normalize.equals(toUnicode)) {
+				hasMixture = true;
+			}
 		}
 
 		return normalize;
@@ -116,7 +127,7 @@ public class DomainLabel {
 	 * @return The domain label in U-Label format.
 	 */
 	public String getULabel() {
-		if (isALabel) {
+		if (isALabel || hasMixture) {
 			return nameToUnicode(label, isStd3Instance);
 		}
 		return label;
@@ -183,5 +194,9 @@ public class DomainLabel {
 
 	public boolean isStd3Instance() {
 		return isStd3Instance;
+	}
+
+	public boolean hasMixture() {
+		return hasMixture;
 	}
 }
