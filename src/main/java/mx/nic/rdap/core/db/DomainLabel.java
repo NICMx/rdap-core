@@ -90,11 +90,14 @@ public class DomainLabel {
 		}
 
 		hasMixture = false;
-		if (normalize.equals(toASCII)) {
+		if (normalize.equalsIgnoreCase(toASCII)) {
 			isALabel = true;
+			normalize = toASCII;
 		} else {
 			isALabel = false;
-			if (!normalize.equals(toUnicode)) {
+			if (normalize.equalsIgnoreCase(toUnicode)) {
+				normalize = toUnicode;
+			} else {
 				hasMixture = true;
 			}
 		}
