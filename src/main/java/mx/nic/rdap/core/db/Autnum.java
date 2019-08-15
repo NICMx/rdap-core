@@ -207,8 +207,8 @@ public class Autnum extends RdapObject {
 	}
 
 	/**
-	 * @param countryId
-	 *            the country id must be set to retrieve it from model.
+	 * @param countryCode
+	 *            the country code string.
 	 */
 	public void setCountry(String countryCode) {
 		this.countryCode = countryCode;

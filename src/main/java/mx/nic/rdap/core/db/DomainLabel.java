@@ -158,7 +158,7 @@ public class DomainLabel {
 	/**
 	 * Translates a string from ASCII Compatible Encoding (ACE) to Unicode.
 	 *
-	 * @param input
+	 * @param label
 	 *            the string to be processed
 	 *
 	 * @return the translated {@code String}

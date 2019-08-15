@@ -236,8 +236,8 @@ public class Domain extends RdapObject {
 	/**
 	 * @param zone the zone to set
 	 */
-	public void setZone(String zoneId) {
-		this.zone = zoneId;
+	public void setZone(String zone) {
+		this.zone = zone;
 	}
 
 	public IpNetwork getIpNetwork() {

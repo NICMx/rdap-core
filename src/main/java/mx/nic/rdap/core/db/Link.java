@@ -191,8 +191,8 @@ public class Link {
 	}
 
 	/**
-	 * @param hreflag
-	 *            the Array of hreflags to set
+	 * @param hreflang
+	 *            the Array of hreflang to set
 	 */
 	public void setHreflang(List<String> hreflang) {
 		this.hreflang = hreflang;

@@ -155,8 +155,8 @@ public class DsData {
 	}
 
 	/**
-	 * @param secueDNSId
-	 *            the secueDNSId to set
+	 * @param secureDNSId
+	 *            the secureDNSId to set
 	 */
 	public void setSecureDNSId(Long secureDNSId) {
 		this.secureDNSId = secureDNSId;
