@@ -273,8 +273,9 @@ public class Domain extends RdapObject {
 			return this.ldhName + dot;
 		}
 
-		String dot = this.zone.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
-		return this.ldhName + "." + this.zone + dot;
+		String tempZone = DomainLabel.nameToASCII(this.zone);
+		String dot = tempZone.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
+		return this.ldhName + "." + tempZone + dot;
 	}
 
 	public String getUnicodeFQDN() {
@@ -287,7 +288,8 @@ public class Domain extends RdapObject {
 			return this.unicodeName + dot;
 		}
 
-		String dot = this.zone.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
-		return this.unicodeName + "." + this.zone + dot;
+		String tempZone = DomainLabel.nameToUnicode(this.zone);
+		String dot = tempZone.endsWith(".") ? Util.EMPTY_STRING : Util.DOT_STRING;
+		return this.unicodeName + "." + tempZone + dot;
 	}
 }
