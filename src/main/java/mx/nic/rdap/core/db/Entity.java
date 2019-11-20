@@ -42,6 +42,11 @@ public class Entity extends RdapObject {
 	 */
 	private List<Autnum> autnums;
 
+	/**
+	 * consent to publish its own contact information
+	 */
+	private UserConsent consent;
+	
 	public Entity() {
 		publicIds = new ArrayList<>();
 		vCardList = new ArrayList<>();
@@ -71,6 +76,7 @@ public class Entity extends RdapObject {
 		result = prime * result + ((publicIds == null) ? 0 : publicIds.hashCode());
 		result = prime * result + ((roles == null) ? 0 : roles.hashCode());
 		result = prime * result + ((ipNetworks == null) ? 0 : ipNetworks.hashCode());
+		result = prime * result + ((consent == null) ? 0 : consent.hashCode());
 		return result;
 	}
 
@@ -115,6 +121,12 @@ public class Entity extends RdapObject {
 				return false;
 		} else if (autnums.size() != other.autnums.size() || !autnums.containsAll(other.autnums))
 			return false;
+		if (consent == null) {
+			if (other.consent != null)
+				return false;
+		} else if (!consent.equals(other.consent))
+			return false;
+		
 		return true;
 	}
 
@@ -167,4 +179,12 @@ public class Entity extends RdapObject {
 		this.autnums = autnums;
 	}
 
+	public UserConsent getConsent() {
+		return consent;
+	}
+	
+	public void setConsent(UserConsent consent) {
+		this.consent = consent;
+	}
+	
 }
